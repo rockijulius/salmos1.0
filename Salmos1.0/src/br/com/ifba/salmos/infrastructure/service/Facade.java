@@ -9,6 +9,6 @@ package br.com.ifba.salmos.infrastructure.service;
  *
  * @author rocki.julius
  */
-public class Facade {
+public class Facade implements IFacade {
     
 }
