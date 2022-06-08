@@ -4,6 +4,7 @@
  */
 package br.com.ifba.salmos.login.view;
 
+import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
 import java.awt.event.KeyEvent;
 
 /**
@@ -110,6 +111,8 @@ public class Login extends javax.swing.JFrame {
 
     private void lblResetarSenhaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblResetarSenhaMouseClicked
         System.out.println("Esqueceu a senha");
+        ForgotPassword fgt = new ForgotPassword();
+        fgt.setVisible(true);
     }// GEN-LAST:event_lblResetarSenhaMouseClicked
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_txtUsuarioKeyPressed
