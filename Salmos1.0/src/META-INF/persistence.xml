@@ -4,10 +4,12 @@
   <persistence-unit name="Salmos1.0">
     <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    
     <!-- Lista de entidades -->
-    <class> <!-- sua classe aqui --> </class>
-    
+    <class>
+      <!-- sua classe aqui -->
+    </class>
+    <class>br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario</class>
+    <class>br.com.ifba.salmos.usuario.model.Usuario</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
