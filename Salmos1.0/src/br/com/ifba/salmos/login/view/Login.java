@@ -4,8 +4,12 @@
  */
 package br.com.ifba.salmos.login.view;
 
+import br.com.ifba.salmos.infrastructure.service.Facade;
+import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
+import br.com.ifba.salmos.usuario.model.Usuario;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
  *
@@ -18,14 +22,38 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        Usuario u = new Usuario();
+        u.setNome("Tarcisio Abade");
+        u.setEmail("sidtarcisiosid88@gmail.com");
+        u.setLogin("tarciiz");
+        u.setSenha("senha1");
+        
+        FacadeInstance.getInstance().saveUsuario(u);
     }
 
-    private void validateLogin() {
-        String user = txtUsuario.getText();
-        String pass = String.valueOf(txtSenha.getPassword());
-
-        System.out.println("Usuario " + user);
-        System.out.println("Senha " + pass);
+    private Usuario validateLogin() {
+        List<Usuario> users = FacadeInstance.getInstance().getAllUsuarios();
+        
+        Usuario user = new Usuario();
+        user.setSenha(String.valueOf(txtSenha.getPassword()));
+        if(txtUsuario.getText().contains("@")){
+            //é email
+            user.setEmail(txtUsuario.getText());
+            for(Usuario u : users){
+                if(u.getEmail().equals(user.getEmail()) && u.getSenha().equals(user.getSenha())){
+                    return u;
+                }
+            }
+        }else{    
+            //não é email
+            user.setLogin(txtUsuario.getText());
+            for(Usuario u : users){
+                if(u.getLogin().equals(user.getLogin()) && u.getSenha().equals(user.getSenha())){
+                    return u;
+                }
+            }
+        }
+        return null;
     }
 
     /**

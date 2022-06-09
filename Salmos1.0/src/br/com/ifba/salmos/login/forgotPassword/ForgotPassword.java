@@ -6,6 +6,7 @@ package br.com.ifba.salmos.login.forgotPassword;
 
 import br.com.ifba.salmos.infrastructure.support.EmailUtil;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -150,7 +151,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                            txtCode5.getText();
         System.out.println("Codigo informado: "+ codeCheck);
         if(codeCheck.equals(this.code)){
-            System.out.println("Código correto, pode mudar a senha!");
+            JOptionPane.showMessageDialog(null, "Código correto, pode mudar a senha!");
         }
     }//GEN-LAST:event_btnVerifyActionPerformed
 
