@@ -102,6 +102,11 @@ public class ViewUsuario extends javax.swing.JFrame {
         });
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         lblNome.setText("Nome");
 
@@ -245,6 +250,11 @@ public class ViewUsuario extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        ViewUsuarioEditar view = new ViewUsuarioEditar();
+        view.setVisible(true);
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
