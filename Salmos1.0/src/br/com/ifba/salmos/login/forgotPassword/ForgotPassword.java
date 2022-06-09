@@ -135,7 +135,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         this.email = txtEmail.getText();
         this.code = "";
         for(int i = 0; i < 5; i++){
-            this.code+= String.valueOf(new Random().nextInt(0, 10));
+            this.code += String.valueOf(new Random().nextInt(10));
         }
         System.out.println("Code : " + this.code);
         
