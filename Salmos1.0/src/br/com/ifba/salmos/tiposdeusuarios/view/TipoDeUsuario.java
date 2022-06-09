@@ -26,21 +26,282 @@ public class TipoDeUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        lblNome = new javax.swing.JLabel();
+        lblDescrição = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        txtDescrição = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblNome6 = new javax.swing.JLabel();
+        txtNome6 = new javax.swing.JTextField();
+        btnAdd6 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblNome7 = new javax.swing.JLabel();
+        lblDescrição7 = new javax.swing.JLabel();
+        txtNome7 = new javax.swing.JTextField();
+        txtDescrição7 = new javax.swing.JTextField();
+        btnAdd7 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        btnAdd8 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Tipo De Usuário");
+
+        JTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JTabbedPane1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+
+        lblNome.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblNome.setText("Nome:");
+
+        lblDescrição.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblDescrição.setText("Descrição:");
+
+        txtNome.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+
+        txtDescrição.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        txtDescrição.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescriçãoActionPerformed(evt);
+            }
+        });
+
+        btnAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnAdd.setText("Adicionar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDescrição, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescrição)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(321, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDescrição)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDescrição, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAdd)
+                .addContainerGap(192, Short.MAX_VALUE))
+        );
+
+        JTabbedPane1.addTab("Adicionar", jPanel1);
+
+        lblNome6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblNome6.setText("Nome:");
+
+        txtNome6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+
+        btnAdd6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnAdd6.setText("Remover");
+        btnAdd6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome6)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(btnAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(321, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblNome6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAdd6)
+                .addContainerGap(248, Short.MAX_VALUE))
+        );
+
+        JTabbedPane1.addTab("Remover", jPanel2);
+
+        lblNome7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblNome7.setText("Nome:");
+
+        lblDescrição7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblDescrição7.setText("Descrição:");
+
+        txtNome7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+
+        txtDescrição7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        txtDescrição7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescrição7ActionPerformed(evt);
+            }
+        });
+
+        btnAdd7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnAdd7.setText("Editar");
+        btnAdd7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDescrição7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescrição7)
+                    .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome7)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnAdd7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(321, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblNome7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDescrição7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDescrição7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAdd7)
+                .addContainerGap(192, Short.MAX_VALUE))
+        );
+
+        JTabbedPane1.addTab("Editar", jPanel3);
+
+        btnAdd8.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnAdd8.setText("Listar");
+        btnAdd8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd8ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "Descrição"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 188, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(btnAdd8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAdd8)
+                .addContainerGap())
+        );
+
+        JTabbedPane1.addTab("Listar", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 8, Short.MAX_VALUE)
+                .addComponent(JTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addComponent(JTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtDescriçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriçãoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescriçãoActionPerformed
+
+    private void btnAdd6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd6ActionPerformed
+
+    private void txtDescrição7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescrição7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescrição7ActionPerformed
+
+    private void btnAdd7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd7ActionPerformed
+
+    private void btnAdd8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +339,26 @@ public class TipoDeUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane JTabbedPane1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd6;
+    private javax.swing.JButton btnAdd7;
+    private javax.swing.JButton btnAdd8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblDescrição;
+    private javax.swing.JLabel lblDescrição7;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNome6;
+    private javax.swing.JLabel lblNome7;
+    private javax.swing.JTextField txtDescrição;
+    private javax.swing.JTextField txtDescrição7;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNome6;
+    private javax.swing.JTextField txtNome7;
     // End of variables declaration//GEN-END:variables
 }

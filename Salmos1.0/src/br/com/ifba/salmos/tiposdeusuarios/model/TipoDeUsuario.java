@@ -4,11 +4,17 @@
  */
 package br.com.ifba.salmos.tiposdeusuarios.model;
 
+import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author Igor Lopes
  */
-public class TipoDeUsuario {
+@Entity
+@Table
+public class TipoDeUsuario extends PersistenceEntity{
     private String nome;
     private String descricao;
 
