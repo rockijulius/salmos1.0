@@ -20,6 +20,7 @@ public class Usuario extends PersistenceEntity{
      private String login;
      private String senha;
      private String email;
+     private String nome;
     // private TipoDeUsuario tipodeusuario;
 
     public String getLogin() {
@@ -45,6 +46,7 @@ public class Usuario extends PersistenceEntity{
     public void setEmail(String email) {
         this.email = email;
     }
+    
 
     /*public TipoDeUsuario getTipodeusuario() {
         return tipodeusuario;
@@ -53,6 +55,14 @@ public class Usuario extends PersistenceEntity{
     public void setTipodeusuario(TipoDeUsuario tipodeusuario) {
         this.tipodeusuario = tipodeusuario;
     }*/
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
      
      
 }

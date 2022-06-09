@@ -136,10 +136,10 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setEmail(txtEmail.getText());
             usuario.setLogin(txtUsuario.getText());
             usuario.setSenha(txtSenha.getText());
+            usuario.setNome(txtNome.getText());
             
             FacadeInstance.getInstance().saveUsuario(usuario);
-            
-            
+          
         }
         
     }//GEN-LAST:event_btnAdicionarActionPerformed
