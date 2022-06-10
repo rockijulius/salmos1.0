@@ -7,6 +7,7 @@ package br.com.ifba.salmos.usuario.view;
 import br.com.ifba.salmos.homescreem.view.homescreem;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
+import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -31,10 +32,10 @@ public class ViewUsuario extends javax.swing.JFrame {
     }
     
     private void atualizarTabela(List<Usuario> listaUsuario){
-        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome"});
+        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
         
         for(Usuario usu: listaUsuario){
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome()});
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario()});
         }
         
         this.tblUsuario.setModel(this.listaTabela);
@@ -66,6 +67,8 @@ public class ViewUsuario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblUsuario = new javax.swing.JTable();
         btnHomescreen = new javax.swing.JButton();
+        lblTipoDeUsuario = new javax.swing.JLabel();
+        cbbTipoDeUsuario = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,6 +146,11 @@ public class ViewUsuario extends javax.swing.JFrame {
             }
         });
 
+        lblTipoDeUsuario.setText("Tipo De Usuário");
+
+        cbbTipoDeUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionário" }));
+        cbbTipoDeUsuario.setSelectedItem(cbbTipoDeUsuario);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,8 +158,22 @@ public class ViewUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEditar)
+                            .addComponent(btnListar)
+                            .addComponent(btnRemover)
+                            .addComponent(btnAdicionar)))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTipoDeUsuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                .addComponent(cbbTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel3)
@@ -168,16 +190,8 @@ public class ViewUsuario extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnEditar)
-                                    .addComponent(btnListar)
-                                    .addComponent(btnRemover)
-                                    .addComponent(btnAdicionar)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -187,7 +201,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -205,7 +219,11 @@ public class ViewUsuario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTipoDeUsuario)
+                            .addComponent(cbbTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdicionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRemover)
@@ -213,7 +231,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addGap(44, 44, 44)
                         .addComponent(btnHomescreen)
                         .addGap(26, 26, 26))))
         );
@@ -230,6 +248,7 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setLogin(txtUsuario.getText());
             usuario.setSenha(txtSenha.getText());
             usuario.setNome(txtNome.getText());
+            //usuario.setTipodeusuario(cbbTipoDeUsuario.getText());
             
             FacadeInstance.getInstance().saveUsuario(usuario);
             
@@ -325,6 +344,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnHomescreen;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnRemover;
+    private javax.swing.JComboBox<String> cbbTipoDeUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -332,6 +352,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblTipoDeUsuario;
     private javax.swing.JTable tblUsuario;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
