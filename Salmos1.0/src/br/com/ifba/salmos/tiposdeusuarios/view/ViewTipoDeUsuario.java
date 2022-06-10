@@ -225,7 +225,6 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
-        //this.atualizarTabela(this.lista);
         this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
         JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
