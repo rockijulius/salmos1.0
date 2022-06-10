@@ -49,26 +49,18 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         JTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        lblNome = new javax.swing.JLabel();
-        lblDescrição = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtDescrição = new javax.swing.JTextField();
-        btnAdd = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        lblNome6 = new javax.swing.JLabel();
-        txtNome6 = new javax.swing.JTextField();
-        btnAdd6 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        lblNome7 = new javax.swing.JLabel();
-        lblDescrição7 = new javax.swing.JLabel();
-        txtNome7 = new javax.swing.JTextField();
-        txtDescrição7 = new javax.swing.JTextField();
-        btnAdd7 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        btnAdd8 = new javax.swing.JButton();
+        panelAdd = new javax.swing.JPanel();
+        lblNomeAdd = new javax.swing.JLabel();
+        lblDescriçãoAdd = new javax.swing.JLabel();
+        txtNomeAdd = new javax.swing.JTextField();
+        txtDescriçãoAdd = new javax.swing.JTextField();
+        btnAdicionarAdd = new javax.swing.JButton();
+        panelListar = new javax.swing.JPanel();
+        btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTipoDeUsuario = new javax.swing.JTable();
+        btnEditar = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Tipo De Usuário");
@@ -76,214 +68,139 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         JTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JTabbedPane1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
 
-        lblNome.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        lblNome.setText("Nome:");
+        lblNomeAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblNomeAdd.setText("Nome:");
 
-        lblDescrição.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        lblDescrição.setText("Descrição:");
+        lblDescriçãoAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lblDescriçãoAdd.setText("Descrição:");
 
-        txtNome.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        txtNomeAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
 
-        txtDescrição.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        txtDescrição.addActionListener(new java.awt.event.ActionListener() {
+        txtDescriçãoAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        txtDescriçãoAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescriçãoActionPerformed(evt);
+                txtDescriçãoAddActionPerformed(evt);
             }
         });
 
-        btnAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        btnAdd.setText("Adicionar");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnAdicionarAdd.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnAdicionarAdd.setText("Adicionar");
+        btnAdicionarAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnAdicionarAddActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
+        panelAdd.setLayout(panelAddLayout);
+        panelAddLayout.setHorizontalGroup(
+            panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDescrição, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescrição)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNome)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescriçãoAdd)
+                    .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeAdd)
+                    .addGroup(panelAddLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAdicionarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(321, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelAddLayout.setVerticalGroup(
+            panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(lblNome)
+                .addComponent(lblNomeAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDescrição)
+                .addComponent(lblDescriçãoAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDescrição, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAdd)
+                .addComponent(btnAdicionarAdd)
                 .addContainerGap(192, Short.MAX_VALUE))
         );
 
-        JTabbedPane1.addTab("Adicionar", jPanel1);
+        JTabbedPane1.addTab("Adicionar", panelAdd);
 
-        lblNome6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        lblNome6.setText("Nome:");
-
-        txtNome6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-
-        btnAdd6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        btnAdd6.setText("Remover");
-        btnAdd6.addActionListener(new java.awt.event.ActionListener() {
+        btnListar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd6ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNome6)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(btnAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(321, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblNome6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAdd6)
-                .addContainerGap(248, Short.MAX_VALUE))
-        );
-
-        JTabbedPane1.addTab("Remover", jPanel2);
-
-        lblNome7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        lblNome7.setText("Nome:");
-
-        lblDescrição7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        lblDescrição7.setText("Descrição:");
-
-        txtNome7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-
-        txtDescrição7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        txtDescrição7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescrição7ActionPerformed(evt);
-            }
-        });
-
-        btnAdd7.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        btnAdd7.setText("Editar");
-        btnAdd7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd7ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDescrição7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescrição7)
-                    .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNome7)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btnAdd7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(321, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblNome7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDescrição7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDescrição7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAdd7)
-                .addContainerGap(192, Short.MAX_VALUE))
-        );
-
-        JTabbedPane1.addTab("Editar", jPanel3);
-
-        btnAdd8.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        btnAdd8.setText("Listar");
-        btnAdd8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd8ActionPerformed(evt);
+                btnListarActionPerformed(evt);
             }
         });
 
         tblTipoDeUsuario.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         tblTipoDeUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Descrição"
+                "ID", "Nome", "Descrição"
             }
         ));
         jScrollPane1.setViewportView(tblTipoDeUsuario);
+        if (tblTipoDeUsuario.getColumnModel().getColumnCount() > 0) {
+            tblTipoDeUsuario.getColumnModel().getColumn(0).setResizable(false);
+        }
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 188, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(btnAdd8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        btnEditar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnRemover.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelListarLayout = new javax.swing.GroupLayout(panelListar);
+        panelListar.setLayout(panelListarLayout);
+        panelListarLayout.setHorizontalGroup(
+            panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListarLayout.createSequentialGroup()
+                .addGroup(panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelListarLayout.createSequentialGroup()
+                        .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 198, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        panelListarLayout.setVerticalGroup(
+            panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAdd8)
+                .addGroup(panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListar)
+                    .addComponent(btnEditar)
+                    .addComponent(btnRemover))
                 .addContainerGap())
         );
 
-        JTabbedPane1.addTab("Listar", jPanel4);
+        JTabbedPane1.addTab("Listar", panelListar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,37 +218,55 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-        TipoDeUsuario tipodeusuario = new TipoDeUsuario();
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
+        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        this.atualizarTabela(this.lista);
         
-        if(validaCampos() == true){
-            tipodeusuario.setNome(txtNome.getText());
-            tipodeusuario.setDescricao(txtDescrição.getText());
+        this.selecionado = -1;
+        
+        JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        String nome = JOptionPane.showInputDialog(null,"Digite um nome: ");
+        String descricao = JOptionPane.showInputDialog(null,"Digite uma Descrição: ");
+        
+        if(nome.isEmpty() || descricao.isEmpty()){
+                JOptionPane.showMessageDialog(null,"Preencha todos os campos corretamente! Tente novamente.");//msg de campos faltantes
+        }else{
+            tipodeusuario.setNome(nome);
+            tipodeusuario.setDescricao(descricao);
+            FacadeInstance.getInstance().updateTipoDeUsuario(tipodeusuario);
+            this.atualizarTabela(this.lista);
+            JOptionPane.showMessageDialog(null,"Tipo De Usuário Editado!!!");
             
-           // FacadeInstance.getInstance().
         }
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void txtDescriçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriçãoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescriçãoActionPerformed
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        this.atualizarTabela(this.lista);
+    }//GEN-LAST:event_btnListarActionPerformed
 
-    private void btnAdd6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd6ActionPerformed
+    private void btnAdicionarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarAddActionPerformed
 
-    private void txtDescrição7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescrição7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescrição7ActionPerformed
+        if(validaCampos() == true){
+            tipodeusuario.setNome(txtNomeAdd.getText());
+            tipodeusuario.setDescricao(txtDescriçãoAdd.getText());
+            FacadeInstance.getInstance().saveTipoDeUsuario(tipodeusuario);
+            this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            this.atualizarTabela(this.lista);
+            JOptionPane.showMessageDialog(null,"Tipo De Usuário Cadastrado!!!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Campos inválidos. Tente novamente!");
+            }
+        
+    }//GEN-LAST:event_btnAdicionarAddActionPerformed
 
-    private void btnAdd7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd7ActionPerformed
+    private void txtDescriçãoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriçãoAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd7ActionPerformed
-
-    private void btnAdd8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd8ActionPerformed
+    }//GEN-LAST:event_txtDescriçãoAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,17 +306,17 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     
     private boolean validaCampos(){
         StringUtil util = StringUtil.getInstance();
-        if (txtNome.getText().equals("") && txtDescrição.getText().equals("")){
+        if (txtNomeAdd.getText().equals("") && txtDescriçãoAdd.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
         return false;
         
         }
-        else if(util.isNullOrEmpty(txtNome.getText())){
+        else if(util.isNullOrEmpty(txtNomeAdd.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
             
         }
-        else if(util.isNullOrEmpty(txtDescrição.getText())){
+        else if(util.isNullOrEmpty(txtDescriçãoAdd.getText())){
             JOptionPane.showMessageDialog(null, "Preencha o campo Descrição", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
             return false;
         }
@@ -390,25 +325,17 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane JTabbedPane1;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd6;
-    private javax.swing.JButton btnAdd7;
-    private javax.swing.JButton btnAdd8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton btnAdicionarAdd;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnRemover;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDescrição;
-    private javax.swing.JLabel lblDescrição7;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblNome6;
-    private javax.swing.JLabel lblNome7;
+    private javax.swing.JLabel lblDescriçãoAdd;
+    private javax.swing.JLabel lblNomeAdd;
+    private javax.swing.JPanel panelAdd;
+    private javax.swing.JPanel panelListar;
     private javax.swing.JTable tblTipoDeUsuario;
-    private javax.swing.JTextField txtDescrição;
-    private javax.swing.JTextField txtDescrição7;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome6;
-    private javax.swing.JTextField txtNome7;
+    private javax.swing.JTextField txtDescriçãoAdd;
+    private javax.swing.JTextField txtNomeAdd;
     // End of variables declaration//GEN-END:variables
 }
