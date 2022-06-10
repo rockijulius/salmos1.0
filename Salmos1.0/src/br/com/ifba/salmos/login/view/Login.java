@@ -4,12 +4,14 @@
  */
 package br.com.ifba.salmos.login.view;
 
+import br.com.ifba.salmos.homescreem.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.Facade;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,12 +25,6 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         Usuario u = new Usuario();
-        u.setNome("Tarcisio Abade");
-        u.setEmail("sidtarcisiosid88@gmail.com");
-        u.setLogin("tarciiz");
-        u.setSenha("senha1");
-        
-        FacadeInstance.getInstance().saveUsuario(u);
     }
 
     private Usuario validateLogin() {
@@ -54,6 +50,20 @@ public class Login extends javax.swing.JFrame {
             }
         }
         return null;
+    }
+    
+    private void makeLogin(){
+        Usuario user = this.validateLogin();
+        if(user == null){
+            //errro
+            JOptionPane.showMessageDialog(null, "Erro, usuário não validado!", "Erro!", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Bem Vindo " + user.getNome(), "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            
+            new homescreen().setVisible(true);
+            this.setVisible(false);
+        }
     }
 
     /**
@@ -134,7 +144,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLoginActionPerformed
         // Login here
-        this.validateLogin();
+        this.makeLogin();
     }// GEN-LAST:event_btnLoginActionPerformed
 
     private void lblResetarSenhaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_lblResetarSenhaMouseClicked
@@ -151,7 +161,7 @@ public class Login extends javax.swing.JFrame {
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_txtSenhaKeyPressed
         if (evt.getKeyCode() == (KeyEvent.VK_ENTER)) {
-            this.validateLogin();
+            this.makeLogin();
             // Fazer login aqui
         }
     }// GEN-LAST:event_txtSenhaKeyPressed
