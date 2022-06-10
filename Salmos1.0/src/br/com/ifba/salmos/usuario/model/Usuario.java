@@ -23,7 +23,8 @@ public class Usuario extends PersistenceEntity{
      private String senha;
      private String email;
      private String nome;
-     private TipoDeUsuario tipodeusuario;
+     //Eu Duda comentei essas partes pro código funcionar de boas
+     //private TipoDeUsuario tipodeusuario; 
 
     public String getLogin() {
         return login;
@@ -57,12 +58,12 @@ public class Usuario extends PersistenceEntity{
         this.nome = nome;
     }
 
-    public TipoDeUsuario getTipodeusuario() {
+    /*public TipoDeUsuario getTipodeusuario() {
         return tipodeusuario;
     }
 
     public void setTipodeusuario(TipoDeUsuario tipodeusuario) {
         this.tipodeusuario = tipodeusuario;
-    }
+    }*/
      
 }

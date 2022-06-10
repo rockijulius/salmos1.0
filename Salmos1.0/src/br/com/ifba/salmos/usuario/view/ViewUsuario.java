@@ -35,7 +35,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
         
         for(Usuario usu: listaUsuario){
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario()});
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome()/*, usu.getTipodeusuario()*/});
         }
         
         this.tblUsuario.setModel(this.listaTabela);
