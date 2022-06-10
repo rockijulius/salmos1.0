@@ -151,6 +151,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
                 "ID", "Nome", "Descrição"
             }
         ));
+        tblTipoDeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTipoDeUsuarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTipoDeUsuario);
         if (tblTipoDeUsuario.getColumnModel().getColumnCount() > 0) {
             tblTipoDeUsuario.getColumnModel().getColumn(0).setResizable(false);
@@ -220,12 +225,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
+        //this.atualizarTabela(this.lista);
         this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
-        
-        this.selecionado = -1;
-        
         JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
+        this.selecionado = -1;
     }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -250,14 +254,16 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnAdicionarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarAddActionPerformed
-
+        TipoDeUsuario tipodeusuarioAdd = new TipoDeUsuario();
         if(validaCampos() == true){
-            tipodeusuario.setNome(txtNomeAdd.getText());
-            tipodeusuario.setDescricao(txtDescriçãoAdd.getText());
-            FacadeInstance.getInstance().saveTipoDeUsuario(tipodeusuario);
+            tipodeusuarioAdd.setNome(txtNomeAdd.getText());
+            tipodeusuarioAdd.setDescricao(txtDescriçãoAdd.getText());
+            FacadeInstance.getInstance().saveTipoDeUsuario(tipodeusuarioAdd);
             this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
             this.atualizarTabela(this.lista);
             JOptionPane.showMessageDialog(null,"Tipo De Usuário Cadastrado!!!");
+            txtNomeAdd.setText(" ");
+            txtDescriçãoAdd.setText(" ");
         }else{
             JOptionPane.showMessageDialog(null,"Campos inválidos. Tente novamente!");
             }
@@ -267,6 +273,13 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private void txtDescriçãoAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriçãoAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescriçãoAddActionPerformed
+
+    private void tblTipoDeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTipoDeUsuarioMouseClicked
+        this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
+        if(this.selecionado != -1){
+            this.tipodeusuario = this.lista.get(this.selecionado);
+        }
+    }//GEN-LAST:event_tblTipoDeUsuarioMouseClicked
 
     /**
      * @param args the command line arguments

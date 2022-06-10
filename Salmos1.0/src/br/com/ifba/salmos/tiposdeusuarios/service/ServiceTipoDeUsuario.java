@@ -62,9 +62,9 @@ public class ServiceTipoDeUsuario implements IServiceTipoDeUsuario{
             throw new BusinessException(USUARIO_NULL);
         } else if(daoTipoDeUsuario.findById(tipoDeUsuario.getId()) != null) {
             daoTipoDeUsuario.delete(tipoDeUsuario);
-        } 
+        }else{ 
             throw new BusinessException(USUARIO_NAO_EXISTE);
-        
+        }
     }
 
     @Override
