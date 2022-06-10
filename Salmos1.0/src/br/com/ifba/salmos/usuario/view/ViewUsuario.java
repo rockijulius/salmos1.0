@@ -21,6 +21,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     
     DefaultTableModel listaTabela;
     List<Usuario> lista;
+    List<TipoDeUsuario> listaTipo;
     int selecionado;
     
     Usuario usuario;
@@ -31,11 +32,18 @@ public class ViewUsuario extends javax.swing.JFrame {
         initComponents();
     }
     
-    private void atualizarTabela(List<Usuario> listaUsuario){
+    private void atualizarTabela(List<Usuario> listaUsuario, List<TipoDeUsuario> listaTipoUsu){
         this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
         
         for(Usuario usu: listaUsuario){
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome()/*, usu.getTipodeusuario()*/});
+            TipoDeUsuario tipo = new TipoDeUsuario();
+            for(TipoDeUsuario tip: listaTipoUsu){
+                if(tip.getId() == usu.getTipodeusuario()){
+                    tipo = tip;
+                    break;
+                }
+            }
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), tipo.getNome()});
         }
         
         this.tblUsuario.setModel(this.listaTabela);
@@ -255,7 +263,8 @@ public class ViewUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario Adicionado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
             
             this.lista = FacadeInstance.getInstance().getAllUsuarios();
-            this.atualizarTabela(this.lista);
+            this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            this.atualizarTabela(this.lista, this.listaTipo);
         }
         
     }//GEN-LAST:event_btnAdicionarActionPerformed
@@ -263,7 +272,8 @@ public class ViewUsuario extends javax.swing.JFrame {
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
-        this.atualizarTabela(this.lista);
+        this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        this.atualizarTabela(this.lista, this.listaTipo);
         
     }//GEN-LAST:event_btnListarActionPerformed
 
@@ -280,7 +290,8 @@ public class ViewUsuario extends javax.swing.JFrame {
         
         FacadeInstance.getInstance().deleteUsuario(usuario);
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
-        this.atualizarTabela(this.lista);
+        this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        this.atualizarTabela(this.lista, this.listaTipo);
         
         this.selecionado = -1;
         
