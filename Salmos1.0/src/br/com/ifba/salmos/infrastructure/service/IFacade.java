@@ -5,6 +5,7 @@
  */
 package br.com.ifba.salmos.infrastructure.service;
 
+import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
 
@@ -14,11 +15,16 @@ import java.util.List;
  */
 public interface IFacade {
     
-    //------------------- Usuario Administrador -------------------------------//
+    //------------------- Usuario -------------------------------//
     public abstract Usuario saveUsuario(Usuario usuario);
     public abstract Usuario updateUsuario(Usuario usuario);
     public abstract void deleteUsuario(Usuario usuario);
     public List<Usuario> getAllUsuarios();
     public List<Usuario> findByName(String name);
-    //-------------------------------------------------------------------------//
+    //-------------------------TipoDeUsuario-----------------------------//
+    public abstract TipoDeUsuario saveTipoDeUsuario(TipoDeUsuario tipodeusuario);
+    public abstract TipoDeUsuario updateTipoDeUsuario(TipoDeUsuario tipodeusuario);
+    public abstract void deleteTipoDeUsuario(TipoDeUsuario tipodeusuario);
+    public List<TipoDeUsuario> getAllTipoDeUsuarios();
+    public List<TipoDeUsuario> findByNameTipo(String name);
 }

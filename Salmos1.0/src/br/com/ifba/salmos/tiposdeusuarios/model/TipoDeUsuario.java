@@ -34,11 +34,6 @@ public class TipoDeUsuario extends PersistenceEntity{
         this.descricao = descricao;
     }
 
-    public TipoDeUsuario(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
-    }
-
     @Override
     public String toString() {
         return "TiposDeUsuarios{" + "nome=" + nome + ", descricao=" + descricao + '}';

@@ -4,7 +4,7 @@
  */
 package br.com.ifba.salmos.homescreem.view;
 
-import br.com.ifba.salmos.tiposdeusuarios.view.TipoDeUsuario;
+import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.view.ViewUsuario;
 
 /**
@@ -166,7 +166,7 @@ public class homescreem extends javax.swing.JFrame {
     }//GEN-LAST:event_TabelaMouseClicked
 
     private void btnTIposUsusarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTIposUsusarioActionPerformed
-      TipoDeUsuario tpu = new TipoDeUsuario();
+      ViewTipoDeUsuario tpu = new ViewTipoDeUsuario();
             tpu.setVisible(true);            tpu.setVisible(true);    }//GEN-LAST:event_btnTIposUsusarioActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed

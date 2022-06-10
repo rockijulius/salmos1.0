@@ -4,17 +4,39 @@
  */
 package br.com.ifba.salmos.tiposdeusuarios.view;
 
+import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.infrastructure.support.StringUtil;
+import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Igor Lopes e Eduarda
  */
-public class TipoDeUsuario extends javax.swing.JFrame {
-
+public class ViewTipoDeUsuario extends javax.swing.JFrame {
+    
+    DefaultTableModel listaTabela;
+    List<TipoDeUsuario> lista;
+    int selecionado;
+    
+    TipoDeUsuario tipodeusuario;
     /**
      * Creates new form TipoDeUsuario
      */
-    public TipoDeUsuario() {
+    public ViewTipoDeUsuario() {
         initComponents();
+    }
+    
+    private void atualizarTabela(List<TipoDeUsuario> listaUsuario){
+        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Nome", "Descrição"});
+        
+        for(TipoDeUsuario tipUsu: listaUsuario){
+            listaTabela.addRow(new Object[]{tipUsu.getId(), tipUsu.getNome(), tipUsu.getDescricao()});
+        }
+        
+        this.tblTipoDeUsuario.setModel(this.listaTabela);
     }
 
     /**
@@ -46,7 +68,7 @@ public class TipoDeUsuario extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnAdd8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblTipoDeUsuario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Tipo De Usuário");
@@ -219,8 +241,8 @@ public class TipoDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblTipoDeUsuario.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        tblTipoDeUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -237,7 +259,7 @@ public class TipoDeUsuario extends javax.swing.JFrame {
                 "Nome", "Descrição"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblTipoDeUsuario);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -281,6 +303,14 @@ public class TipoDeUsuario extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        TipoDeUsuario tipodeusuario = new TipoDeUsuario();
+        
+        if(validaCampos() == true){
+            tipodeusuario.setNome(txtNome.getText());
+            tipodeusuario.setDescricao(txtDescrição.getText());
+            
+           // FacadeInstance.getInstance().
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtDescriçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriçãoActionPerformed
@@ -320,22 +350,42 @@ public class TipoDeUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewTipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewTipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewTipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewTipoDeUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoDeUsuario().setVisible(true);
+                new ViewTipoDeUsuario().setVisible(true);
             }
         });
+    }
+    
+    private boolean validaCampos(){
+        StringUtil util = StringUtil.getInstance();
+        if (txtNome.getText().equals("") && txtDescrição.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS", JOptionPane.ERROR_MESSAGE);
+        return false;
+        
+        }
+        else if(util.isNullOrEmpty(txtNome.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+            
+        }
+        else if(util.isNullOrEmpty(txtDescrição.getText())){
+            JOptionPane.showMessageDialog(null, "Preencha o campo Descrição", "CAMPOS OBRIGATÓRIOS", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -349,12 +399,12 @@ public class TipoDeUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblDescrição;
     private javax.swing.JLabel lblDescrição7;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNome6;
     private javax.swing.JLabel lblNome7;
+    private javax.swing.JTable tblTipoDeUsuario;
     private javax.swing.JTextField txtDescrição;
     private javax.swing.JTextField txtDescrição7;
     private javax.swing.JTextField txtNome;

@@ -5,7 +5,7 @@
 package br.com.ifba.salmos.usuario.model;
 
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
-import br.com.ifba.salmos.tiposdeusuarios.view.TipoDeUsuario;
+import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -22,7 +22,7 @@ public class Usuario extends PersistenceEntity{
      private String senha;
      private String email;
      private String nome;
-     private TipoDeUsuario tipodeusuario;
+     private ViewTipoDeUsuario tipodeusuario;
 
     public String getLogin() {
         return login;
@@ -49,11 +49,11 @@ public class Usuario extends PersistenceEntity{
     }
     
 
-    public TipoDeUsuario getTipodeusuario() {
+    public ViewTipoDeUsuario getTipodeusuario() {
         return tipodeusuario;
     }
 
-    public void setTipodeusuario(TipoDeUsuario tipodeusuario) {
+    public void setTipodeusuario(ViewTipoDeUsuario tipodeusuario) {
         this.tipodeusuario = tipodeusuario;
     }
 
