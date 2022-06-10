@@ -4,6 +4,7 @@
  */
 package br.com.ifba.salmos.tiposdeusuarios.view;
 
+import br.com.ifba.salmos.homescreem.view.homescreem;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
@@ -55,6 +56,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         txtNomeAdd = new javax.swing.JTextField();
         txtDescriçãoAdd = new javax.swing.JTextField();
         btnAdicionarAdd = new javax.swing.JButton();
+        btnHomescreenTipoUsu = new javax.swing.JButton();
         panelListar = new javax.swing.JPanel();
         btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -91,6 +93,14 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnHomescreenTipoUsu.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        btnHomescreenTipoUsu.setText("Homescreen");
+        btnHomescreenTipoUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomescreenTipoUsuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
         panelAddLayout.setHorizontalGroup(
@@ -104,8 +114,10 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
                     .addComponent(lblNomeAdd)
                     .addGroup(panelAddLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(btnAdicionarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(321, Short.MAX_VALUE))
+                        .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnHomescreenTipoUsu)
+                            .addComponent(btnAdicionarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
         panelAddLayout.setVerticalGroup(
             panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +132,9 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
                 .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAdicionarAdd)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(btnHomescreenTipoUsu)
+                .addGap(71, 71, 71))
         );
 
         JTabbedPane1.addTab("Adicionar", panelAdd);
@@ -280,6 +294,13 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblTipoDeUsuarioMouseClicked
 
+    private void btnHomescreenTipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomescreenTipoUsuActionPerformed
+        homescreem home = new homescreem();
+        home.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_btnHomescreenTipoUsuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -339,6 +360,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private javax.swing.JTabbedPane JTabbedPane1;
     private javax.swing.JButton btnAdicionarAdd;
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnHomescreenTipoUsu;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JScrollPane jScrollPane1;

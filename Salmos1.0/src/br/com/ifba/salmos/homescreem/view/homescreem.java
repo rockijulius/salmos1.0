@@ -173,6 +173,7 @@ public class homescreem extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewUsuario vu = new ViewUsuario();
         vu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
