@@ -4,7 +4,7 @@
  */
 package br.com.ifba.salmos.login.view;
 
-import br.com.ifba.salmos.homescreem.view.homescreen;
+import br.com.ifba.salmos.homescreem.view.homescreem;
 import br.com.ifba.salmos.infrastructure.service.Facade;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
@@ -24,44 +24,44 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        Usuario u = new Usuario();
     }
 
     private Usuario validateLogin() {
         List<Usuario> users = FacadeInstance.getInstance().getAllUsuarios();
-        
+
         Usuario user = new Usuario();
         user.setSenha(String.valueOf(txtSenha.getPassword()));
-        if(txtUsuario.getText().contains("@")){
-            //é email
+        if (txtUsuario.getText().contains("@")) {
+            // é email
             user.setEmail(txtUsuario.getText());
-            for(Usuario u : users){
-                if(u.getEmail().equals(user.getEmail()) && u.getSenha().equals(user.getSenha())){
+            for (Usuario u : users) {
+                if (u.getEmail().equals(user.getEmail()) && u.getSenha().equals(user.getSenha())) {
                     return u;
                 }
             }
-        }else{    
-            //não é email
+        } else {
+            // não é email
             user.setLogin(txtUsuario.getText());
-            for(Usuario u : users){
-                if(u.getLogin().equals(user.getLogin()) && u.getSenha().equals(user.getSenha())){
+            for (Usuario u : users) {
+                if (u.getLogin().equals(user.getLogin()) && u.getSenha().equals(user.getSenha())) {
                     return u;
                 }
             }
         }
         return null;
     }
-    
-    private void makeLogin(){
+
+    private void makeLogin() {
         Usuario user = this.validateLogin();
-        if(user == null){
-            //errro
+        if (user == null) {
+            // errro
             JOptionPane.showMessageDialog(null, "Erro, usuário não validado!", "Erro!", JOptionPane.ERROR_MESSAGE);
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Bem Vindo " + user.getNome(), "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-            
-            new homescreen().setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Bem Vindo " + user.getNome(), "Sucesso!",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            new homescreem().setVisible(true);
             this.setVisible(false);
         }
     }
