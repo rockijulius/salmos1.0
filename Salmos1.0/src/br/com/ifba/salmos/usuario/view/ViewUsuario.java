@@ -39,14 +39,8 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
         
         for(Usuario usu: listaUsuario){
-            TipoDeUsuario tipo = new TipoDeUsuario();
-            for(TipoDeUsuario tip: listaTipoUsu){
-                if(tip.getId() == usu.getTipodeusuario()){
-                    tipo = tip;
-                    break;
-                }
-            }
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), tipo.getNome()});
+            List<TipoDeUsuario> tipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario()});
         }
         
         this.tblUsuario.setModel(this.listaTabela);
@@ -259,13 +253,19 @@ public class ViewUsuario extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         
         Usuario usuario = new Usuario();
+        
+        List<TipoDeUsuario> tipodeusuario = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        
+        int i;
+        
+        i = cbbTipoDeUsuario.getSelectedIndex();
         if(validaCampos() == true){
             
             usuario.setEmail(txtEmail.getText());
             usuario.setLogin(txtUsuario.getText());
             usuario.setSenha(txtSenha.getText());
             usuario.setNome(txtNome.getText());
-            //usuario.setTipodeusuario(cbbTipoDeUsuario.getText());
+            usuario.setTipodeusuario(tipodeusuario.get(i).getNome());
             
             FacadeInstance.getInstance().saveUsuario(usuario);
             
