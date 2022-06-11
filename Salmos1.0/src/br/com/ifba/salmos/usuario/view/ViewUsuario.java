@@ -10,6 +10,7 @@ import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
+import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class ViewUsuario extends javax.swing.JFrame {
     
     DefaultTableModel listaTabela;
+    ComboBoxModel tipoUsuario;
     List<Usuario> lista;
     List<TipoDeUsuario> listaTipo;
     int selecionado;
@@ -30,6 +32,7 @@ public class ViewUsuario extends javax.swing.JFrame {
      */
     public ViewUsuario() {
         initComponents();
+        CmbBoxTipoUsuario();
     }
     
     private void atualizarTabela(List<Usuario> listaUsuario, List<TipoDeUsuario> listaTipoUsu){
@@ -47,6 +50,13 @@ public class ViewUsuario extends javax.swing.JFrame {
         }
         
         this.tblUsuario.setModel(this.listaTabela);
+    }
+    
+    private void CmbBoxTipoUsuario(){
+        List<TipoDeUsuario> tipodeusuario = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        for(int i = 0; i < tipodeusuario.size(); i++){
+            cbbTipoDeUsuario.addItem(tipodeusuario.get(i).getNome());
+        }
     }
 
     /**
@@ -156,9 +166,6 @@ public class ViewUsuario extends javax.swing.JFrame {
 
         lblTipoDeUsuario.setText("Tipo De Usuário");
 
-        cbbTipoDeUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionário" }));
-        cbbTipoDeUsuario.setSelectedItem(cbbTipoDeUsuario);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,7 +187,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblTipoDeUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                                 .addComponent(cbbTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
