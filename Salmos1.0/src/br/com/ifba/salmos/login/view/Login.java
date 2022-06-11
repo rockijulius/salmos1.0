@@ -5,7 +5,6 @@
 package br.com.ifba.salmos.login.view;
 
 import br.com.ifba.salmos.homescreem.view.homescreem;
-import br.com.ifba.salmos.infrastructure.service.Facade;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
 import br.com.ifba.salmos.usuario.model.Usuario;

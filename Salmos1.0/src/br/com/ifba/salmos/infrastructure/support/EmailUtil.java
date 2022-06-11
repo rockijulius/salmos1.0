@@ -71,4 +71,8 @@ public class EmailUtil {
             throw new RuntimeException(e);
         }
     }
+
+    public static void main(String[] args) {
+        EmailUtil.sendEmail("sidtarcisiosid88@gmail.com", "Ola", "Oii");
+    }
 }
