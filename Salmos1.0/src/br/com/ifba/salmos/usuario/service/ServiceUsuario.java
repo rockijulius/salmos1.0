@@ -42,7 +42,7 @@ public class ServiceUsuario implements IServiceUsuario{
     public Usuario saveUsuario(Usuario usuario) {
         if(usuario == null){
             throw new BusinessException(USUARIO_NULL);
-        } else if(daoUsuario.findById(usuario.getId()) != null) {
+        } else if(daoUsuario.findById(usuario.getId()) != null){
             throw new BusinessException(USUARIO_EXISTE);
         } else {
             return daoUsuario.save(usuario);

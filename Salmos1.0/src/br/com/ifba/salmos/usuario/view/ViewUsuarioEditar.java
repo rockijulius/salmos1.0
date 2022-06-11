@@ -6,6 +6,7 @@ package br.com.ifba.salmos.usuario.view;
 
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
+import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -31,16 +32,25 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
         
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
         this.atualizarTabela(this.lista);
+        
+        cbbTiposDeUsuario();
     }
     
     private void atualizarTabela(List<Usuario> listaUsuario){
-        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome"});
+        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuario"});
         
         for(Usuario usu: listaUsuario){
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome()});
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario()});
         }
         
         this.tblUsuario.setModel(this.listaTabela);
+    }
+    
+    private void cbbTiposDeUsuario(){
+        List<TipoDeUsuario> tiposdeusuario = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        for(int i = 0; i < tiposdeusuario.size();i++){
+            cbbTiposDeUsuario.addItem(tiposdeusuario.get(i).getNome());
+        }
     }
 
     /**
@@ -66,6 +76,8 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
         lblDescInfo = new javax.swing.JLabel();
         btnAtualizar = new javax.swing.JButton();
         btnRetornar = new javax.swing.JButton();
+        txtTipoDeUsuario = new javax.swing.JLabel();
+        cbbTiposDeUsuario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,6 +127,14 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
             }
         });
 
+        txtTipoDeUsuario.setText("Tipo De Usuário");
+
+        cbbTiposDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbTiposDeUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,11 +170,14 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(btnAtualizar)
                                                 .addGap(55, 55, 55)
-                                                .addComponent(btnRetornar)))))))
+                                                .addComponent(btnRetornar))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(cbbTiposDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtTipoDeUsuario))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -186,7 +209,11 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTipoDeUsuario)
+                            .addComponent(cbbTiposDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizar)
@@ -208,20 +235,39 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         
-        if(validaCampos() == true){
+        this.selecionado =  this.tblUsuario.getSelectedRow();
         
-            usuario.setEmail(txtEmail.getText());
-            usuario.setLogin(txtUsuario.getText());
-            usuario.setSenha(txtSenha.getText());
-            usuario.setNome(txtNome.getText());
+        if(this.selecionado != -1){
         
-            FacadeInstance.getInstance().updateUsuario(usuario);
+            int i;
         
-            JOptionPane.showMessageDialog(null, "Usuario Atualizado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
+            i = cbbTiposDeUsuario.getSelectedIndex();
         
-            this.lista = FacadeInstance.getInstance().getAllUsuarios();
-            this.atualizarTabela(this.lista);
+            List<TipoDeUsuario> tiposdeusuarios = FacadeInstance.getInstance().getAllTipoDeUsuarios();
             
+            if(validaCampos() == true){
+        
+                usuario.setEmail(txtEmail.getText());
+                usuario.setLogin(txtUsuario.getText());
+                usuario.setSenha(txtSenha.getText());
+                usuario.setNome(txtNome.getText());
+                usuario.setTipodeusuario(tiposdeusuarios.get(i).getNome());
+        
+                FacadeInstance.getInstance().updateUsuario(usuario);
+                
+                txtEmail.setText(null);
+                txtUsuario.setText(null);
+                txtSenha.setText(null);
+                txtNome.setText(null);
+        
+                JOptionPane.showMessageDialog(null, "Usuario Atualizado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
+        
+                this.lista = FacadeInstance.getInstance().getAllUsuarios();
+                this.atualizarTabela(this.lista);
+            }
+            
+        } else{
+            JOptionPane.showMessageDialog(null, "Selecione corretamente um Usuario para ser atualizado!!", "Atenção", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
@@ -229,6 +275,10 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_btnRetornarActionPerformed
+
+    private void cbbTiposDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTiposDeUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbTiposDeUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,6 +348,7 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnRetornar;
+    private javax.swing.JComboBox<String> cbbTiposDeUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -309,6 +360,7 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSenha;
+    private javax.swing.JLabel txtTipoDeUsuario;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

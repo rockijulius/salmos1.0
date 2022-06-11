@@ -271,6 +271,11 @@ public class ViewUsuario extends javax.swing.JFrame {
             
             FacadeInstance.getInstance().saveUsuario(usuario);
             
+            txtEmail.setText(null);
+            txtUsuario.setText(null);
+            txtSenha.setText(null);
+            txtNome.setText(null);
+            
             JOptionPane.showMessageDialog(null, "Usuario Adicionado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
             
             this.lista = FacadeInstance.getInstance().getAllUsuarios();
