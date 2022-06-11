@@ -257,8 +257,9 @@ public class ViewUsuario extends javax.swing.JFrame {
         //Chamando a lista de tipodeusuario para buscar pelo indice
         
         List<TipoDeUsuario> tipodeusuario = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        List<Usuario> usuarios = FacadeInstance.getInstance().getAllUsuarios();
         
-        int i;
+        int i, c;
         
         i = cbbTipoDeUsuario.getSelectedIndex();
         if(validaCampos() == true){
@@ -268,6 +269,16 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setSenha(txtSenha.getText());
             usuario.setNome(txtNome.getText());
             usuario.setTipodeusuario(tipodeusuario.get(i).getNome());
+            
+            for(c = 0; c < usuarios.size(); c++){
+                if(usuario.getLogin().equals(usuarios.get(c).getLogin())){
+                    JOptionPane.showMessageDialog(null, "Login existente!!", "Atenção", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }else if(usuario.getEmail().equals(usuarios.get(c).getEmail())){
+                    JOptionPane.showMessageDialog(null, "Email ja existe!!", "Atenção", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
             
             FacadeInstance.getInstance().saveUsuario(usuario);
             
