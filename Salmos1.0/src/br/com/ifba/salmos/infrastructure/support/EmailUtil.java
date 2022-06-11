@@ -97,12 +97,19 @@ public class EmailUtil {
         }
         messageText = contentBuilder.toString();
 
-        messageText = messageText.replace("**nome**", user.getNome());
+        messageText = messageText.replace("**helloMessage**", "Olá");
+        messageText = messageText.replace("**name**", user.getNome());
+
+        messageText = messageText.replace("**codeInfo**", "Seu código SalmosRecover é:");
+        messageText = messageText.replace("**infoMessage**",
+                "Você solicitou a recuperação do seu acesso do Salmos 1.0");
         messageText = messageText.replace("**num0**", String.valueOf(code.charAt(0)));
         messageText = messageText.replace("**num1**", String.valueOf(code.charAt(1)));
         messageText = messageText.replace("**num2**", String.valueOf(code.charAt(2)));
         messageText = messageText.replace("**num3**", String.valueOf(code.charAt(3)));
         messageText = messageText.replace("**num4**", String.valueOf(code.charAt(4)));
+        messageText = messageText.replace("**finalMessage**",
+                "Caso você não tenha solicitado essa alteração, entre em contato com seu supervisor!");
 
         try {
 
@@ -128,11 +135,5 @@ public class EmailUtil {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void main(String[] args) {
-        Usuario user = new Usuario();
-        user.setNome("Tarcisio");
-        EmailUtil.sendRecoverPasswordEmail("sidtarcisiosid88@gmail.com", "65789", user);
     }
 }
