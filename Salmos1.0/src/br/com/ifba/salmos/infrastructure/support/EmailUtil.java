@@ -1,5 +1,8 @@
 package br.com.ifba.salmos.infrastructure.support;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -10,6 +13,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import br.com.ifba.salmos.usuario.model.Usuario;
 
 /**
  *
@@ -72,7 +77,62 @@ public class EmailUtil {
         }
     }
 
+    public static boolean sendRecoverPasswordEmail(String adress, String code, Usuario user) {
+        String subject = "Recupere sua senha do Salmos";
+
+        String messageText = "";
+
+        StringBuilder contentBuilder = new StringBuilder();
+        try {
+            BufferedReader in = new BufferedReader(
+                    new FileReader("src/br/com/ifba/salmos/infrastructure/support/emailTemplate.html"));
+            System.out.println("Arquivo aq:::: \n" + in.toString());
+            String str;
+            while ((str = in.readLine()) != null) {
+                contentBuilder.append(str);
+            }
+            in.close();
+        } catch (IOException e) {
+            System.out.println("Erro::: " + e.getMessage());
+        }
+        messageText = contentBuilder.toString();
+
+        messageText = messageText.replace("**nome**", user.getNome());
+        messageText = messageText.replace("**num0**", String.valueOf(code.charAt(0)));
+        messageText = messageText.replace("**num1**", String.valueOf(code.charAt(1)));
+        messageText = messageText.replace("**num2**", String.valueOf(code.charAt(2)));
+        messageText = messageText.replace("**num3**", String.valueOf(code.charAt(3)));
+        messageText = messageText.replace("**num4**", String.valueOf(code.charAt(4)));
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(USERNAME));
+            // Remetente
+
+            Address[] toUser = InternetAddress.parse(adress);
+
+            message.setRecipients(Message.RecipientType.TO, toUser);
+
+            message.setSubject(subject);// Assunto
+
+            message.setContent(messageText, "text/html");
+
+            // message.setContent(messageText, "text/html;charset=UTF-8");
+
+            /** Método para enviar a mensagem criada */
+            Transport.send(message, USERNAME, PASSWORD);
+
+            System.out.println("Feito!!!");
+            return true;
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void main(String[] args) {
-        EmailUtil.sendEmail("sidtarcisiosid88@gmail.com", "Ola", "Oii");
+        Usuario user = new Usuario();
+        user.setNome("Tarcisio");
+        EmailUtil.sendRecoverPasswordEmail("sidtarcisiosid88@gmail.com", "65789", user);
     }
 }
