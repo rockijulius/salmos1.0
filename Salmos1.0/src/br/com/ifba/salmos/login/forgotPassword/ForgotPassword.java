@@ -165,28 +165,34 @@ public class ForgotPassword extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEnviarActionPerformed
-        this.email = txtEmail.getText();
-        for (Usuario user : (List<Usuario>) FacadeInstance.getInstance().getAllUsuarios()) {
-            if (user.getEmail().equals(this.email)) {
-                this.user = user;
-                break;
+        if (!this.emailSent) {
+            this.email = txtEmail.getText();
+            for (Usuario user : (List<Usuario>) FacadeInstance.getInstance().getAllUsuarios()) {
+                if (user.getEmail().equals(this.email)) {
+                    this.user = user;
+                    break;
+                }
             }
-        }
 
-        if (this.user == null) {
-            JOptionPane.showMessageDialog(null, "O email informado não corresponde a nenhuma usuário cadastrado!",
-                    "Erro!", JOptionPane.ERROR_MESSAGE);
+            if (this.user == null) {
+                JOptionPane.showMessageDialog(null, "O email informado não corresponde a nenhuma usuário cadastrado!",
+                        "Erro!", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+                this.code = "";
+                for (int i = 0; i < 5; i++) {
+                    this.code += String.valueOf(new Random().nextInt(10));
+                }
+                System.out.println("Code : " + this.code);
+
+                this.emailSent = EmailUtil.sendRecoverPasswordEmail(email, this.code, this.user);
+
+                changeActive(this.emailSent);
+            }
         } else {
-
-            this.code = "";
-            for (int i = 0; i < 5; i++) {
-                this.code += String.valueOf(new Random().nextInt(10));
-            }
-            System.out.println("Code : " + this.code);
-
-            this.emailSent = EmailUtil.sendRecoverPasswordEmail(email, this.code, this.user);
-
-            changeActive(this.emailSent);
+            JOptionPane.showMessageDialog(null,
+                    "O email já foi enviado!\nCaso não o veja na caixa de entrada, veifique sua caixa de span\nou tente mais tarde!",
+                    "Já foi enviado!", JOptionPane.ERROR_MESSAGE);
         }
     }// GEN-LAST:event_btnEnviarActionPerformed
 
