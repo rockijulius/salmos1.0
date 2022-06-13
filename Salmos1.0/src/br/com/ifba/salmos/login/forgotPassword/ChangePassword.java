@@ -22,7 +22,6 @@ public class ChangePassword extends javax.swing.JFrame {
     public ChangePassword(Usuario user) {
         initComponents();
         this.user = user;
-        this.txtEmail.setText(user.getEmail());
     }
 
     public ChangePassword() {
@@ -53,82 +52,106 @@ public class ChangePassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblSenhaRepeat = new javax.swing.JLabel();
         txtNewPass = new javax.swing.JPasswordField();
         txtNewPassRepeat = new javax.swing.JPasswordField();
         btnSalvar = new javax.swing.JButton();
-        txtEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
-        lblSenhaRepeat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblSenhaRepeat.setBackground(new java.awt.Color(250, 206, 86));
+        lblSenhaRepeat.setFont(new java.awt.Font("Lucida Console", 1, 11)); // NOI18N
+        lblSenhaRepeat.setForeground(new java.awt.Color(250, 206, 86));
+        lblSenhaRepeat.setText("Repita a senha");
+
+        txtNewPass.setBackground(new java.awt.Color(253, 255, 175));
+        txtNewPass.setBorder(null);
+        txtNewPass.setSelectionColor(new java.awt.Color(250, 206, 101));
         txtNewPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewPassKeyReleased(evt);
             }
         });
 
+        txtNewPassRepeat.setBackground(new java.awt.Color(253, 255, 175));
+        txtNewPassRepeat.setBorder(null);
+        txtNewPassRepeat.setSelectionColor(new java.awt.Color(250, 206, 101));
         txtNewPassRepeat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewPassRepeatKeyReleased(evt);
             }
         });
 
+        btnSalvar.setBackground(new java.awt.Color(250, 206, 86));
+        btnSalvar.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 11)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(253, 255, 175));
         btnSalvar.setText("SALVAR");
+        btnSalvar.setBorder(null);
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
 
+        lblSenha.setBackground(new java.awt.Color(250, 206, 86));
+        lblSenha.setFont(new java.awt.Font("Lucida Console", 1, 11)); // NOI18N
+        lblSenha.setForeground(new java.awt.Color(250, 206, 86));
         lblSenha.setText("Nova Senha");
 
-        lblSenhaRepeat.setText("Repita a senha");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblSenhaRepeat)
+                        .addComponent(lblSenha)
+                        .addComponent(txtNewPassRepeat, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                        .addComponent(txtNewPass)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(lblSenhaRepeat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNewPassRepeat, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtNewPass, txtNewPassRepeat});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblSenhaRepeat)
-                                        .addComponent(lblSenha)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(btnSalvar)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                false)
-                                                        .addComponent(txtNewPass, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                125, Short.MAX_VALUE)
-                                                        .addComponent(txtNewPassRepeat)
-                                                        .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                Short.MAX_VALUE))))
-                                .addContainerGap(106, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblSenha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(lblSenhaRepeat)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNewPassRepeat, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30,
-                                        Short.MAX_VALUE)
-                                .addComponent(btnSalvar)
-                                .addGap(26, 26, 26)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -195,9 +218,9 @@ public class ChangePassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblSenhaRepeat;
-    private javax.swing.JLabel txtEmail;
     private javax.swing.JPasswordField txtNewPass;
     private javax.swing.JPasswordField txtNewPassRepeat;
     // End of variables declaration//GEN-END:variables
