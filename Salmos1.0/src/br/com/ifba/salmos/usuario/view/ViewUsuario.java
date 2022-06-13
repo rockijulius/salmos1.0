@@ -254,7 +254,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         
         Usuario usuario = new Usuario();
         
-        //Chamando a lista de tipodeusuario para buscar pelo indice
+        //Chamando a lista de tipodeusuario para buscar pelo indice e verificar
         
         List<TipoDeUsuario> tipodeusuario = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         List<Usuario> usuarios = FacadeInstance.getInstance().getAllUsuarios();
