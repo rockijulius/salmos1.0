@@ -18,6 +18,7 @@ public class homescreem extends javax.swing.JFrame {
      */
     public homescreem() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

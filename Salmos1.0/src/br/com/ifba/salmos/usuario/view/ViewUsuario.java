@@ -32,6 +32,7 @@ public class ViewUsuario extends javax.swing.JFrame {
      */
     public ViewUsuario() {
         initComponents();
+        setLocationRelativeTo(null);
         CmbBoxTipoUsuario();
     }
     

@@ -30,6 +30,8 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
     public ViewUsuarioEditar() {
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
         this.atualizarTabela(this.lista);
         

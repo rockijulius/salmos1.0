@@ -25,6 +25,8 @@ public class ViewDescricaoTipo extends javax.swing.JFrame {
     public ViewDescricaoTipo() {
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         this.descricao = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarDescricao(this.descricao);
     }

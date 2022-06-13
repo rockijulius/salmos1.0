@@ -28,6 +28,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
      */
     public ViewTipoDeUsuario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     private void atualizarTabela(List<TipoDeUsuario> listaUsuario){
