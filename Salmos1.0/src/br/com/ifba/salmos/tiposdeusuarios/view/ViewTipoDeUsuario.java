@@ -8,6 +8,7 @@ import br.com.ifba.salmos.homescreem.view.homescreem;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
+import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -295,6 +296,16 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        
+        List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();
+        
+        for(Usuario usu: listaUsuario){
+            if(usu.getTipodeusuario().equals(tipodeusuario.getNome())){
+                FacadeInstance.getInstance().deleteUsuario(usu);
+            }
+        }
+        
+        
         FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
         this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
