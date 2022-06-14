@@ -24,6 +24,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     int selecionado;
     
     TipoDeUsuario tipodeusuario;
+    Usuario usuario;
     /**
      * Creates new form TipoDeUsuario
      */
@@ -314,18 +315,42 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        String nome = JOptionPane.showInputDialog(null,"Digite um nome: ");
-        String descricao = JOptionPane.showInputDialog(null,"Digite uma Descrição: ");
         
-        if(nome.isEmpty() || descricao.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Preencha todos os campos corretamente! Tente novamente.");//msg de campos faltantes
-        }else{
-            tipodeusuario.setNome(nome);
-            tipodeusuario.setDescricao(descricao);
-            FacadeInstance.getInstance().updateTipoDeUsuario(tipodeusuario);
-            this.atualizarTabela(this.lista);
-            JOptionPane.showMessageDialog(null,"Tipo De Usuário Editado!!!");
+        this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
+        
+        if(this.selecionado != -1){
+        
+            String nome = JOptionPane.showInputDialog(null,"Digite um nome: ");
+            String descricao = JOptionPane.showInputDialog(null,"Digite uma Descrição: ");
+        
+            List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();
+        
+            for(Usuario usu: listaUsuario){
+                if(usu.getTipodeusuario().equals(tipodeusuario.getNome())){
+                
+                    usu.setNome(usu.getNome());
+                    usu.setEmail(usu.getEmail());
+                    usu.setSenha(usu.getSenha());
+                    usu.setLogin(usu.getLogin());
+                    usu.setTipodeusuario(nome);
+                
+                    FacadeInstance.getInstance().updateUsuario(usu);
+                }
+            }
+        
+            if(nome.isEmpty() || descricao.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Preencha todos os campos corretamente! Tente novamente.");//msg de campos faltantes
+            }else{
+                tipodeusuario.setNome(nome);
+                tipodeusuario.setDescricao(descricao);
+                FacadeInstance.getInstance().updateTipoDeUsuario(tipodeusuario);
+                this.atualizarTabela(this.lista);
+                JOptionPane.showMessageDialog(null,"Tipo De Usuário Editado!!!");
             
+            }
+        
+        } else{
+            JOptionPane.showMessageDialog(null, "Selecione corretamente o tipo de usuario para ser alterado!!", "Atenção", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 

@@ -357,6 +357,8 @@ public class ViewUsuarioEditar extends javax.swing.JFrame {
     private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
         // TODO add your handling code here:
         setVisible(false);
+        ViewUsuario view = new ViewUsuario();
+        view.setVisible(true);
     }//GEN-LAST:event_btnRetornarActionPerformed
 
     private void cbbTiposDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTiposDeUsuarioActionPerformed
