@@ -334,9 +334,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Tipo De Usuário Cadastrado!!!");
             txtNomeAdd.setText(" ");
             txtDescriçãoAdd.setText(" ");
-        }else{
-            JOptionPane.showMessageDialog(null,"Campos inválidos. Tente novamente!");
-            }
+        }
         
     }//GEN-LAST:event_btnAdicionarAddActionPerformed
 

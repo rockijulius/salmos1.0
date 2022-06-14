@@ -4,6 +4,7 @@
  */
 package br.com.ifba.salmos.homescreem.view;
 
+import br.com.ifba.salmos.login.view.Login;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.view.ViewUsuario;
 
@@ -38,6 +39,7 @@ public class homescreem extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnTIposUsusario = new javax.swing.JButton();
         btnUsuario = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -85,6 +87,13 @@ public class homescreem extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PTelaInicialLayout = new javax.swing.GroupLayout(PTelaInicial);
         PTelaInicial.setLayout(PTelaInicialLayout);
         PTelaInicialLayout.setHorizontalGroup(
@@ -92,14 +101,19 @@ public class homescreem extends javax.swing.JFrame {
             .addGroup(PTelaInicialLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PTelaInicialLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTIposUsusario)
-                        .addContainerGap(12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PTelaInicialLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUsuario)
-                        .addGap(35, 35, 35))))
+                        .addGap(35, 35, 35))
+                    .addGroup(PTelaInicialLayout.createSequentialGroup()
+                        .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnTIposUsusario))
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(btnLogout)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PTelaInicialLayout.setVerticalGroup(
             PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +123,8 @@ public class homescreem extends javax.swing.JFrame {
                 .addComponent(btnTIposUsusario)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -132,7 +148,7 @@ public class homescreem extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
-                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 383, Short.MAX_VALUE)
                 .addGap(187, 187, 187))
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -168,6 +184,7 @@ public class homescreem extends javax.swing.JFrame {
 
     private void btnTIposUsusarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTIposUsusarioActionPerformed
       ViewTipoDeUsuario tpu = new ViewTipoDeUsuario();
+      setVisible(false);
             tpu.setVisible(true);            tpu.setVisible(true);    }//GEN-LAST:event_btnTIposUsusarioActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
@@ -176,6 +193,13 @@ public class homescreem extends javax.swing.JFrame {
         vu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +240,7 @@ public class homescreem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PTelaInicial;
     private javax.swing.JTabbedPane Tabela;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTIposUsusario;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;

@@ -436,6 +436,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        setVisible(false);
         ViewUsuarioEditar view = new ViewUsuarioEditar();
         view.setVisible(true);
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -452,6 +453,7 @@ public class ViewUsuario extends javax.swing.JFrame {
 
     private void btnDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescricaoActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         ViewDescricaoTipo desc = new ViewDescricaoTipo();
         desc.setVisible(true);
     }//GEN-LAST:event_btnDescricaoActionPerformed
