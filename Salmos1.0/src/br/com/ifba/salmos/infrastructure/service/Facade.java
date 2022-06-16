@@ -8,6 +8,9 @@ package br.com.ifba.salmos.infrastructure.service;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.item.service.IServiceItem;
 import br.com.ifba.salmos.item.service.ServiceItem;
+import br.com.ifba.salmos.requisicao.model.Requisicao;
+import br.com.ifba.salmos.requisicao.service.IServiceRequisicao;
+import br.com.ifba.salmos.requisicao.service.ServiceRequisicao;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.IServiceTipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.ServiceTipoDeUsuario;
@@ -110,6 +113,33 @@ public class Facade implements IFacade {
         return serviceItem.findByName(Item);
     }
     
+     //------------------------Requisição--------------------------//
     
+     private final IServiceRequisicao serviceRequisicao = new ServiceRequisicao();
+    
+    @Override
+    public Requisicao saveRequisicao(Requisicao requisicao){
+        return serviceRequisicao.saveRequisicao(requisicao);
+    }
+
+    @Override
+    public Requisicao updateRequisicao(Requisicao requisicao) {
+        return serviceRequisicao.updateRequisicao(requisicao);
+    }
+
+    @Override
+    public void deleteRequisicao(Requisicao requisicao) {
+        this.serviceRequisicao.deleteRequisicao(requisicao);
+    }
+
+    @Override
+    public List<Requisicao> getAllRequisicao() {
+        return serviceRequisicao.getAllRequisicao();
+    }
+
+    @Override
+    public List<Requisicao> findByNameRequisicao(String Requisicao) {
+        return serviceRequisicao.findByName(Requisicao);
+    }
     
 }

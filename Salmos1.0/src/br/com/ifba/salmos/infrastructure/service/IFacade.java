@@ -6,6 +6,7 @@
 package br.com.ifba.salmos.infrastructure.service;
 
 import br.com.ifba.salmos.item.model.Item;
+import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.List;
@@ -34,4 +35,10 @@ public interface IFacade {
     public abstract void deleteItem(Item item);
     public List<Item> getAllItem();
     public List<Item> findByNameItem(String Item);
+    //------------------------Requisicao-----------------------------//
+    public abstract Requisicao saveRequisicao(Requisicao requisicao);
+    public abstract Requisicao updateRequisicao(Requisicao requisicao);
+    public abstract void deleteRequisicao(Requisicao requisicao);
+    public List<Requisicao> getAllRequisicao();
+    public List<Requisicao> findByNameRequisicao(String requisicao);
 }
