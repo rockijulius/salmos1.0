@@ -5,6 +5,9 @@
  */
 package br.com.ifba.salmos.infrastructure.service;
 
+import br.com.ifba.salmos.item.model.Item;
+import br.com.ifba.salmos.item.service.IServiceItem;
+import br.com.ifba.salmos.item.service.ServiceItem;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.IServiceTipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.ServiceTipoDeUsuario;
@@ -77,6 +80,36 @@ public class Facade implements IFacade {
     public List<TipoDeUsuario> findByNameTipo(String name) {
         return serviceTipoDeUsuario.findByName(name);
     }
+    
+    //------------------------Item--------------------------//
+    
+    private final IServiceItem serviceItem = new ServiceItem();
+    
+    @Override
+    public Item saveItem(Item item) {
+        return serviceItem.saveItem(item);
+    }
+
+    @Override
+    public Item updateItem(Item item) {
+        return serviceItem.updateItem(item);
+    }
+
+    @Override
+    public void deleteItem(Item item) {
+        this.serviceItem.deleteItem(item);
+    }
+
+    @Override
+    public List<Item> getAllItem() {
+        return serviceItem.getAllItens();
+    }
+
+    @Override
+    public List<Item> findByNameItem(String Item) {
+        return serviceItem.findByName(Item);
+    }
+    
     
     
 }

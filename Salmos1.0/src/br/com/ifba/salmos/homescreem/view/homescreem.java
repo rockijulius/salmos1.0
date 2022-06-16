@@ -4,6 +4,8 @@
  */
 package br.com.ifba.salmos.homescreem.view;
 
+import br.com.ifba.salmos.item.model.Item;
+import br.com.ifba.salmos.item.view.ViewItem;
 import br.com.ifba.salmos.login.view.Login;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.view.ViewUsuario;
@@ -40,6 +42,7 @@ public class homescreem extends javax.swing.JFrame {
         btnTIposUsusario = new javax.swing.JButton();
         btnUsuario = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnItens = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -70,7 +73,7 @@ public class homescreem extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         btnTIposUsusario.setText("Operações com Tipo de usuario");
@@ -94,6 +97,13 @@ public class homescreem extends javax.swing.JFrame {
             }
         });
 
+        btnItens.setText("Itens");
+        btnItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItensActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PTelaInicialLayout = new javax.swing.GroupLayout(PTelaInicial);
         PTelaInicial.setLayout(PTelaInicialLayout);
         PTelaInicialLayout.setHorizontalGroup(
@@ -112,7 +122,11 @@ public class homescreem extends javax.swing.JFrame {
                                 .addComponent(btnTIposUsusario))
                             .addGroup(PTelaInicialLayout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addComponent(btnLogout)))
+                                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnLogout)
+                                    .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnItens)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PTelaInicialLayout.setVerticalGroup(
@@ -125,6 +139,8 @@ public class homescreem extends javax.swing.JFrame {
                 .addComponent(btnUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnItens)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -201,6 +217,13 @@ public class homescreem extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItensActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        ViewItem item = new ViewItem();
+        item.setVisible(true);
+    }//GEN-LAST:event_btnItensActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +263,7 @@ public class homescreem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PTelaInicial;
     private javax.swing.JTabbedPane Tabela;
+    private javax.swing.JButton btnItens;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTIposUsusario;
     private javax.swing.JButton btnUsuario;
