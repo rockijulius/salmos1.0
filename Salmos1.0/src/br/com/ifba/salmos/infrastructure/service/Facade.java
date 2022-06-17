@@ -11,6 +11,9 @@ import br.com.ifba.salmos.item.service.ServiceItem;
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.requisicao.service.IServiceRequisicao;
 import br.com.ifba.salmos.requisicao.service.ServiceRequisicao;
+import br.com.ifba.salmos.setor.model.Setor;
+import br.com.ifba.salmos.setor.service.IServiceSetor;
+import br.com.ifba.salmos.setor.service.ServiceSetor;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.IServiceTipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.service.ServiceTipoDeUsuario;
@@ -19,15 +22,14 @@ import br.com.ifba.salmos.usuario.service.ServiceUsuario;
 import java.util.List;
 import br.com.ifba.salmos.usuario.service.IServiceUsuario;
 
-
 /**
  *
  * @author rocki.julius
  */
 public class Facade implements IFacade {
-    
-    //-----------------Usuario-------------------//
-    
+
+    // -----------------Usuario-------------------//
+
     private final IServiceUsuario serviceUsuario = new ServiceUsuario();
 
     @Override
@@ -54,9 +56,9 @@ public class Facade implements IFacade {
     public List<Usuario> findByName(String name) {
         return serviceUsuario.findByName(name);
     }
-    
-    //-----------------TipoDeUsuario-----------------//
-    
+
+    // -----------------TipoDeUsuario-----------------//
+
     private final IServiceTipoDeUsuario serviceTipoDeUsuario = new ServiceTipoDeUsuario();
 
     @Override
@@ -83,11 +85,11 @@ public class Facade implements IFacade {
     public List<TipoDeUsuario> findByNameTipo(String name) {
         return serviceTipoDeUsuario.findByName(name);
     }
-    
-    //------------------------Item--------------------------//
-    
+
+    // ------------------------Item--------------------------//
+
     private final IServiceItem serviceItem = new ServiceItem();
-    
+
     @Override
     public Item saveItem(Item item) {
         return serviceItem.saveItem(item);
@@ -112,13 +114,13 @@ public class Facade implements IFacade {
     public List<Item> findByNameItem(String Item) {
         return serviceItem.findByName(Item);
     }
-    
-     //------------------------Requisição--------------------------//
-    
-     private final IServiceRequisicao serviceRequisicao = new ServiceRequisicao();
-    
+
+    // ------------------------Requisição--------------------------//
+
+    private final IServiceRequisicao serviceRequisicao = new ServiceRequisicao();
+
     @Override
-    public Requisicao saveRequisicao(Requisicao requisicao){
+    public Requisicao saveRequisicao(Requisicao requisicao) {
         return serviceRequisicao.saveRequisicao(requisicao);
     }
 
@@ -141,5 +143,33 @@ public class Facade implements IFacade {
     public List<Requisicao> findByNameRequisicao(String Requisicao) {
         return serviceRequisicao.findByName(Requisicao);
     }
-    
+
+    // ------------------------Setor--------------------------//
+
+    private final IServiceSetor serviceSetor = new ServiceSetor();
+
+    @Override
+    public Setor saveSetor(Setor setor) {
+        return serviceSetor.saveSetor(setor);
+    }
+
+    @Override
+    public Setor updateSetor(Setor setor) {
+        return serviceSetor.updateSetor(setor);
+    }
+
+    @Override
+    public void deleteSetor(Setor setor) {
+        serviceSetor.deleteSetor(setor);
+    }
+
+    @Override
+    public List<Setor> getAllSetor() {
+        return serviceSetor.getAllSetor();
+    }
+
+    @Override
+    public List<Setor> findByNameSetor(String setor) {
+        return serviceSetor.findByName(setor);
+    }
 }
