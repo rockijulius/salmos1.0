@@ -5,7 +5,6 @@
 package br.com.ifba.salmos.requisicao.model;
 
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
-import br.com.ifba.salmos.usuario.model.Usuario;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -17,7 +16,7 @@ import javax.persistence.Table;
 @Table
 public class Requisicao extends PersistenceEntity{
     private String setor;
-    private Usuario usuario;
+    private long idUsuario;
     private String listaItens;
     private String quantidadeItens;
 
@@ -30,12 +29,12 @@ public class Requisicao extends PersistenceEntity{
         this.setor = setor;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public long getUsuario() {
+        return idUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(long usuario) {
+        this.idUsuario = usuario;
     }
 
     public String getListaItens() {
@@ -56,7 +55,7 @@ public class Requisicao extends PersistenceEntity{
 
     @Override
     public String toString() {
-        return "Requisicao{" + "setor=" + setor + ", usuario=" + usuario + ", listaItens=" + listaItens + ", quantidadeItens=" + quantidadeItens + '}';
+        return "Requisicao{" + "setor=" + setor + ", usuario=" + idUsuario + ", listaItens=" + listaItens + ", quantidadeItens=" + quantidadeItens + '}';
     }
 
   
