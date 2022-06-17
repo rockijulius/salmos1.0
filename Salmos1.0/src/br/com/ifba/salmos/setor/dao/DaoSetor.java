@@ -17,7 +17,7 @@ public class DaoSetor extends BaseDAO<Setor> implements IDaoSetor {
 
     @Override
     public List<Setor> findByName(String name) {
-        String busca = "SELECT a FROM Aluno AS a WHERE a.nome=:nome";
+        String busca = "SELECT a FROM Setor AS a WHERE a.nome=:nome";
         Query query = entityManager.createQuery(busca);
         query.setParameter("nome", name);
         return query.getResultList();  
