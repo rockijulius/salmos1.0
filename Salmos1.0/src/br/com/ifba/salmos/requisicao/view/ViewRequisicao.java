@@ -4,6 +4,9 @@
  */
 package br.com.ifba.salmos.requisicao.view;
 
+import br.com.ifba.salmos.homescreen.view.homescreen;
+import br.com.ifba.salmos.requisicao.model.RequisicaoTableModel;
+
 /**
  *
  * @author Igor Lopes
@@ -13,8 +16,12 @@ public class ViewRequisicao extends javax.swing.JFrame {
     /**
      * Creates new form ViewRequisicao
      */
+    
+    RequisicaoTableModel tableModel = new RequisicaoTableModel();
     public ViewRequisicao() {
         initComponents();
+        
+        jTableRequisicoes.setModel(tableModel);
     }
 
     /**
@@ -26,21 +33,94 @@ public class ViewRequisicao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableRequisicoes = new javax.swing.JTable();
+        jBtnCadastrarRequisicao = new javax.swing.JButton();
+        jBtnAlterarRequisicao = new javax.swing.JButton();
+        jBtnExcluirRequisicao = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTableRequisicoes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableRequisicoes);
+
+        jBtnCadastrarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/adicionar.png"))); // NOI18N
+        jBtnCadastrarRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCadastrarRequisicaoActionPerformed(evt);
+            }
+        });
+
+        jBtnAlterarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/alterar.png"))); // NOI18N
+
+        jBtnExcluirRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/excluir.png"))); // NOI18N
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/home.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnCadastrarRequisicao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnAlterarRequisicao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnExcluirRequisicao)
+                        .addGap(18, 18, 18))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtnCadastrarRequisicao)
+                            .addComponent(jBtnAlterarRequisicao))
+                        .addComponent(jBtnExcluirRequisicao))
+                    .addComponent(jButton1))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new homescreen().setVisible(true);  //chama tela inicial
+        dispose();  //fecha tela atual
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jBtnCadastrarRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarRequisicaoActionPerformed
+        new ViewCadastroRequisicao().setVisible(true); //chama tela de cadastro
+        dispose();
+    }//GEN-LAST:event_jBtnCadastrarRequisicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +158,11 @@ public class ViewRequisicao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAlterarRequisicao;
+    private javax.swing.JButton jBtnCadastrarRequisicao;
+    private javax.swing.JButton jBtnExcluirRequisicao;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableRequisicoes;
     // End of variables declaration//GEN-END:variables
 }
