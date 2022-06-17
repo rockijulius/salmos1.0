@@ -4,7 +4,7 @@
  */
 package br.com.ifba.salmos.tiposdeusuarios.view;
 
-import br.com.ifba.salmos.homescreem.view.homescreem;
+import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
@@ -386,7 +386,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_tblTipoDeUsuarioMouseClicked
 
     private void btnHomescreenTipoUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomescreenTipoUsuActionPerformed
-        homescreem home = new homescreem();
+        homescreen home = new homescreen();
         home.setVisible(true);
         
         this.setVisible(false);

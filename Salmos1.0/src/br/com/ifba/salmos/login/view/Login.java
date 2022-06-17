@@ -4,7 +4,7 @@
  */
 package br.com.ifba.salmos.login.view;
 
-import br.com.ifba.salmos.homescreem.view.homescreem;
+import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
 import br.com.ifba.salmos.usuario.model.Usuario;
@@ -60,7 +60,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bem Vindo " + user.getNome(), "Sucesso!",
                     JOptionPane.INFORMATION_MESSAGE);
 
-            new homescreem().setVisible(true);
+            new homescreen().setVisible(true);
             this.setVisible(false);
         }
     }

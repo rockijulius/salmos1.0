@@ -4,7 +4,7 @@
  */
 package br.com.ifba.salmos.item.view;
 
-import br.com.ifba.salmos.homescreem.view.homescreem;
+import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.item.model.Item;
@@ -289,7 +289,7 @@ public class ViewItem extends javax.swing.JFrame {
     private void btnHomescreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomescreenActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        homescreem home = new homescreem();
+        homescreen home = new homescreen();
         home.setVisible(true);
     }//GEN-LAST:event_btnHomescreenActionPerformed
 
