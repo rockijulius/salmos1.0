@@ -7,6 +7,7 @@ package br.com.ifba.salmos.homescreen.view;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.item.view.ViewItem;
 import br.com.ifba.salmos.login.view.Login;
+import br.com.ifba.salmos.requisicao.view.ViewRequisicao;
 import br.com.ifba.salmos.setor.view.SetorView;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
@@ -54,6 +55,7 @@ public class homescreen extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         btnItens = new javax.swing.JButton();
         btnSetor = new javax.swing.JButton();
+        btnRequisicao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -122,6 +124,13 @@ public class homescreen extends javax.swing.JFrame {
             }
         });
 
+        btnRequisicao.setText("Requisição");
+        btnRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequisicaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PTelaInicialLayout = new javax.swing.GroupLayout(PTelaInicial);
         PTelaInicial.setLayout(PTelaInicialLayout);
         PTelaInicialLayout.setHorizontalGroup(
@@ -129,25 +138,25 @@ public class homescreen extends javax.swing.JFrame {
             .addGroup(PTelaInicialLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PTelaInicialLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSetor)
-                        .addGap(35, 35, 35))
                     .addGroup(PTelaInicialLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(btnUsuario))
+                    .addGroup(PTelaInicialLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnItens))
-                            .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTIposUsusario))
-                            .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(btnUsuario))
-                            .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(btnLogout)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btnItens)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSetor))
+                            .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                    .addComponent(btnLogout)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRequisicao))
+                                .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                    .addComponent(btnTIposUsusario)
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PTelaInicialLayout.setVerticalGroup(
             PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,9 +166,11 @@ public class homescreen extends javax.swing.JFrame {
                 .addComponent(btnTIposUsusario)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogout)
+                    .addComponent(btnRequisicao))
+                .addGap(18, 18, 18)
                 .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnItens)
                     .addComponent(btnSetor))
@@ -222,6 +233,13 @@ public class homescreen extends javax.swing.JFrame {
         setVisible(false);
         setor.setVisible(true);
     }//GEN-LAST:event_btnSetorActionPerformed
+
+    private void btnRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequisicaoActionPerformed
+        // TODO add your handling code here:
+        ViewRequisicao requisicao = new ViewRequisicao();
+        setVisible(false);
+        requisicao.setVisible(true);
+    }//GEN-LAST:event_btnRequisicaoActionPerformed
 
     private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TabelaMouseClicked
 
@@ -306,6 +324,7 @@ public class homescreen extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Tabela;
     private javax.swing.JButton btnItens;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnRequisicao;
     private javax.swing.JButton btnSetor;
     private javax.swing.JButton btnTIposUsusario;
     private javax.swing.JButton btnUsuario;
