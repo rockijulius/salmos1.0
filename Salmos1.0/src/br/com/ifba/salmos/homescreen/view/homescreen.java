@@ -7,6 +7,7 @@ package br.com.ifba.salmos.homescreen.view;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.item.view.ViewItem;
 import br.com.ifba.salmos.login.view.Login;
+import br.com.ifba.salmos.setor.view.SetorView;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import br.com.ifba.salmos.usuario.view.ViewUsuario;
@@ -39,7 +40,7 @@ public class homescreen extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -52,6 +53,7 @@ public class homescreen extends javax.swing.JFrame {
         btnUsuario = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnItens = new javax.swing.JButton();
+        btnSetor = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -60,8 +62,7 @@ public class homescreen extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
 
         Tabela.setBackground(new java.awt.Color(0, 0, 0));
         Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,18 +74,18 @@ public class homescreen extends javax.swing.JFrame {
         PTelaInicial.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
         jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         btnTIposUsusario.setText("Operações com Tipo de usuario");
         btnTIposUsusario.addActionListener(new java.awt.event.ActionListener() {
@@ -114,52 +115,56 @@ public class homescreen extends javax.swing.JFrame {
             }
         });
 
+        btnSetor.setText("Setor");
+        btnSetor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PTelaInicialLayout = new javax.swing.GroupLayout(PTelaInicial);
         PTelaInicial.setLayout(PTelaInicialLayout);
         PTelaInicialLayout.setHorizontalGroup(
-                PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(PTelaInicialLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PTelaInicialLayout
-                                                .createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnUsuario)
-                                                .addGap(35, 35, 35))
-                                        .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                                .addGroup(PTelaInicialLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnTIposUsusario))
-                                                        .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                                                .addGap(78, 78, 78)
-                                                                .addGroup(PTelaInicialLayout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(btnLogout)
-                                                                        .addGroup(PTelaInicialLayout
-                                                                                .createSequentialGroup()
-                                                                                .addGap(10, 10, 10)
-                                                                                .addComponent(btnItens)))))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        Short.MAX_VALUE)))));
+            PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PTelaInicialLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSetor)
+                        .addGap(35, 35, 35))
+                    .addGroup(PTelaInicialLayout.createSequentialGroup()
+                        .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnItens))
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnTIposUsusario))
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(btnUsuario))
+                            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(btnLogout)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
         PTelaInicialLayout.setVerticalGroup(
-                PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btnTIposUsusario)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnUsuario)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLogout)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnItens)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PTelaInicialLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnTIposUsusario)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnItens)
+                    .addComponent(btnSetor))
+                .addContainerGap())
+        );
 
         Tabela.addTab("Tela inicial", PTelaInicial);
 
@@ -176,42 +181,47 @@ public class homescreen extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-                                .addGap(187, 187, 187))
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 383, Short.MAX_VALUE)
+                .addGap(187, 187, 187))
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(Tabela)
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel2)));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(Tabela)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetorActionPerformed
+        // TODO add your handling code here:
+        SetorView setor = new SetorView();
+        setVisible(false);
+        setor.setVisible(true);
+    }//GEN-LAST:event_btnSetorActionPerformed
 
     private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TabelaMouseClicked
 
@@ -296,6 +306,7 @@ public class homescreen extends javax.swing.JFrame {
     private javax.swing.JTabbedPane Tabela;
     private javax.swing.JButton btnItens;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSetor;
     private javax.swing.JButton btnTIposUsusario;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;

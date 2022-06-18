@@ -6,6 +6,7 @@ package br.com.ifba.salmos.setor.view;
 
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.setor.model.Setor;
 import br.com.ifba.salmos.usuario.model.Usuario;
 
@@ -386,8 +387,22 @@ public class SetorView extends javax.swing.JFrame {
         Setor set = new Setor();
         set.setDescrição(txtDescricao.getText());
         set.setNome(txtNome.getText());
+        
+        int i;
+        List<Setor> verificarNome = FacadeInstance.getInstance().getAllSetor();
+        
+        if(validaCampos() == true){
+            
+            for(i = 0; i < verificarNome.size(); i++){
+                if(set.getNome().equals(verificarNome.get(i).getNome())){
+                    JOptionPane.showMessageDialog(null, "Setor já cadastrado no sistema", "Atenção", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+            FacadeInstance.getInstance().saveSetor(set);
+        }
 
-        FacadeInstance.getInstance().saveSetor(set);
+        
         if (set.getId() != null) {
             this.listSetor.add(set);
             this.updateTable(this.listSetor);
@@ -554,4 +569,23 @@ public class SetorView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeEdit;
     // End of variables declaration//GEN-END:variables
+    private boolean validaCampos() {
+        StringUtil util = StringUtil.getInstance();
+        if (txtNome.getText().equals("") && txtDescricao.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.ERROR_MESSAGE);
+            return false;
+
+        } else if (util.isNullOrEmpty(txtNome.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+
+        } else if (util.isNullOrEmpty(txtDescricao.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Descrição", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
 }
