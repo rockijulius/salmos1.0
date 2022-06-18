@@ -35,11 +35,15 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.usuarioLogado = user;
+        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        atualizarTabela(this.lista);
     }
 
     public ViewTipoDeUsuario() {
         initComponents();
         setLocationRelativeTo(null);
+        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        atualizarTabela(this.lista);
     }
 
     private void atualizarTabela(List<TipoDeUsuario> listaUsuario) {
@@ -59,298 +63,352 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JTabbedPane1 = new javax.swing.JTabbedPane();
-        panelAdd = new javax.swing.JPanel();
-        lblNomeAdd = new javax.swing.JLabel();
-        lblDescriçãoAdd = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        lblDescricao = new javax.swing.JLabel();
         txtNomeAdd = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         txtDescriçãoAdd = new javax.swing.JTextField();
-        btnAdicionarAdd = new javax.swing.JButton();
-        btnHomescreenTipoUsu = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        panelListar = new javax.swing.JPanel();
-        btnListar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tblTipoDeUsuario = new javax.swing.JTable();
-        btnEditar = new javax.swing.JButton();
-        btnRemover = new javax.swing.JButton();
+        lblNomeEdit = new javax.swing.JLabel();
+        txtNomeEdit = new javax.swing.JTextField();
+        lblDescricaoEdit = new javax.swing.JLabel();
+        btnSalvarEdit = new javax.swing.JButton();
+        btnExcluirEdit = new javax.swing.JButton();
+        btnCancelarEdit = new javax.swing.JButton();
+        txtDescricaoEdit = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Tipo De Usuário");
+        setPreferredSize(new java.awt.Dimension(766, 479));
 
-        JTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-        JTabbedPane1.setForeground(new java.awt.Color(250, 206, 86));
-        JTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JTabbedPane1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelAdd.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
-        lblNomeAdd.setBackground(new java.awt.Color(250, 206, 86));
-        lblNomeAdd.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        lblNomeAdd.setForeground(new java.awt.Color(250, 206, 86));
-        lblNomeAdd.setText("Nome:");
-
-        lblDescriçãoAdd.setBackground(new java.awt.Color(250, 206, 86));
-        lblDescriçãoAdd.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        lblDescriçãoAdd.setForeground(new java.awt.Color(250, 206, 86));
-        lblDescriçãoAdd.setText("Descrição:");
+        lblDescricao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        lblDescricao.setForeground(new java.awt.Color(232, 189, 72));
+        lblDescricao.setText("Descrição");
 
         txtNomeAdd.setBackground(new java.awt.Color(253, 255, 175));
-        txtNomeAdd.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         txtNomeAdd.setBorder(null);
-        txtNomeAdd.setSelectionColor(new java.awt.Color(253, 255, 175));
+        txtNomeAdd.setSelectionColor(new java.awt.Color(250, 206, 86));
+        txtNomeAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeAddKeyPressed(evt);
+            }
+        });
+
+        lblNome.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(232, 189, 72));
+        lblNome.setText("Nome");
+
+        btnSalvar.setBackground(new java.awt.Color(232, 189, 72));
+        btnSalvar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(253, 255, 175));
+        btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(null);
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setBackground(new java.awt.Color(232, 189, 72));
+        btnCancelar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(253, 255, 175));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         txtDescriçãoAdd.setBackground(new java.awt.Color(253, 255, 175));
-        txtDescriçãoAdd.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         txtDescriçãoAdd.setBorder(null);
-        txtDescriçãoAdd.setSelectionColor(new java.awt.Color(253, 255, 175));
-        txtDescriçãoAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescriçãoAddActionPerformed(evt);
-            }
-        });
+        txtDescriçãoAdd.setSelectionColor(new java.awt.Color(250, 206, 86));
 
-        btnAdicionarAdd.setBackground(new java.awt.Color(250, 206, 86));
-        btnAdicionarAdd.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        btnAdicionarAdd.setForeground(new java.awt.Color(253, 255, 175));
-        btnAdicionarAdd.setText("Adicionar");
-        btnAdicionarAdd.setBorder(null);
-        btnAdicionarAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarAddActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(160, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblDescricao)
+                        .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNome)
+                        .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(lblNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblDescricao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
 
-        btnHomescreenTipoUsu.setBackground(new java.awt.Color(250, 206, 86));
-        btnHomescreenTipoUsu.setFont(new java.awt.Font("Lucida Console", 3, 12)); // NOI18N
-        btnHomescreenTipoUsu.setForeground(new java.awt.Color(253, 255, 175));
-        btnHomescreenTipoUsu.setText("Homescreen");
-        btnHomescreenTipoUsu.setBorder(null);
-        btnHomescreenTipoUsu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomescreenTipoUsuActionPerformed(evt);
-            }
-        });
+        jTabbedPane1.addTab("Cadastro", jPanel3);
 
-        javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
-        panelAdd.setLayout(panelAddLayout);
-        panelAddLayout.setHorizontalGroup(
-                panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelAddLayout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 206,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnAdicionarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 90,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panelAddLayout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(panelAddLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblDescriçãoAdd)
-                                                        .addComponent(txtNomeAdd,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 206,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(lblNomeAdd))))
-                                .addContainerGap(225, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                panelAddLayout.createSequentialGroup()
-                                                        .addComponent(btnHomescreenTipoUsu,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 83,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(53, 53, 53))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                panelAddLayout.createSequentialGroup()
-                                                        .addComponent(jLabel1)
-                                                        .addGap(44, 44, 44)))));
-        panelAddLayout.setVerticalGroup(
-                panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelAddLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61,
-                                        Short.MAX_VALUE)
-                                .addComponent(lblNomeAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2))
-                                .addGap(23, 23, 23)
-                                .addComponent(lblDescriçãoAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDescriçãoAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAdicionarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 27,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(btnHomescreenTipoUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 23,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        panelAddLayout.linkSize(javax.swing.SwingConstants.VERTICAL,
-                new java.awt.Component[] { txtDescriçãoAdd, txtNomeAdd });
-
-        JTabbedPane1.addTab("Adicionar", panelAdd);
-
-        btnListar.setBackground(new java.awt.Color(250, 206, 86));
-        btnListar.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(253, 255, 175));
-        btnListar.setText("Listar");
-        btnListar.setBorder(null);
-        btnListar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarActionPerformed(evt);
-            }
-        });
-
-        tblTipoDeUsuario.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        tblTipoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblTipoDeUsuario.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null }
-                },
-                new String[] {
-                        "ID", "Nome", "Descrição"
-                }));
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblTipoDeUsuario.setRowHeight(30);
         tblTipoDeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTipoDeUsuarioMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblTipoDeUsuario);
-        if (tblTipoDeUsuario.getColumnModel().getColumnCount() > 0) {
-            tblTipoDeUsuario.getColumnModel().getColumn(0).setResizable(false);
-        }
+        jScrollPane2.setViewportView(tblTipoDeUsuario);
 
-        btnEditar.setBackground(new java.awt.Color(250, 206, 86));
-        btnEditar.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(253, 255, 175));
-        btnEditar.setText("Editar");
-        btnEditar.setBorder(null);
-        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
+        lblNomeEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        lblNomeEdit.setForeground(new java.awt.Color(232, 189, 72));
+        lblNomeEdit.setText("Nome");
+
+        txtNomeEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtNomeEdit.setBorder(null);
+        txtNomeEdit.setEnabled(false);
+        txtNomeEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
+        txtNomeEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeEditKeyPressed(evt);
             }
         });
 
-        btnRemover.setBackground(new java.awt.Color(250, 206, 86));
-        btnRemover.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 14)); // NOI18N
-        btnRemover.setForeground(new java.awt.Color(253, 255, 175));
-        btnRemover.setText("Remover");
-        btnRemover.setBorder(null);
-        btnRemover.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+        lblDescricaoEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        lblDescricaoEdit.setForeground(new java.awt.Color(232, 189, 72));
+        lblDescricaoEdit.setText("Descrição");
+
+        btnSalvarEdit.setBackground(new java.awt.Color(232, 189, 72));
+        btnSalvarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvarEdit.setForeground(new java.awt.Color(253, 255, 175));
+        btnSalvarEdit.setText("Salvar");
+        btnSalvarEdit.setBorder(null);
+        btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalvarEdit.setEnabled(false);
+        btnSalvarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverActionPerformed(evt);
+                btnSalvarEditActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panelListarLayout = new javax.swing.GroupLayout(panelListar);
-        panelListar.setLayout(panelListarLayout);
-        panelListarLayout.setHorizontalGroup(
-                panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelListarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
-                                .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 105,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)));
+        btnExcluirEdit.setBackground(new java.awt.Color(232, 189, 72));
+        btnExcluirEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnExcluirEdit.setForeground(new java.awt.Color(253, 255, 175));
+        btnExcluirEdit.setText("Excluir");
+        btnExcluirEdit.setBorder(null);
+        btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExcluirEdit.setEnabled(false);
+        btnExcluirEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirEditActionPerformed(evt);
+            }
+        });
 
-        panelListarLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL,
-                new java.awt.Component[] { btnEditar, btnListar, btnRemover });
+        btnCancelarEdit.setBackground(new java.awt.Color(232, 189, 72));
+        btnCancelarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelarEdit.setForeground(new java.awt.Color(253, 255, 175));
+        btnCancelarEdit.setText("Cancelar");
+        btnCancelarEdit.setBorder(null);
+        btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelarEdit.setEnabled(false);
+        btnCancelarEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarEditActionPerformed(evt);
+            }
+        });
 
-        panelListarLayout.setVerticalGroup(
-                panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelListarLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnListar, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnRemover))
-                                .addGap(7, 7, 7)));
+        txtDescricaoEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtDescricaoEdit.setBorder(null);
+        txtDescricaoEdit.setEnabled(false);
+        txtDescricaoEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
+        txtDescricaoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDescricaoEditKeyPressed(evt);
+            }
+        });
 
-        panelListarLayout.linkSize(javax.swing.SwingConstants.VERTICAL,
-                new java.awt.Component[] { btnEditar, btnListar, btnRemover });
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNomeEdit)
+                            .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDescricaoEdit))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 58, Short.MAX_VALUE)
+                        .addComponent(lblNomeEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(lblDescricaoEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 48, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
-        JTabbedPane1.addTab("Listar", panelListar);
+        jTabbedPane1.addTab("Editar", jPanel2);
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Tipo de usuário");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jTabbedPane1)
+                .addGap(100, 100, 100))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel4)
+                .addGap(26, 26, 26)
+                .addComponent(jTabbedPane1)
+                .addGap(75, 75, 75))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 8, Short.MAX_VALUE)
-                                .addComponent(JTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING,
-                                javax.swing.GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRemoverActionPerformed
+    private void txtNomeAddKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeAddKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeAddKeyPressed
 
-        List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        TipoDeUsuario tipodeusuarioAdd = new TipoDeUsuario();
+        if (validaCampos() == true) {
+            tipodeusuarioAdd.setNome(txtNomeAdd.getText());
+            tipodeusuarioAdd.setDescricao(txtDescriçãoAdd.getText());
+            FacadeInstance.getInstance().saveTipoDeUsuario(tipodeusuarioAdd);
+            this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            this.atualizarTabela(this.lista);
+            JOptionPane.showMessageDialog(null, "Tipo De Usuário Cadastrado!!!");
+            txtNomeAdd.setText("");
+            txtDescriçãoAdd.setText("");
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
-        for (Usuario usu : listaUsuario) {
-            if (usu.getTipodeusuario().equals(tipodeusuario.getNome())) {
-                FacadeInstance.getInstance().deleteUsuario(usu);
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        txtNomeAdd.setText("");
+        txtDescriçãoAdd.setText("");
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void tblTipoDeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTipoDeUsuarioMouseClicked
+        this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
+        if (this.selecionado != -1) {
+            this.tipodeusuario = this.lista.get(this.selecionado);
+            if (this.tipodeusuario != null) {
+                txtNomeEdit.setText(this.tipodeusuario.getNome());
+                txtDescricaoEdit.setText(this.tipodeusuario.getDescricao());
+                txtNomeEdit.setEnabled(true);
+                txtDescricaoEdit.setEnabled(true);
+                btnCancelarEdit.setEnabled(true);
+                btnExcluirEdit.setEnabled(true);
+                btnSalvarEdit.setEnabled(true);
+            } else {
+                btnCancelarEdit.doClick();
             }
         }
+    }//GEN-LAST:event_tblTipoDeUsuarioMouseClicked
 
-        FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
-        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
-        this.atualizarTabela(this.lista);
-        JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
-        this.selecionado = -1;
-    }// GEN-LAST:event_btnRemoverActionPerformed
+    private void txtNomeEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeEditKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeEditKeyPressed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditarActionPerformed
-
+    private void btnSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarEditActionPerformed
         this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
 
         if (this.selecionado != -1) {
 
-            String nome = JOptionPane.showInputDialog(null, "Digite um nome: ");
-            String descricao = JOptionPane.showInputDialog(null, "Digite uma Descrição: ");
+            String nome = txtNomeEdit.getText();
+            String descricao = txtDescricaoEdit.getText();
 
             List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();
 
@@ -384,6 +442,48 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione corretamente o tipo de usuario para ser alterado!!",
                     "Atenção", JOptionPane.WARNING_MESSAGE);
         }
+        btnCancelarEdit.doClick();
+    }//GEN-LAST:event_btnSalvarEditActionPerformed
+
+    private void btnExcluirEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirEditActionPerformed
+        List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();
+
+        for (Usuario usu : listaUsuario) {
+            if (usu.getTipodeusuario().equals(tipodeusuario.getNome())) {
+                FacadeInstance.getInstance().deleteUsuario(usu);
+            }
+        }
+
+        FacadeInstance.getInstance().deleteTipoDeUsuario(tipodeusuario);
+        this.lista = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        this.atualizarTabela(this.lista);
+        JOptionPane.showMessageDialog(null, "Usuario Excluído", "Atenção", JOptionPane.WARNING_MESSAGE);
+        this.selecionado = -1;
+    }//GEN-LAST:event_btnExcluirEditActionPerformed
+
+    private void btnCancelarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEditActionPerformed
+        txtDescricaoEdit.setText("");
+        txtNomeEdit.setText("");
+
+        txtNomeEdit.setEnabled(false);
+        txtDescricaoEdit.setEnabled(false);
+        btnCancelarEdit.setEnabled(false);
+        btnExcluirEdit.setEnabled(false);
+        btnSalvarEdit.setEnabled(false);
+
+        this.tipodeusuario = null;
+    }//GEN-LAST:event_btnCancelarEditActionPerformed
+
+    private void txtDescricaoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescricaoEditKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescricaoEditKeyPressed
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRemoverActionPerformed
+        
+    }// GEN-LAST:event_btnRemoverActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditarActionPerformed
+        
     }// GEN-LAST:event_btnEditarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarActionPerformed
@@ -409,13 +509,6 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private void txtDescriçãoAddActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtDescriçãoAddActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_txtDescriçãoAddActionPerformed
-
-    private void tblTipoDeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblTipoDeUsuarioMouseClicked
-        this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
-        if (this.selecionado != -1) {
-            this.tipodeusuario = this.lista.get(this.selecionado);
-        }
-    }// GEN-LAST:event_tblTipoDeUsuarioMouseClicked
 
     private void btnHomescreenTipoUsuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHomescreenTipoUsuActionPerformed
         homescreen home = new homescreen();
@@ -489,21 +582,25 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane JTabbedPane1;
-    private javax.swing.JButton btnAdicionarAdd;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnHomescreenTipoUsu;
-    private javax.swing.JButton btnListar;
-    private javax.swing.JButton btnRemover;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDescriçãoAdd;
-    private javax.swing.JLabel lblNomeAdd;
-    private javax.swing.JPanel panelAdd;
-    private javax.swing.JPanel panelListar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancelarEdit;
+    private javax.swing.JButton btnExcluirEdit;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnSalvarEdit;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblDescricao;
+    private javax.swing.JLabel lblDescricaoEdit;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNomeEdit;
     private javax.swing.JTable tblTipoDeUsuario;
+    private javax.swing.JTextField txtDescricaoEdit;
     private javax.swing.JTextField txtDescriçãoAdd;
     private javax.swing.JTextField txtNomeAdd;
+    private javax.swing.JTextField txtNomeEdit;
     // End of variables declaration//GEN-END:variables
 }
