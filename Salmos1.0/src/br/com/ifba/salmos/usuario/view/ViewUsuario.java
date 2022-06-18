@@ -27,9 +27,19 @@ public class ViewUsuario extends javax.swing.JFrame {
     int selecionado;
     
     Usuario usuario;
+    
+    Usuario usuarioLogado;
     /**
      * Creates new form UsuarioView
      */
+    public ViewUsuario(Usuario user) {
+        initComponents();
+        setLocationRelativeTo(null);
+        CmbBoxTipoUsuario();
+        
+        this.usuarioLogado = user;
+    }
+    
     public ViewUsuario() {
         initComponents();
         setLocationRelativeTo(null);

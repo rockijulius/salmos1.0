@@ -60,7 +60,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bem Vindo " + user.getNome(), "Sucesso!",
                     JOptionPane.INFORMATION_MESSAGE);
 
-            new homescreen().setVisible(true);
+            new homescreen(user).setVisible(true);
             this.setVisible(false);
         }
     }
