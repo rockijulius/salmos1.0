@@ -89,42 +89,66 @@ public class homescreen extends javax.swing.JFrame {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        btnTIposUsusario.setText("Operações com Tipo de usuario");
+        btnTIposUsusario.setBackground(new java.awt.Color(232, 189, 72));
+        btnTIposUsusario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnTIposUsusario.setForeground(new java.awt.Color(253, 255, 175));
+        btnTIposUsusario.setText("Operações Tipo de usuario");
+        btnTIposUsusario.setBorder(null);
         btnTIposUsusario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTIposUsusarioActionPerformed(evt);
             }
         });
 
+        btnUsuario.setBackground(new java.awt.Color(232, 189, 72));
+        btnUsuario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnUsuario.setForeground(new java.awt.Color(253, 255, 175));
         btnUsuario.setText("Operações de usuário");
+        btnUsuario.setBorder(null);
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
             }
         });
 
+        btnLogout.setBackground(new java.awt.Color(232, 189, 72));
+        btnLogout.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(253, 255, 175));
         btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
 
+        btnItens.setBackground(new java.awt.Color(232, 189, 72));
+        btnItens.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnItens.setForeground(new java.awt.Color(253, 255, 175));
         btnItens.setText("Itens");
+        btnItens.setBorder(null);
         btnItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItensActionPerformed(evt);
             }
         });
 
+        btnSetor.setBackground(new java.awt.Color(232, 189, 72));
+        btnSetor.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSetor.setForeground(new java.awt.Color(253, 255, 175));
         btnSetor.setText("Setor");
+        btnSetor.setBorder(null);
         btnSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetorActionPerformed(evt);
             }
         });
 
+        btnRequisicao.setBackground(new java.awt.Color(232, 189, 72));
+        btnRequisicao.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnRequisicao.setForeground(new java.awt.Color(253, 255, 175));
         btnRequisicao.setText("Requisição");
+        btnRequisicao.setBorder(null);
         btnRequisicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequisicaoActionPerformed(evt);
@@ -139,41 +163,39 @@ public class homescreen extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PTelaInicialLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(btnUsuario))
-                    .addGroup(PTelaInicialLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTIposUsusario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                .addComponent(btnItens)
+                                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                                    .addComponent(btnItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSetor))
-                            .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                    .addComponent(btnLogout)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRequisicao))
-                                .addGroup(PTelaInicialLayout.createSequentialGroup()
-                                    .addComponent(btnTIposUsusario)
-                                    .addGap(0, 0, Short.MAX_VALUE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRequisicao, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PTelaInicialLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
         PTelaInicialLayout.setVerticalGroup(
             PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PTelaInicialLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnTIposUsusario)
-                .addGap(18, 18, 18)
-                .addComponent(btnUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnTIposUsusario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogout)
-                    .addComponent(btnRequisicao))
-                .addGap(18, 18, 18)
-                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnItens)
-                    .addComponent(btnSetor))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnItens, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(btnSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -197,7 +219,7 @@ public class homescreen extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
-                .addComponent(Tabela, javax.swing.GroupLayout.PREFERRED_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(Tabela)
                 .addGap(187, 187, 187))
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );

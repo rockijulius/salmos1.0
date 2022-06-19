@@ -130,7 +130,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="btnHomescreen" min="-2" pref="109" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="btnCancelar1" min="-2" pref="77" max="-2" attributes="0"/>
+                                                  <Component id="btnDescricao" min="-2" pref="77" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -187,7 +187,7 @@
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnHomescreen" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="btnCancelar1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="btnDescricao" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
@@ -386,7 +386,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomescreenActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCancelar1">
+                <Component class="javax.swing.JButton" name="btnDescricao">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="48" green="bd" red="e8" type="rgb"/>
@@ -397,7 +397,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="af" green="ff" red="fd" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Cancelar"/>
+                    <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -406,7 +406,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelar1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescricaoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

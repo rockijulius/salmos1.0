@@ -102,7 +102,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         lblDescricao3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         btnHomescreen = new javax.swing.JButton();
-        btnCancelar1 = new javax.swing.JButton();
+        btnDescricao = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblUsuario = new javax.swing.JTable();
@@ -209,15 +209,15 @@ public class ViewUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar1.setBackground(new java.awt.Color(232, 189, 72));
-        btnCancelar1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
-        btnCancelar1.setForeground(new java.awt.Color(253, 255, 175));
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.setBorder(null);
-        btnCancelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btnDescricao.setBackground(new java.awt.Color(232, 189, 72));
+        btnDescricao.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnDescricao.setForeground(new java.awt.Color(253, 255, 175));
+        btnDescricao.setText("Descrição");
+        btnDescricao.setBorder(null);
+        btnDescricao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
+                btnDescricaoActionPerformed(evt);
             }
         });
 
@@ -257,7 +257,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(btnDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -297,7 +297,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30))))
         );
 
@@ -717,12 +717,12 @@ public class ViewUsuario extends javax.swing.JFrame {
         retornar.setVisible(true);
     }//GEN-LAST:event_btnHomescreenActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescricaoActionPerformed
         // TODO add your handling code here:
         ViewDescricaoTipo descricao = new ViewDescricaoTipo();
         setVisible(false);
         descricao.setVisible(true);
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+    }//GEN-LAST:event_btnDescricaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -762,8 +762,8 @@ public class ViewUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnCancelarEdit;
+    private javax.swing.JButton btnDescricao;
     private javax.swing.JButton btnExcluirEdit;
     private javax.swing.JButton btnHomescreen;
     private javax.swing.JButton btnSalvar;
