@@ -49,7 +49,7 @@ public class ServiceItem implements IServiceItem{
     public Item updateItem(Item item) {
         if(item == null){
             throw new BusinessException(ITEM_NULL);
-        } else if(daoItem.findById(item.getId()) != null){
+        } else if(daoItem.findById(item.getId()) == null){
             throw new BusinessException(ITEM_EXISTE);
         } else{
             return daoItem.update(item);
