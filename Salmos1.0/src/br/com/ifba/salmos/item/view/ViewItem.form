@@ -431,7 +431,7 @@
                                   <Component id="btnSalvarEdit" min="-2" pref="77" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -660,7 +660,7 @@
               <Font name="Leelawadee UI" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Setor"/>
+            <Property name="text" type="java.lang.String" value="Item"/>
           </Properties>
         </Component>
       </SubComponents>
