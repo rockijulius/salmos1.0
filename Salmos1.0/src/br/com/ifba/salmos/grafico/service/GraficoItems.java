@@ -36,7 +36,7 @@ public class GraficoItems {
     public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "Nome Dos Items", 
+                "  Nome Dos Itens", 
                 "", 
                 "Quantidade", 
                 dataSet,
