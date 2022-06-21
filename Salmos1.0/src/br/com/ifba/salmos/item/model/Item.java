@@ -5,8 +5,10 @@
 package br.com.ifba.salmos.item.model;
 
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
+import br.com.ifba.salmos.requisicao.model.Requisicao;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,6 +19,9 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Item extends PersistenceEntity{
+
+    @ManyToMany(mappedBy = "itensRequisitados") //adicionado pra salvar requisição no banco
+    private List<Requisicao> requisicoes;   // fazendo os testes ainda, uma requisição de vários itens e um item pode estar em várias requisições
     
     private String nome;
     private String Descricao;
