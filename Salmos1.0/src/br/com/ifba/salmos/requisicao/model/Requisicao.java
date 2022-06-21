@@ -5,7 +5,10 @@
 package br.com.ifba.salmos.requisicao.model;
 
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
+import br.com.ifba.salmos.item.model.Item;
+import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,7 +20,8 @@ import javax.persistence.Table;
 public class Requisicao extends PersistenceEntity{
     private String setor;
     private long idUsuario;
-    private String listaItens;
+    @OneToMany
+    private Collection<Item> listaItens;
     private String quantidadeItens;
 
     
@@ -37,11 +41,11 @@ public class Requisicao extends PersistenceEntity{
         this.idUsuario = usuario;
     }
 
-    public String getListaItens() {
+    public Collection<Item> getListaItens() {
         return listaItens;
     }
 
-    public void setListaItens(String listaItens) {
+    public void setListaItens(Collection<Item> listaItens) {
         this.listaItens = listaItens;
     }
 
