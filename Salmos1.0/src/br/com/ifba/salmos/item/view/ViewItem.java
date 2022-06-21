@@ -495,13 +495,13 @@ public class ViewItem extends javax.swing.JFrame {
         List<Item> verificarItem = FacadeInstance.getInstance().getAllItem();
 
         if (validaCampos() == true) {
-            item.setNome(txtNome.getText());
-            item.setDescricao(txtDescricao.getText());
-            item.setQuantidade(quantidade);
+            itemL.setNome(txtNome.getText());
+            itemL.setDescricao(txtDescricao.getText());
+            itemL.setQuantidade(quantidade);
 
             for (i = 0; i < verificarItem.size(); i++) {
-                if (item.getNome().equals(verificarItem.get(i).getNome())) {
-                    JOptionPane.showMessageDialog(null, "Nome do item já existente", "Atenção",
+                if (itemL.getNome().equals(verificarItem.get(i).getNome())) {
+                    JOptionPane.showMessageDialog(null, "Item já existente", "Atenção",
                             JOptionPane.WARNING_MESSAGE);
                     return;
                 }
