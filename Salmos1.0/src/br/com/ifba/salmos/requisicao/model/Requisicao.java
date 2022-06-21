@@ -8,8 +8,9 @@ import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
 import br.com.ifba.salmos.item.model.Item;
 import java.util.Collection;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 
 /**
  *
@@ -19,9 +20,9 @@ import javax.persistence.Table;
 @Table
 public class Requisicao extends PersistenceEntity{
     private String setor;
-    private long idUsuario;
-    @OneToMany
-    private Collection<Item> listaItens;
+    private long idUsuario;    
+    @ManyToMany
+    private Collection<Item> itensRequisitados;
     private String quantidadeItens;
 
     
@@ -42,11 +43,11 @@ public class Requisicao extends PersistenceEntity{
     }
 
     public Collection<Item> getListaItens() {
-        return listaItens;
+        return itensRequisitados;
     }
 
     public void setListaItens(Collection<Item> listaItens) {
-        this.listaItens = listaItens;
+        this.itensRequisitados = listaItens;
     }
 
     public String getQuantidadeItens() {
@@ -59,10 +60,6 @@ public class Requisicao extends PersistenceEntity{
 
     @Override
     public String toString() {
-        return "Requisicao{" + "setor=" + setor + ", usuario=" + idUsuario + ", listaItens=" + listaItens + ", quantidadeItens=" + quantidadeItens + '}';
-    }
-
-  
-    
-    
+        return "Requisicao{" + "setor=" + setor + ", usuario=" + idUsuario + ", listaItens=" + itensRequisitados + ", quantidadeItens=" + quantidadeItens + '}';
+    }    
 }
