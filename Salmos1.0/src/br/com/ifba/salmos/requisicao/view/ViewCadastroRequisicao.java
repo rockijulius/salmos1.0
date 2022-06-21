@@ -6,13 +6,28 @@
 
 package br.com.ifba.salmos.requisicao.view;
 
+import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.setor.model.Setor;
+import br.com.ifba.salmos.usuario.model.Usuario;
+import java.util.List;
+
 /**
  *
  * @author rocki.julius
  */
 public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
+    private Usuario usuarioLogado;
+    private List<Setor> setores;
     /** Creates new form ViewCadastroRequisicao */
+        
+    public ViewCadastroRequisicao(Usuario usuarioLogado) {
+        initComponents();
+        
+        this.usuarioLogado = usuarioLogado;
+        iniciaComboBoxSetor();
+    }
+    
     public ViewCadastroRequisicao() {
         initComponents();
     }
@@ -29,7 +44,8 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         jBtnTelaRequisicoes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCmBoxSetor = new javax.swing.JComboBox<>();
+        jLblUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,35 +58,41 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
         jLabel1.setText("Setor:");
 
-        jLabel2.setText("jLabel2");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel2.setText("Usuário requisitante:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnTelaRequisicoes)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtnTelaRequisicoes)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addContainerGap(286, Short.MAX_VALUE))
+                        .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                    .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addComponent(jBtnTelaRequisicoes)
                 .addContainerGap())
         );
@@ -79,7 +101,7 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnTelaRequisicoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTelaRequisicoesActionPerformed
-        new ViewRequisicao().setVisible(true);
+        new ViewRequisicao(usuarioLogado).setVisible(true);
         dispose();
     }//GEN-LAST:event_jBtnTelaRequisicoesActionPerformed
 
@@ -120,9 +142,18 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnTelaRequisicoes;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCmBoxSetor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLblUsuario;
     // End of variables declaration//GEN-END:variables
 
+    
+    private void iniciaComboBoxSetor(){
+        setores = FacadeInstance.getInstance().getAllSetor();
+        for(int x = 0; x < setores.size(); x++){
+            jCmBoxSetor.addItem(setores.get(x).getNome());
+        }
+        
+    }
 }

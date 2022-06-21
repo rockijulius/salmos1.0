@@ -6,6 +6,7 @@ package br.com.ifba.salmos.requisicao.view;
 
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.requisicao.model.RequisicaoTableModel;
+import br.com.ifba.salmos.usuario.model.Usuario;
 
 /**
  *
@@ -16,12 +17,15 @@ public class ViewRequisicao extends javax.swing.JFrame {
     /**
      * Creates new form ViewRequisicao
      */
-    
+    private Usuario usuarioLogado;
     RequisicaoTableModel tableModel = new RequisicaoTableModel();
+    public ViewRequisicao(Usuario usuarioLogado) {
+        initComponents();        
+        this.usuarioLogado = usuarioLogado;
+    }
+    
     public ViewRequisicao() {
         initComponents();
-        
-        jTableRequisicoes.setModel(tableModel);
     }
 
     /**
@@ -118,7 +122,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBtnCadastrarRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarRequisicaoActionPerformed
-        new ViewCadastroRequisicao().setVisible(true); //chama tela de cadastro
+        new ViewCadastroRequisicao(usuarioLogado).setVisible(true); //chama tela de cadastro
         dispose();
     }//GEN-LAST:event_jBtnCadastrarRequisicaoActionPerformed
 
