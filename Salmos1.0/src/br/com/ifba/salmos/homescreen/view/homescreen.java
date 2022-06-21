@@ -275,9 +275,8 @@ public class homescreen extends javax.swing.JFrame {
 
     private void btnRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequisicaoActionPerformed
         // TODO add your handling code here:
-        ViewRequisicao requisicao = new ViewRequisicao();
-        setVisible(false);
-        requisicao.setVisible(true);
+        new ViewRequisicao(usuarioLogado).setVisible(true); //chama a módulo requisição passando usuário logado 
+        dispose(); // fecha tela atual
     }//GEN-LAST:event_btnRequisicaoActionPerformed
 
     private void btnGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficosActionPerformed
