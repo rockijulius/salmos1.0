@@ -102,6 +102,7 @@ public class ViewItem extends javax.swing.JFrame {
         lblNome4 = new javax.swing.JLabel();
         txtQuantidadeEdit = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         lblTabela.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblTabela.setText("TABELA DE ITENS");
@@ -174,7 +175,7 @@ public class ViewItem extends javax.swing.JFrame {
         lblNome1.setText("Nome");
 
         btnSalvar.setBackground(new java.awt.Color(232, 189, 72));
-        btnSalvar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(253, 255, 175));
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(null);
@@ -186,7 +187,7 @@ public class ViewItem extends javax.swing.JFrame {
         });
 
         btnCancelar.setBackground(new java.awt.Color(232, 189, 72));
-        btnCancelar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(253, 255, 175));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
@@ -202,7 +203,7 @@ public class ViewItem extends javax.swing.JFrame {
         txtDescricao.setSelectionColor(new java.awt.Color(250, 206, 86));
 
         btnHomescreen1.setBackground(new java.awt.Color(232, 189, 72));
-        btnHomescreen1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnHomescreen1.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnHomescreen1.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen1.setText("Homescreen");
         btnHomescreen1.setBorder(null);
@@ -455,13 +456,20 @@ public class ViewItem extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGap(26, 26, 26)
                 .addComponent(jTabbedPane1)
                 .addGap(75, 75, 75))
@@ -698,6 +706,7 @@ public class ViewItem extends javax.swing.JFrame {
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvarEdit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
