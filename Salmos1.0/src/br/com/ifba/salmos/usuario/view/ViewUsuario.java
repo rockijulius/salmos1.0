@@ -27,6 +27,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     List<TipoDeUsuario> listaTipo;
     List<Usuario> listaBuscar;
     int selecionado;
+    boolean escolher = false;
     
     Usuario usuario;
     
@@ -65,6 +66,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         
         this.tblUsuario.setModel(listaTabela);
     }
+   
     
     private void CmbBoxTipoUsuario(){
         cbbTipoDeUsuario.removeAll();
@@ -650,9 +652,12 @@ public class ViewUsuario extends javax.swing.JFrame {
     private void tblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuarioMouseClicked
         this.selecionado = this.tblUsuario.getSelectedRow();
         
-        if(this.selecionado != -1){
+        if(this.selecionado != -1 && escolher == true){
+            this.usuario = this.listaBuscar.get(this.selecionado);
+        }else if(this.selecionado != -1){
             this.usuario = this.lista.get(this.selecionado);
-        }
+        } 
+        
         if (this.usuario != null) {
             txtNomeEdit.setText(this.usuario.getNome());
             txtEmailEdit.setText(this.usuario.getEmail());
@@ -677,6 +682,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         } else {
             btnCancelarEdit.doClick();
         }
+        escolher = false;
     }//GEN-LAST:event_tblUsuarioMouseClicked
 
     private void btnSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarEditActionPerformed
@@ -792,7 +798,8 @@ public class ViewUsuario extends javax.swing.JFrame {
                 txtEmailEdit.setText(buscaUsuario.get(i).getEmail());
                 txtSenhaEdit.setText(buscaUsuario.get(i).getSenha());
                 txtUsuarioEdit.setText(buscaUsuario.get(i).getLogin());
-                tblUsuario.setEnabled(false);
+                
+                escolher = true;
             }
         }
         
@@ -804,6 +811,13 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
         tblUsuario.setEnabled(true);
+        
+        this.selecionado = this.tblUsuario.getSelectedRow();
+        
+        if(this.selecionado != -1){
+            this.usuario = this.listaBuscar.get(this.selecionado);
+            escolher = false;
+        }
     }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
 
     /**
