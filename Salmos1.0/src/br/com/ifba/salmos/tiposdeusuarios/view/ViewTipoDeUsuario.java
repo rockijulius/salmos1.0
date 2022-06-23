@@ -7,8 +7,10 @@ package br.com.ifba.salmos.tiposdeusuarios.view;
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.infrastructure.support.StringUtil;
+import br.com.ifba.salmos.setor.model.Setor;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -86,6 +88,8 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         btnExcluirEdit = new javax.swing.JButton();
         btnCancelarEdit = new javax.swing.JButton();
         txtDescricaoEdit = new javax.swing.JTextField();
+        lblBuscaTipoDeUsuario = new javax.swing.JLabel();
+        txtBuscaTipoDeUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -113,11 +117,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         lblNome.setText("Nome");
 
         btnSalvar.setBackground(new java.awt.Color(232, 189, 72));
-        btnSalvar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(253, 255, 175));
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(null);
-        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -125,11 +129,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         });
 
         btnCancelar.setBackground(new java.awt.Color(232, 189, 72));
-        btnCancelar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(253, 255, 175));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -141,11 +145,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         txtDescriçãoAdd.setSelectionColor(new java.awt.Color(250, 206, 86));
 
         btnHomescreen.setBackground(new java.awt.Color(232, 189, 72));
-        btnHomescreen.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnHomescreen.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
-        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHomescreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomescreenActionPerformed(evt);
@@ -177,7 +181,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(lblNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNomeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,7 +195,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(59, Short.MAX_VALUE))
+                        .addContainerGap(90, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,51 +290,72 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             }
         });
 
+        lblBuscaTipoDeUsuario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        lblBuscaTipoDeUsuario.setForeground(new java.awt.Color(253, 255, 175));
+        lblBuscaTipoDeUsuario.setText("Busque pelo nome:");
+
+        txtBuscaTipoDeUsuario.setBackground(new java.awt.Color(253, 255, 175));
+        txtBuscaTipoDeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscaTipoDeUsuarioKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNomeEdit)
-                            .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDescricaoEdit))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNomeEdit)
+                                    .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblDescricaoEdit)
+                            .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtBuscaTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblBuscaTipoDeUsuario)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 58, Short.MAX_VALUE)
                         .addComponent(lblNomeEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(38, 38, 38)
                         .addComponent(lblDescricaoEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 48, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13)
+                .addComponent(lblBuscaTipoDeUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscaTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Editar", jPanel2);
@@ -357,9 +382,9 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel4)
-                .addGap(26, 26, 26)
-                .addComponent(jTabbedPane1)
-                .addGap(75, 75, 75))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -372,7 +397,9 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -506,7 +533,19 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
         this.tipodeusuario = null;
     }//GEN-LAST:event_btnCancelarEditActionPerformed
-
+    private List<TipoDeUsuario> buscaTipoDeUsuario(String nome) {
+        if(nome == null || nome.equals("")){
+            return FacadeInstance.getInstance().getAllTipoDeUsuarios();
+        } 
+        List<TipoDeUsuario> search = new ArrayList<>();
+        
+        for (TipoDeUsuario tipousu : this.lista) {
+            if (tipousu.getNome().toLowerCase().contains(nome.toLowerCase()) ||
+                    nome.toLowerCase().contains(tipousu.getDescricao().toLowerCase()))
+                search.add(tipousu);
+        }
+        return search;
+    }
     private void txtDescricaoEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescricaoEditKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescricaoEditKeyPressed
@@ -517,6 +556,13 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         homescreen retornar = new homescreen();
         retornar.setVisible(true);
     }//GEN-LAST:event_btnHomescreenActionPerformed
+
+    private void txtBuscaTipoDeUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaTipoDeUsuarioKeyReleased
+        // TODO add your handling code here:
+        String nome = txtBuscaTipoDeUsuario.getText().toLowerCase();
+        this.lista = buscaTipoDeUsuario(nome);
+        atualizarTabela(lista);
+    }//GEN-LAST:event_txtBuscaTipoDeUsuarioKeyReleased
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRemoverActionPerformed
         
@@ -634,11 +680,13 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblBuscaTipoDeUsuario;
     private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblDescricaoEdit;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeEdit;
     private javax.swing.JTable tblTipoDeUsuario;
+    private javax.swing.JTextField txtBuscaTipoDeUsuario;
     private javax.swing.JTextField txtDescricaoEdit;
     private javax.swing.JTextField txtDescriçãoAdd;
     private javax.swing.JTextField txtNomeAdd;
