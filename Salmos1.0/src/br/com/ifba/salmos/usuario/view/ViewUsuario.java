@@ -788,8 +788,14 @@ public class ViewUsuario extends javax.swing.JFrame {
             if(nome.equals(buscaUsuario.get(i).getNome())){
                 this.listaBuscar = FacadeInstance.getInstance().findByName(nome);
                 this.atualizarTabela(listaBuscar);
+                txtNomeEdit.setText(buscaUsuario.get(i).getNome());
+                txtEmailEdit.setText(buscaUsuario.get(i).getEmail());
+                txtSenhaEdit.setText(buscaUsuario.get(i).getSenha());
+                txtUsuarioEdit.setText(buscaUsuario.get(i).getLogin());
+                tblUsuario.setEnabled(false);
             }
         }
+        
     }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
     private void btnMostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosActionPerformed
@@ -797,6 +803,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
         this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
+        tblUsuario.setEnabled(true);
     }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
 
     /**
