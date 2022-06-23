@@ -13,6 +13,5 @@ import java.util.List;
  * @author Igor Lopes
  */
 public interface IDaoRequisicao extends IBaseDAO<Requisicao>{
-    
-     public abstract List<Requisicao> findByName(String name);
+     public List<Requisicao> findByName(String name);
 }

@@ -8,10 +8,16 @@ package br.com.ifba.salmos.requisicao.view;
 
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.item.model.Item;
+import br.com.ifba.salmos.requisicao.model.ItensDisponiveisTableModel;
+import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.setor.model.Setor;
 import br.com.ifba.salmos.usuario.model.Usuario;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -21,17 +27,21 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
     private Usuario usuarioLogado;
     private List<Setor> setores;
-    private List<Item> itens;
-    DefaultListModel itensDisponiveis = new DefaultListModel();
+    private Collection<Item> itens;
+    private Collection<Item> itensRequisitados = new ArrayList();
+    ItensDisponiveisTableModel itensDisponiveis = new ItensDisponiveisTableModel();
+    
     
     /** Creates new form ViewCadastroRequisicao */
         
     public ViewCadastroRequisicao(Usuario usuarioLogado) {
         initComponents();
-        
+        setLocationRelativeTo(null);
         this.usuarioLogado = usuarioLogado;
+        jLblUsuario.setText(this.usuarioLogado.getNome());
         iniciaComboBoxSetor();
-        iniciaListaItens();
+        atualizaTabela();
+        
     }
     
     public ViewCadastroRequisicao() {
@@ -53,119 +63,97 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         jCmBoxSetor = new javax.swing.JComboBox<>();
         jLblUsuario = new javax.swing.JLabel();
         jBtnSalvarRequisicao = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListItensDisponiveis = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
         jBtnAdicionaListaRequisicao = new javax.swing.JButton();
         jBtnRemoveListaRequisicao = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListItensRequisitados = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         jSpinnerQuantidadeItemSelecionado = new javax.swing.JSpinner();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableItensDisponiveis = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListItensRequisitados = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBtnTelaRequisicoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/voltar.png"))); // NOI18N
+        jBtnTelaRequisicoes.setToolTipText("Voltar tela");
         jBtnTelaRequisicoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnTelaRequisicoesActionPerformed(evt);
             }
         });
+        getContentPane().add(jBtnTelaRequisicoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 441, -1, -1));
 
         jLabel1.setText("Setor:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 67, -1, -1));
 
         jLabel2.setText("Usuário requisitante:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
+
+        getContentPane().add(jCmBoxSetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 64, -1, -1));
+        getContentPane().add(jLblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 32, 100, 21));
 
         jBtnSalvarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/salvar.png"))); // NOI18N
-
-        jScrollPane1.setViewportView(jListItensDisponiveis);
+        jBtnSalvarRequisicao.setToolTipText("Salvar Requisição");
+        jBtnSalvarRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSalvarRequisicaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBtnSalvarRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, -1, -1));
 
         jLabel3.setText("Itens disponíveis:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 102, -1, -1));
 
         jBtnAdicionaListaRequisicao.setText(">>>");
+        jBtnAdicionaListaRequisicao.setToolTipText("Adicionar Item");
+        jBtnAdicionaListaRequisicao.setEnabled(false);
+        jBtnAdicionaListaRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAdicionaListaRequisicaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBtnAdicionaListaRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
         jBtnRemoveListaRequisicao.setText("<<<");
-
-        jScrollPane2.setViewportView(jListItensRequisitados);
+        jBtnRemoveListaRequisicao.setToolTipText("Remover Item");
+        getContentPane().add(jBtnRemoveListaRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
 
         jLabel4.setText("Quantidade:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
+        getContentPane().add(jSpinnerQuantidadeItemSelecionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 55, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBtnTelaRequisicoes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBtnSalvarRequisicao))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinnerQuantidadeItemSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(413, 413, 413))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBtnAdicionaListaRequisicao)
-                            .addComponent(jBtnRemoveListaRequisicao))
-                        .addGap(174, 174, 174))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jLblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(jSpinnerQuantidadeItemSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(37, 37, 37)
-                        .addComponent(jBtnAdicionaListaRequisicao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBtnRemoveListaRequisicao))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnTelaRequisicoes)
-                    .addComponent(jBtnSalvarRequisicao))
-                .addContainerGap())
-        );
+        jTableItensDisponiveis.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableItensDisponiveis.setToolTipText("ItensDisponíveis");
+        jTableItensDisponiveis.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTableItensDisponiveisFocusLost(evt);
+            }
+        });
+        jTableItensDisponiveis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableItensDisponiveisMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableItensDisponiveis);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 185, 270));
+
+        jListItensRequisitados.setToolTipText("Itens requisitados");
+        jScrollPane1.setViewportView(jListItensRequisitados);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,6 +162,38 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         new ViewRequisicao(usuarioLogado).setVisible(true);
         dispose();
     }//GEN-LAST:event_jBtnTelaRequisicoesActionPerformed
+
+    private void jBtnAdicionaListaRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAdicionaListaRequisicaoActionPerformed
+        int codItem = pegaCod();
+        int qtdSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
+        Item itemLocalizado = localizaItem(codItem);
+        Item itemRequisitado = new Item();
+                               
+        if(verificaQuantidade(itemLocalizado, qtdSolicitada) == true){
+            itemLocalizado.setQuantidade(itemLocalizado.getQuantidade() - qtdSolicitada);
+            FacadeInstance.getInstance().updateItem(itemLocalizado);
+            itemRequisitado = alteraInformacoesItem(itemLocalizado, qtdSolicitada);
+            itensRequisitados.add(itemRequisitado);
+            atualizaTabela();
+            atualizaLista();
+        }
+    }//GEN-LAST:event_jBtnAdicionaListaRequisicaoActionPerformed
+
+    private void jTableItensDisponiveisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableItensDisponiveisMouseClicked
+        jBtnAdicionaListaRequisicao.setEnabled(true);
+    }//GEN-LAST:event_jTableItensDisponiveisMouseClicked
+
+    private void jTableItensDisponiveisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableItensDisponiveisFocusLost
+
+    }//GEN-LAST:event_jTableItensDisponiveisFocusLost
+
+    private void jBtnSalvarRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarRequisicaoActionPerformed
+        Requisicao req = new Requisicao();
+        req.setListaItens(itens);
+        req.setUsuario(usuarioLogado.getId());
+        req.setSetor(jCmBoxSetor.getSelectedItem().toString());
+        FacadeInstance.getInstance().saveRequisicao(req);
+    }//GEN-LAST:event_jBtnSalvarRequisicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,28 +241,72 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLblUsuario;
-    private javax.swing.JList<String> jListItensDisponiveis;
     private javax.swing.JList<String> jListItensRequisitados;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinnerQuantidadeItemSelecionado;
+    private javax.swing.JTable jTableItensDisponiveis;
     // End of variables declaration//GEN-END:variables
 
+    private boolean verificaQuantidade(Item itemLocalizado, int qtdSolicitada) {
+        boolean qtd = false;
+        int qntSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
+        
+        if(itemLocalizado.getQuantidade() < qntSolicitada){
+            JOptionPane.showMessageDialog(null, "Quantidade solicitada maior que quantidade disponível!");
+            qtd = false;
+        }else{
+            qtd = true;
+        }
+        return qtd;
+    }
+    
+    private int pegaCod(){
+        int linha = jTableItensDisponiveis.getSelectedRow();
+        int cod = Integer.parseInt(itensDisponiveis.getValueAt(linha, 0).toString());
+        return cod;
+    }
     
     private void iniciaComboBoxSetor(){
         setores = FacadeInstance.getInstance().getAllSetor();
         for(int x = 0; x < setores.size(); x++){
             jCmBoxSetor.addItem(setores.get(x).getNome());
         }
-        
+    }
+    
+    private void atualizaTabela() {
+        itensDisponiveis.atualizaListaRequisicao();
+        jTableItensDisponiveis.setModel(itensDisponiveis);
     }
 
-    private void iniciaListaItens() {
+    private Item localizaItem(int cod) {
+        Item itemALocalizar = new Item();
         itens = FacadeInstance.getInstance().getAllItem();
-        for(int x = 0; x < itens.size(); x++){
-            itensDisponiveis.addElement(itens.get(x).getNome() + ", " + itens.get(x).getQuantidade());
+                
+        for(Item itens: itens){
+            if(itens.getId() == cod){
+                itemALocalizar = itens;
+                break;
+            }
         }
-        
-        jListItensDisponiveis.setModel(itensDisponiveis);
+              
+        return itemALocalizar;
+    }
+
+    private void atualizaLista() {
+        DefaultListModel model = new DefaultListModel();
+        for(Item itensRequisitados: itensRequisitados){
+            model.addElement("Item: " + itensRequisitados.getNome() + ". Quantidade: " + itensRequisitados.getQuantidade());
+        }
+        jListItensRequisitados.setModel(model);
+    }
+
+    private Item alteraInformacoesItem(Item itemLocalizado, int qtdSolicitada) {
+        Item itemRequisitado = new Item();
+        itemRequisitado.setId(itemLocalizado.getId());
+        itemRequisitado.setDescricao(itemLocalizado.getDescricao());
+        itemRequisitado.setNome(itemLocalizado.getNome());
+        itemRequisitado.setQuantidade(qtdSolicitada);
+        return itemRequisitado;
     }
 }

@@ -17,9 +17,9 @@ public class DaoRequisicao extends BaseDAO<Requisicao> implements IDaoRequisicao
     
     @Override
     public List<Requisicao> findByName(String name) {
-        String busca = "SELECT a FROM Aluno AS a WHERE a.nome=:nome";
+        String busca = "SELECT a FROM Requisicao AS a WHERE a.nome=:nome"; //tava aluno.. mudei pra nome da tabela que é requisição
         Query query = entityManager.createQuery(busca);
         query.setParameter("nome", name);
         return query.getResultList();  
-    }
+    }    
 }

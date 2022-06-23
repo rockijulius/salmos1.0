@@ -6,6 +6,7 @@
 package br.com.ifba.salmos.requisicao.model;
 
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.item.model.Item;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,10 +14,10 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author rocki.julius
  */
-public class RequisicaoTableModel extends AbstractTableModel{
+public class ItensDisponiveisTableModel extends AbstractTableModel{
 
-    private List<Requisicao> listaRequisicoes = FacadeInstance.getInstance().getAllRequisicao();
-    private String[] colunas = {"Número", "Usuário"};
+    private List<Item> listaItens = FacadeInstance.getInstance().getAllItem();
+    private String[] colunas = {"Id", "Item", "Quantidade"};
        
     @Override
     public String getColumnName(int column) {
@@ -25,7 +26,7 @@ public class RequisicaoTableModel extends AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        return listaRequisicoes.size();
+        return listaItens.size();
     }
 
     @Override
@@ -37,19 +38,21 @@ public class RequisicaoTableModel extends AbstractTableModel{
     public Object getValueAt(int linha, int coluna) {
         switch (coluna){
                 case 0:
-                    return listaRequisicoes.get(linha).getId();
+                    return listaItens.get(linha).getId();
                 case 1:
-                    return listaRequisicoes.get(linha).getUsuario();              
+                    return listaItens.get(linha).getNome();
+                case 2:
+                    return listaItens.get(linha).getQuantidade();
         }
         return null;
     }
 
-    public List<Requisicao> getListaRequisisoes() {
-        return listaRequisicoes;
+    public List<Item> getListaItensRequisicao() {
+        return listaItens;
     }
     
     public void atualizaListaRequisicao(){
-        listaRequisicoes = FacadeInstance.getInstance().getAllRequisicao(); //pega os dados novamente no banco de dados
+        listaItens = FacadeInstance.getInstance().getAllItem(); //pega os dados novamente no banco de dados
         this.fireTableDataChanged();
     };
    

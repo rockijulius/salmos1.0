@@ -7,6 +7,7 @@ package br.com.ifba.salmos.requisicao.model;
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
 import br.com.ifba.salmos.item.model.Item;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -19,13 +20,12 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Requisicao extends PersistenceEntity{
+    private long idRequisicao;
     private String setor;
     private long idUsuario;    
-    @ManyToMany
+    @ManyToMany (cascade = {CascadeType.ALL})
     private Collection<Item> itensRequisitados;
-    private String quantidadeItens;
-
-    
+        
     public String getSetor() {
         return setor;
     }
@@ -49,17 +49,9 @@ public class Requisicao extends PersistenceEntity{
     public void setListaItens(Collection<Item> listaItens) {
         this.itensRequisitados = listaItens;
     }
-
-    public String getQuantidadeItens() {
-        return quantidadeItens;
-    }
-
-    public void setQuantidadeItens(String quantidadeItens) {
-        this.quantidadeItens = quantidadeItens;
-    }
-
+    
     @Override
     public String toString() {
-        return "Requisicao{" + "setor=" + setor + ", usuario=" + idUsuario + ", listaItens=" + itensRequisitados + ", quantidadeItens=" + quantidadeItens + '}';
+        return "Requisicao{" + "setor=" + setor + ", usuario=" + idUsuario + ", listaItens=" + itensRequisitados;
     }    
 }

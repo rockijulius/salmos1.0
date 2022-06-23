@@ -5,8 +5,16 @@
 package br.com.ifba.salmos.requisicao.view;
 
 import br.com.ifba.salmos.homescreen.view.homescreen;
+import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.item.model.Item;
+import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.requisicao.model.RequisicaoTableModel;
 import br.com.ifba.salmos.usuario.model.Usuario;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,9 +27,14 @@ public class ViewRequisicao extends javax.swing.JFrame {
      */
     private Usuario usuarioLogado;
     RequisicaoTableModel tableModel = new RequisicaoTableModel();
+    private Collection<Item> itensDaRequisicao = new ArrayList();
+    private Collection<Requisicao> requisicoes;
+    
     public ViewRequisicao(Usuario usuarioLogado) {
-        initComponents();        
+        initComponents();
+        setLocationRelativeTo(null);        
         this.usuarioLogado = usuarioLogado;
+        atualizaTabela();
     }
     
     public ViewRequisicao() {
@@ -37,14 +50,33 @@ public class ViewRequisicao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRequisicoes = new javax.swing.JTable();
-        jBtnCadastrarRequisicao = new javax.swing.JButton();
-        jBtnAlterarRequisicao = new javax.swing.JButton();
-        jBtnExcluirRequisicao = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jBtnCadastrarRequisicao = new javax.swing.JButton();
+        jBtnExcluirRequisicao = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jListItensDaRequisicao = new javax.swing.JList<>();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTableRequisicoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,60 +89,92 @@ public class ViewRequisicao extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableRequisicoes);
-
-        jBtnCadastrarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/adicionar.png"))); // NOI18N
-        jBtnCadastrarRequisicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnCadastrarRequisicaoActionPerformed(evt);
+        jTableRequisicoes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTableRequisicoesFocusGained(evt);
             }
         });
+        jTableRequisicoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRequisicoesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableRequisicoes);
 
-        jBtnAlterarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/alterar.png"))); // NOI18N
-
-        jBtnExcluirRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/excluir.png"))); // NOI18N
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/home.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-casinha-de-cachorro-35.png"))); // NOI18N
+        jButton1.setToolTipText("Tela Inicial");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jBtnCadastrarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-adicionar-regra-35.png"))); // NOI18N
+        jBtnCadastrarRequisicao.setToolTipText("Cadastrar Requisição");
+        jBtnCadastrarRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnCadastrarRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCadastrarRequisicaoActionPerformed(evt);
+            }
+        });
+
+        jBtnExcluirRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-lixo-35.png"))); // NOI18N
+        jBtnExcluirRequisicao.setToolTipText("Excluir Requisição");
+        jBtnExcluirRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnExcluirRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnExcluirRequisicaoActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setViewportView(jListItensDaRequisicao);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnCadastrarRequisicao)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnExcluirRequisicao))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnCadastrarRequisicao)
+                    .addComponent(jBtnExcluirRequisicao)
+                    .addComponent(jButton1))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBtnCadastrarRequisicao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBtnAlterarRequisicao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBtnExcluirRequisicao)
-                        .addGap(18, 18, 18))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jBtnCadastrarRequisicao)
-                            .addComponent(jBtnAlterarRequisicao))
-                        .addComponent(jBtnExcluirRequisicao))
-                    .addComponent(jButton1))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,6 +189,23 @@ public class ViewRequisicao extends javax.swing.JFrame {
         new ViewCadastroRequisicao(usuarioLogado).setVisible(true); //chama tela de cadastro
         dispose();
     }//GEN-LAST:event_jBtnCadastrarRequisicaoActionPerformed
+
+    private void jTableRequisicoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRequisicoesMouseClicked
+        long codReq = pegaCod();
+        JOptionPane.showMessageDialog(null, codReq);
+        Requisicao req = localizaRequisicao(codReq);
+        atualizaLista(req);
+    }//GEN-LAST:event_jTableRequisicoesMouseClicked
+
+    private void jTableRequisicoesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableRequisicoesFocusGained
+        
+    }//GEN-LAST:event_jTableRequisicoesFocusGained
+
+    private void jBtnExcluirRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirRequisicaoActionPerformed
+        long cod = pegaCod();
+        Requisicao reqExcluir = localizaRequisicao(cod);
+        FacadeInstance.getInstance().deleteRequisicao(reqExcluir);
+    }//GEN-LAST:event_jBtnExcluirRequisicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,11 +243,50 @@ public class ViewRequisicao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAlterarRequisicao;
     private javax.swing.JButton jBtnCadastrarRequisicao;
     private javax.swing.JButton jBtnExcluirRequisicao;
     private javax.swing.JButton jButton1;
+    private javax.swing.JList<String> jListItensDaRequisicao;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableRequisicoes;
     // End of variables declaration//GEN-END:variables
+
+    private void atualizaTabela(){
+       tableModel.atualizaListaRequisicao();
+        jTableRequisicoes.setModel(tableModel);
+    }
+    
+    private Requisicao localizaRequisicao(long cod) {
+        Requisicao requisicaoALocalizar= new Requisicao();
+        requisicoes = FacadeInstance.getInstance().getAllRequisicao();
+                
+        for(Requisicao requisicoes: requisicoes){
+            if(requisicoes.getId() == cod){
+                requisicaoALocalizar = requisicoes;
+                break;
+            }
+        }
+              
+        return requisicaoALocalizar;
+    }
+    
+     private void atualizaLista(Requisicao req) {
+         DefaultListModel model = new DefaultListModel();
+         itensDaRequisicao = req.getListaItens();
+         for(Item itensDaRequisicao: itensDaRequisicao){
+            model.addElement("Id: "+ itensDaRequisicao.getId() + ". Item: " + itensDaRequisicao.getNome() + ". Quantidade: " + itensDaRequisicao.getQuantidade());
+        }   
+        jListItensDaRequisicao.setModel(model);
+    }
+    
+     private long pegaCod(){
+        int linha = jTableRequisicoes.getSelectedRow();
+        long cod = Integer.parseInt(tableModel.getValueAt(linha, 0).toString());
+        return cod;
+    }
+    
 }
