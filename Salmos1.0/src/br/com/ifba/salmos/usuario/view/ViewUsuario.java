@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class ViewUsuario extends javax.swing.JFrame {
     
     DefaultTableModel listaTabela;
+    DefaultTableModel listaDescricao;
     ComboBoxModel tipoUsuario;
     List<Usuario> lista;
     List<TipoDeUsuario> listaTipo;
@@ -45,6 +46,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
         this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
+        this.atualizarTabelaDescricao(this.listaTipo);
     }
     
     public ViewUsuario() {
@@ -55,6 +57,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.lista = FacadeInstance.getInstance().getAllUsuarios();
         this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
         this.atualizarTabela(this.lista);
+        this.atualizarTabelaDescricao(this.listaTipo);
     }
     
     private void atualizarTabela(List<Usuario> listaUsuario){
@@ -65,6 +68,17 @@ public class ViewUsuario extends javax.swing.JFrame {
         }
         
         this.tblUsuario.setModel(listaTabela);
+    }
+    
+    private void atualizarTabelaDescricao(List<TipoDeUsuario> tipoDescricao){
+        this.listaDescricao =  new DefaultTableModel(null, new String[] {"Tipo de usuário", "Descricao"});
+        
+        for(TipoDeUsuario tipos: tipoDescricao){
+            List<TipoDeUsuario> listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            listaDescricao.addRow(new Object [] {tipos.getNome(), tipos.getDescricao()});
+        }
+        
+        this.tblDescricao.setModel(listaDescricao);
     }
    
     
@@ -89,7 +103,7 @@ public class ViewUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tbpDescricao = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         lblDescricao = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -104,7 +118,6 @@ public class ViewUsuario extends javax.swing.JFrame {
         lblDescricao3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         btnHomescreen = new javax.swing.JButton();
-        btnDescricao = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblUsuario = new javax.swing.JTable();
@@ -125,6 +138,10 @@ public class ViewUsuario extends javax.swing.JFrame {
         txtBuscaUsuario = new javax.swing.JTextField();
         btnBuscarUsuario = new javax.swing.JButton();
         btnMostrarUsuarios = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDescricao = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -215,24 +232,12 @@ public class ViewUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnDescricao.setBackground(new java.awt.Color(232, 189, 72));
-        btnDescricao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnDescricao.setForeground(new java.awt.Color(253, 255, 175));
-        btnDescricao.setText("Descrição");
-        btnDescricao.setBorder(null);
-        btnDescricao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDescricao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDescricaoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblDescricao2)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -259,17 +264,19 @@ public class ViewUsuario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSenha)
-                                    .addComponent(lblDescricao3)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                                        .addComponent(lblDescricao3)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,15 +308,13 @@ public class ViewUsuario extends javax.swing.JFrame {
                             .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30))))
         );
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbbTipoDeUsuario, txtNome});
 
-        jTabbedPane1.addTab("Cadastro", jPanel4);
+        tbpDescricao.addTab("Cadastro", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -457,7 +462,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -548,7 +553,50 @@ public class ViewUsuario extends javax.swing.JFrame {
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbbTipoDeUsuarioEdit, txtNomeEdit});
 
-        jTabbedPane1.addTab("Editar", jPanel5);
+        tbpDescricao.addTab("Editar", jPanel5);
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(253, 255, 175));
+        jLabel1.setText("Descrição do Tipo de Usuário");
+
+        tblDescricao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tblDescricao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblDescricao);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        tbpDescricao.addTab("Descrição", jPanel1);
 
         jLabel5.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -559,12 +607,12 @@ public class ViewUsuario extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(357, Short.MAX_VALUE)
+                .addContainerGap(351, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbpDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -573,8 +621,8 @@ public class ViewUsuario extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel5)
                 .addGap(26, 26, 26)
-                .addComponent(jTabbedPane1)
-                .addGap(80, 80, 80))
+                .addComponent(tbpDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -777,13 +825,6 @@ public class ViewUsuario extends javax.swing.JFrame {
         retornar.setVisible(true);
     }//GEN-LAST:event_btnHomescreenActionPerformed
 
-    private void btnDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescricaoActionPerformed
-        // TODO add your handling code here:
-        ViewDescricaoTipo descricao = new ViewDescricaoTipo();
-        setVisible(false);
-        descricao.setVisible(true);
-    }//GEN-LAST:event_btnDescricaoActionPerformed
-
     private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
         // TODO add your handling code here:
         String nome = txtBuscaUsuario.getText();
@@ -860,7 +901,6 @@ public class ViewUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarUsuario;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarEdit;
-    private javax.swing.JButton btnDescricao;
     private javax.swing.JButton btnExcluirEdit;
     private javax.swing.JButton btnHomescreen;
     private javax.swing.JButton btnMostrarUsuarios;
@@ -868,12 +908,14 @@ public class ViewUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvarEdit;
     private javax.swing.JComboBox<String> cbbTipoDeUsuario;
     private javax.swing.JComboBox<String> cbbTipoDeUsuarioEdit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblBuscaUsuario;
     private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblDescricao1;
@@ -885,7 +927,9 @@ public class ViewUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescricao7;
     private javax.swing.JLabel lblNome1;
     private javax.swing.JLabel lblNome2;
+    private javax.swing.JTable tblDescricao;
     private javax.swing.JTable tblUsuario;
+    private javax.swing.JTabbedPane tbpDescricao;
     private javax.swing.JTextField txtBuscaUsuario;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmailEdit;

@@ -65,10 +65,11 @@ public class ViewDescricaoTipo extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         btnHomescreen.setBackground(new java.awt.Color(232, 189, 72));
-        btnHomescreen.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnHomescreen.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
+        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHomescreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomescreenActionPerformed(evt);
@@ -87,17 +88,18 @@ public class ViewDescricaoTipo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblDescricao);
 
         btnRetornar.setBackground(new java.awt.Color(232, 189, 72));
-        btnRetornar.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnRetornar.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnRetornar.setForeground(new java.awt.Color(253, 255, 175));
         btnRetornar.setText("Retornar");
         btnRetornar.setBorder(null);
+        btnRetornar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRetornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRetornarActionPerformed(evt);
             }
         });
 
-        lblDescricaoDoTipo.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 24)); // NOI18N
+        lblDescricaoDoTipo.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
         lblDescricaoDoTipo.setForeground(new java.awt.Color(253, 255, 175));
         lblDescricaoDoTipo.setText("Descrição do Tipo de Usuário");
 
@@ -126,7 +128,7 @@ public class ViewDescricaoTipo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblDescricaoDoTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
