@@ -82,12 +82,13 @@ public class SetorView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtBuscaSetor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDescricao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(232, 189, 72));
@@ -196,7 +197,7 @@ public class SetorView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Cadastro", jPanel3);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         tblSetor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblSetor.setModel(new javax.swing.table.DefaultTableModel(
@@ -220,6 +221,7 @@ public class SetorView extends javax.swing.JFrame {
         lblNomeEdit.setText("Nome");
 
         txtNomeEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtNomeEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         txtNomeEdit.setBorder(null);
         txtNomeEdit.setEnabled(false);
         txtNomeEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
@@ -234,11 +236,11 @@ public class SetorView extends javax.swing.JFrame {
         lblDescricaoEdit.setText("Descrição");
 
         btnSalvarEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnSalvarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvarEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnSalvarEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnSalvarEdit.setText("Salvar");
         btnSalvarEdit.setBorder(null);
-        btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvarEdit.setEnabled(false);
         btnSalvarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,11 +249,11 @@ public class SetorView extends javax.swing.JFrame {
         });
 
         btnExcluirEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnExcluirEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnExcluirEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnExcluirEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnExcluirEdit.setText("Excluir");
         btnExcluirEdit.setBorder(null);
-        btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirEdit.setEnabled(false);
         btnExcluirEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,11 +262,11 @@ public class SetorView extends javax.swing.JFrame {
         });
 
         btnCancelarEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnCancelarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelarEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnCancelarEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnCancelarEdit.setText("Cancelar");
         btnCancelarEdit.setBorder(null);
-        btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelarEdit.setEnabled(false);
         btnCancelarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +275,7 @@ public class SetorView extends javax.swing.JFrame {
         });
 
         txtDescricaoEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtDescricaoEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         txtDescricaoEdit.setBorder(null);
         txtDescricaoEdit.setEnabled(false);
         txtDescricaoEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
@@ -282,11 +285,11 @@ public class SetorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(253, 255, 175));
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         jLabel1.setText("Procure pelo nome: ");
 
         txtBuscaSetor.setBackground(new java.awt.Color(253, 255, 175));
+        txtBuscaSetor.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         txtBuscaSetor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscaSetorKeyReleased(evt);
@@ -301,22 +304,29 @@ public class SetorView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblNomeEdit)
+                                            .addComponent(lblDescricaoEdit))
+                                        .addGap(181, 181, 181))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(23, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNomeEdit)
                                     .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDescricaoEdit))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                                    .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -329,16 +339,16 @@ public class SetorView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(23, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(lblNomeEdit)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(33, 33, 33)
                         .addComponent(lblDescricaoEdit)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtDescricaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -370,15 +380,20 @@ public class SetorView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addComponent(jLabel2)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel4)
                 .addGap(26, 26, 26)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Yab");
@@ -606,6 +621,7 @@ public class SetorView extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvarEdit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -44,14 +44,15 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         jpnGrafico = new javax.swing.JPanel();
         btnGerarGrafico = new javax.swing.JButton();
         btnHomescreen = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblGraficoItens.setBackground(new java.awt.Color(253, 255, 175));
-        lblGraficoItens.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
-        lblGraficoItens.setForeground(new java.awt.Color(253, 255, 175));
+        lblGraficoItens.setBackground(new java.awt.Color(0, 0, 0));
+        lblGraficoItens.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
         lblGraficoItens.setText("Gráfico Itens");
 
         javax.swing.GroupLayout jpnGraficoLayout = new javax.swing.GroupLayout(jpnGrafico);
@@ -66,7 +67,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         );
 
         btnGerarGrafico.setBackground(new java.awt.Color(232, 189, 72));
-        btnGerarGrafico.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnGerarGrafico.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         btnGerarGrafico.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGrafico.setText("Gerar Gráficos");
         btnGerarGrafico.setBorder(null);
@@ -77,7 +78,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         });
 
         btnHomescreen.setBackground(new java.awt.Color(232, 189, 72));
-        btnHomescreen.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnHomescreen.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
@@ -91,24 +92,29 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                    .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblGraficoItens)
-                .addGap(195, 195, 195))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGraficoItens)
+                        .addGap(195, 195, 195))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(lblGraficoItens)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGraficoItens)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpnGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
@@ -193,6 +199,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGerarGrafico;
     private javax.swing.JButton btnHomescreen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpnGrafico;
     private javax.swing.JLabel lblGraficoItens;

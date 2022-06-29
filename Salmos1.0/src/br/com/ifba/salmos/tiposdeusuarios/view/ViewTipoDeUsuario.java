@@ -91,13 +91,14 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         lblBuscaTipoDeUsuario = new javax.swing.JLabel();
         txtBuscaTipoDeUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Tipo De Usuário");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         lblDescricao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(232, 189, 72));
@@ -204,7 +205,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Cadastro", jPanel3);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         tblTipoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tblTipoDeUsuario.setModel(new javax.swing.table.DefaultTableModel(
@@ -228,6 +229,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         lblNomeEdit.setText("Nome");
 
         txtNomeEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtNomeEdit.setFont(new java.awt.Font("Leelawadee UI", 0, 11)); // NOI18N
         txtNomeEdit.setBorder(null);
         txtNomeEdit.setEnabled(false);
         txtNomeEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
@@ -242,11 +244,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         lblDescricaoEdit.setText("Descrição");
 
         btnSalvarEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnSalvarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSalvarEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnSalvarEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnSalvarEdit.setText("Salvar");
         btnSalvarEdit.setBorder(null);
-        btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvarEdit.setEnabled(false);
         btnSalvarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,11 +257,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         });
 
         btnExcluirEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnExcluirEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnExcluirEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnExcluirEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnExcluirEdit.setText("Excluir");
         btnExcluirEdit.setBorder(null);
-        btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirEdit.setEnabled(false);
         btnExcluirEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,11 +270,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         });
 
         btnCancelarEdit.setBackground(new java.awt.Color(232, 189, 72));
-        btnCancelarEdit.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnCancelarEdit.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnCancelarEdit.setForeground(new java.awt.Color(253, 255, 175));
         btnCancelarEdit.setText("Cancelar");
         btnCancelarEdit.setBorder(null);
-        btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelarEdit.setEnabled(false);
         btnCancelarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +283,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         });
 
         txtDescricaoEdit.setBackground(new java.awt.Color(253, 255, 175));
+        txtDescricaoEdit.setFont(new java.awt.Font("Leelawadee UI", 0, 11)); // NOI18N
         txtDescricaoEdit.setBorder(null);
         txtDescricaoEdit.setEnabled(false);
         txtDescricaoEdit.setSelectionColor(new java.awt.Color(250, 206, 86));
@@ -290,11 +293,11 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        lblBuscaTipoDeUsuario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
-        lblBuscaTipoDeUsuario.setForeground(new java.awt.Color(253, 255, 175));
+        lblBuscaTipoDeUsuario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         lblBuscaTipoDeUsuario.setText("Busque pelo nome:");
 
         txtBuscaTipoDeUsuario.setBackground(new java.awt.Color(253, 255, 175));
+        txtBuscaTipoDeUsuario.setFont(new java.awt.Font("Leelawadee UI", 0, 11)); // NOI18N
         txtBuscaTipoDeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscaTipoDeUsuarioKeyReleased(evt);
@@ -355,7 +358,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
                 .addComponent(lblBuscaTipoDeUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtBuscaTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Editar", jPanel2);
@@ -375,13 +378,17 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
@@ -674,6 +681,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnHomescreen;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvarEdit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
