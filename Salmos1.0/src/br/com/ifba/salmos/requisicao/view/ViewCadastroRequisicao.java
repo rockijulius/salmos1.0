@@ -57,73 +57,64 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBtnTelaRequisicoes = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jCmBoxSetor = new javax.swing.JComboBox<>();
         jLblUsuario = new javax.swing.JLabel();
-        jBtnSalvarRequisicao = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jBtnAdicionaListaRequisicao = new javax.swing.JButton();
-        jBtnRemoveListaRequisicao = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinnerQuantidadeItemSelecionado = new javax.swing.JSpinner();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableItensDisponiveis = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListItensRequisitados = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jCmBoxSetor = new javax.swing.JComboBox<>();
+        jBtnRemoveListaRequisicao = new javax.swing.JButton();
+        jBtnAdicionaListaRequisicao = new javax.swing.JButton();
+        jSpinnerQuantidadeItemSelecionado = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableItensDisponiveis = new javax.swing.JTable();
+        jBtnTelaRequisicoes = new javax.swing.JButton();
+        jBtnSalvarRequisicao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBtnTelaRequisicoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/voltar.png"))); // NOI18N
-        jBtnTelaRequisicoes.setToolTipText("Voltar tela");
-        jBtnTelaRequisicoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnTelaRequisicoesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jBtnTelaRequisicoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 441, -1, -1));
+        jListItensRequisitados.setToolTipText("Itens requisitados");
+        jScrollPane1.setViewportView(jListItensRequisitados);
 
-        jLabel1.setText("Setor:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 67, -1, -1));
-
-        jLabel2.setText("Usuário requisitante:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, -1, -1));
-
-        getContentPane().add(jCmBoxSetor, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 64, -1, -1));
-        getContentPane().add(jLblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 32, 100, 21));
-
-        jBtnSalvarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/salvar.png"))); // NOI18N
-        jBtnSalvarRequisicao.setToolTipText("Salvar Requisição");
-        jBtnSalvarRequisicao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnSalvarRequisicaoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jBtnSalvarRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, -1, -1));
-
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
         jLabel3.setText("Itens disponíveis:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 102, -1, -1));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jLabel2.setText("Usuário requisitante:");
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jLabel1.setText("Setor:");
+
+        jCmBoxSetor.setFont(new java.awt.Font("Leelawadee UI", 0, 11)); // NOI18N
+
+        jBtnRemoveListaRequisicao.setBackground(new java.awt.Color(250, 206, 101));
+        jBtnRemoveListaRequisicao.setFont(new java.awt.Font("Leelawadee UI", 1, 11)); // NOI18N
+        jBtnRemoveListaRequisicao.setText("<<<");
+        jBtnRemoveListaRequisicao.setToolTipText("Remover Item");
+        jBtnRemoveListaRequisicao.setBorder(null);
+
+        jBtnAdicionaListaRequisicao.setBackground(new java.awt.Color(250, 206, 101));
+        jBtnAdicionaListaRequisicao.setFont(new java.awt.Font("Leelawadee UI", 1, 11)); // NOI18N
         jBtnAdicionaListaRequisicao.setText(">>>");
         jBtnAdicionaListaRequisicao.setToolTipText("Adicionar Item");
+        jBtnAdicionaListaRequisicao.setBorder(null);
         jBtnAdicionaListaRequisicao.setEnabled(false);
         jBtnAdicionaListaRequisicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnAdicionaListaRequisicaoActionPerformed(evt);
             }
         });
-        getContentPane().add(jBtnAdicionaListaRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
-        jBtnRemoveListaRequisicao.setText("<<<");
-        jBtnRemoveListaRequisicao.setToolTipText("Remover Item");
-        getContentPane().add(jBtnRemoveListaRequisicao, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
-
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
         jLabel4.setText("Quantidade:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
-        getContentPane().add(jSpinnerQuantidadeItemSelecionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 55, -1));
 
+        jTableItensDisponiveis.setForeground(new java.awt.Color(250, 206, 101));
         jTableItensDisponiveis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -148,12 +139,97 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableItensDisponiveis);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 185, 270));
+        jBtnTelaRequisicoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-voltar-35.png"))); // NOI18N
+        jBtnTelaRequisicoes.setToolTipText("Voltar tela");
+        jBtnTelaRequisicoes.setBorder(null);
+        jBtnTelaRequisicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnTelaRequisicoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnTelaRequisicoesActionPerformed(evt);
+            }
+        });
 
-        jListItensRequisitados.setToolTipText("Itens requisitados");
-        jScrollPane1.setViewportView(jListItensRequisitados);
+        jBtnSalvarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-salvar-35.png"))); // NOI18N
+        jBtnSalvarRequisicao.setToolTipText("Salvar Requisição");
+        jBtnSalvarRequisicao.setBorder(null);
+        jBtnSalvarRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnSalvarRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSalvarRequisicaoActionPerformed(evt);
+            }
+        });
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, 270));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtnTelaRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(jBtnSalvarRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jSpinnerQuantidadeItemSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(63, 63, 63)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jBtnAdicionaListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jBtnRemoveListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(14, 14, 14)
+                        .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jSpinnerQuantidadeItemSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(41, 41, 41)
+                                .addComponent(jBtnAdicionaListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jBtnRemoveListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtnSalvarRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBtnTelaRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
