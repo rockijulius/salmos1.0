@@ -7,6 +7,7 @@ package br.com.ifba.salmos.fornecedor.view;
 import br.com.ifba.salmos.fornecedor.model.Fornecedor;
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.ArrayList;
@@ -476,6 +477,9 @@ public class ViewFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeKeyPressed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        
+        if(validaCampos() == true){
+        
         Fornecedor forn = new Fornecedor();
         forn.setNome(txtNome.getText());
         forn.setEmail(txtEmail.getText());
@@ -495,6 +499,7 @@ public class ViewFornecedor extends javax.swing.JFrame {
         }
         
         btnCancelar.doClick();
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -689,4 +694,32 @@ public class ViewFornecedor extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JFormattedTextField txtTelefoneEdit;
     // End of variables declaration//GEN-END:variables
+    private boolean validaCampos() {
+        StringUtil util = StringUtil.getInstance();
+        if (txtNome.getText().equals("") && txtEmail.getText().equals("") && txtTelefone.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios.", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.ERROR_MESSAGE);
+            return false;
+
+        } else if (util.isNullOrEmpty(txtNome.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome.", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+
+        } else if (util.isNullOrEmpty(txtEmail.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Email", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+
+        } else if (util.isNullOrEmpty(txtTelefone.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Telefone", "CAMPOS OBRIGATÓRIOS",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+
+        }
+
+        return true;
+    }
+
+
 }
