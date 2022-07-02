@@ -5,6 +5,7 @@
  */
 package br.com.ifba.salmos.infrastructure.service;
 
+import br.com.ifba.salmos.fornecedor.model.Fornecedor;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.setor.model.Setor;
@@ -72,4 +73,16 @@ public interface IFacade {
     public List<Setor> getAllSetor();
 
     public List<Setor> findByNameSetor(String setor);
+    
+    // ------------------------Fornecedor-------------------------//
+    
+    public Fornecedor saveFornecedor(Fornecedor fornecedor);
+    
+    public Fornecedor updateFornecedor(Fornecedor fornecedor);
+    
+    public void deleteFornecedor(Fornecedor fornecedor);
+    
+    public List<Fornecedor> getAllFornecedor();
+    
+    public List<Fornecedor> findByNameFornecedor(String fornecedor);
 }

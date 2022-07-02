@@ -15,6 +15,7 @@ public class ViewFornecedor extends javax.swing.JFrame {
      */
     public ViewFornecedor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

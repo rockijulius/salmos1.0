@@ -5,6 +5,9 @@
  */
 package br.com.ifba.salmos.infrastructure.service;
 
+import br.com.ifba.salmos.fornecedor.model.Fornecedor;
+import br.com.ifba.salmos.fornecedor.service.IServiceFornecedor;
+import br.com.ifba.salmos.fornecedor.service.ServiceFornecedor;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.item.service.IServiceItem;
 import br.com.ifba.salmos.item.service.ServiceItem;
@@ -171,5 +174,34 @@ public class Facade implements IFacade {
     @Override
     public List<Setor> findByNameSetor(String setor) {
         return serviceSetor.findByName(setor);
+    }
+    
+    // -----------------------Fornecedor---------------------//
+    
+    private final IServiceFornecedor serviceFornecedor = new ServiceFornecedor();
+
+    @Override
+    public Fornecedor saveFornecedor(Fornecedor fornecedor) {
+        return serviceFornecedor.saveFornecedor(fornecedor);
+    }
+
+    @Override
+    public Fornecedor updateFornecedor(Fornecedor fornecedor) {
+        return serviceFornecedor.updateFornecedor(fornecedor);
+    }
+
+    @Override
+    public void deleteFornecedor(Fornecedor fornecedor) {
+        serviceFornecedor.deleteFornecedor(fornecedor);
+    }
+
+    @Override
+    public List<Fornecedor> getAllFornecedor() {
+        return serviceFornecedor.getAllFornecedor();
+    }
+
+    @Override
+    public List<Fornecedor> findByNameFornecedor(String fornecedor) {
+        return serviceFornecedor.findByName(fornecedor);
     }
 }
