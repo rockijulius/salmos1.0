@@ -982,7 +982,7 @@ public class ViewItem extends javax.swing.JFrame {
                     JOptionPane.WARNING_MESSAGE);
             return false;
 
-        }
+        } 
 
         return true;
     }
