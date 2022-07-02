@@ -89,13 +89,23 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="437" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane4" pref="220" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTxtFiltrarRequisicoes" min="-2" pref="327" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jBtnFIltrarRequisicoes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="437" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane4" pref="220" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -105,7 +115,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="76" max="32767" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTxtFiltrarRequisicoes" max="32767" attributes="0"/>
+                      <Component id="jBtnFIltrarRequisicoes" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jScrollPane1" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
@@ -169,12 +184,21 @@
             <Property name="text" type="java.lang.String" value="Itens da requisi&#xe7;&#xe3;o selecionada:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="jTxtFiltrarRequisicoes">
+        </Component>
+        <Component class="javax.swing.JButton" name="jBtnFIltrarRequisicoes">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/br/com/ifba/salmos/requisicao/imagens/lupa.png"/>
+            </Property>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-casinha-de-cachorro-35.png"/>
+          <Image iconType="3" name="/br/com/ifba/salmos/requisicao/imagens/telainicial.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Tela Inicial"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -188,7 +212,7 @@
     <Component class="javax.swing.JButton" name="jBtnCadastrarRequisicao">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-adicionar-regra-35.png"/>
+          <Image iconType="3" name="/br/com/ifba/salmos/requisicao/imagens/adicionar.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Cadastrar Requisi&#xe7;&#xe3;o"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -202,7 +226,7 @@
     <Component class="javax.swing.JButton" name="jBtnExcluirRequisicao">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-lixo-35.png"/>
+          <Image iconType="3" name="/br/com/ifba/salmos/requisicao/imagens/excluir.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Excluir Requisi&#xe7;&#xe3;o"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -215,6 +239,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBtnEditarRequisicao">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/com/ifba/salmos/requisicao/imagens/alterar.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jButton2"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[67, 43]"/>

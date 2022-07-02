@@ -58,6 +58,8 @@ public class ViewRequisicao extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jListItensDaRequisicao = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        jTxtFiltrarRequisicoes = new javax.swing.JTextField();
+        jBtnFIltrarRequisicoes = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jBtnCadastrarRequisicao = new javax.swing.JButton();
         jBtnExcluirRequisicao = new javax.swing.JButton();
@@ -107,25 +109,38 @@ public class ViewRequisicao extends javax.swing.JFrame {
 
         jLabel1.setText("Itens da requisição selecionada:");
 
+        jBtnFIltrarRequisicoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/lupa.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jTxtFiltrarRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnFIltrarRequisicoes)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtFiltrarRequisicoes)
+                    .addComponent(jBtnFIltrarRequisicoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -135,7 +150,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-casinha-de-cachorro-35.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/telainicial.png"))); // NOI18N
         jButton1.setToolTipText("Tela Inicial");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +159,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
             }
         });
 
-        jBtnCadastrarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-adicionar-regra-35.png"))); // NOI18N
+        jBtnCadastrarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/adicionar.png"))); // NOI18N
         jBtnCadastrarRequisicao.setToolTipText("Cadastrar Requisição");
         jBtnCadastrarRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBtnCadastrarRequisicao.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +168,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
             }
         });
 
-        jBtnExcluirRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-lixo-35.png"))); // NOI18N
+        jBtnExcluirRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/excluir.png"))); // NOI18N
         jBtnExcluirRequisicao.setToolTipText("Excluir Requisição");
         jBtnExcluirRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBtnExcluirRequisicao.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +177,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
             }
         });
 
+        jBtnEditarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/alterar.png"))); // NOI18N
         jBtnEditarRequisicao.setText("jButton2");
         jBtnEditarRequisicao.setPreferredSize(new java.awt.Dimension(67, 43));
 
@@ -263,6 +279,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
     private javax.swing.JButton jBtnCadastrarRequisicao;
     private javax.swing.JButton jBtnEditarRequisicao;
     private javax.swing.JButton jBtnExcluirRequisicao;
+    private javax.swing.JButton jBtnFIltrarRequisicoes;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jListItensDaRequisicao;
@@ -272,6 +289,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableRequisicoes;
+    private javax.swing.JTextField jTxtFiltrarRequisicoes;
     // End of variables declaration//GEN-END:variables
 
     private void atualizaTabela(){
