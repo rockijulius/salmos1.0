@@ -23,7 +23,7 @@ public class Requisicao extends PersistenceEntity{
     private long idRequisicao;
     private String setor;
     private long idUsuario;    
-    @ManyToMany (cascade = {CascadeType.ALL})
+    @ManyToMany 
     private Collection<Item> itensRequisitados;
         
     public String getSetor() {

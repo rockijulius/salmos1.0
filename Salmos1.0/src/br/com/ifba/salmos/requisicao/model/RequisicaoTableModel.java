@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class RequisicaoTableModel extends AbstractTableModel{
 
     private List<Requisicao> listaRequisicoes = FacadeInstance.getInstance().getAllRequisicao();
-    private String[] colunas = {"Número", "Usuário"};
+    private String[] colunas = {"Número da requisição", "Usuário Requisitante", "Setor"};
        
     @Override
     public String getColumnName(int column) {
@@ -39,7 +39,9 @@ public class RequisicaoTableModel extends AbstractTableModel{
                 case 0:
                     return listaRequisicoes.get(linha).getId();
                 case 1:
-                    return listaRequisicoes.get(linha).getUsuario();              
+                    return listaRequisicoes.get(linha).getUsuario();   
+                case 2:
+                    return listaRequisicoes.get(linha).getSetor();   
         }
         return null;
     }
