@@ -468,7 +468,8 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private void txtNomeEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeEditKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeEditKeyPressed
-
+    
+    //Na hora de editar, ele também edita na tabela de Usuario
     private void btnSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarEditActionPerformed
         this.selecionado = this.tblTipoDeUsuario.getSelectedRow();
 
@@ -511,6 +512,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         }
         btnCancelarEdit.doClick();
     }//GEN-LAST:event_btnSalvarEditActionPerformed
+    //Na hora de excluir, ele também exclui na tabela de Usuario
 
     private void btnExcluirEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirEditActionPerformed
         List<Usuario> listaUsuario = FacadeInstance.getInstance().getAllUsuarios();

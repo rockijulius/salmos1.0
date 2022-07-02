@@ -26,6 +26,7 @@ public class Item extends PersistenceEntity{
     private String nome;
     private String Descricao;
     private int quantidade;
+    private String fornecedor;
 
     public String getNome() {
         return nome;
@@ -50,5 +51,14 @@ public class Item extends PersistenceEntity{
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+    
     
 }

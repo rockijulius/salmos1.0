@@ -7,6 +7,7 @@ package br.com.ifba.salmos.fornecedor.view;
 import br.com.ifba.salmos.fornecedor.model.Fornecedor;
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
+import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -536,8 +537,25 @@ public class ViewFornecedor extends javax.swing.JFrame {
     private void txtNomeEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeEditKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeEditKeyPressed
+        //Na hora de editar, ele também edita na tabela de Item
 
     private void btnSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarEditActionPerformed
+        
+        
+        String nome = txtNomeEdit.getText();
+        List<Item> editarItem = FacadeInstance.getInstance().getAllItem();
+
+        for(Item itens: editarItem){
+            if(itens.getFornecedor().equals(fornecedor.getNome())){
+                itens.setDescricao(itens.getDescricao());
+                itens.setQuantidade(itens.getQuantidade());
+                itens.setNome(itens.getNome());
+                itens.setFornecedor(nome);
+                
+                FacadeInstance.getInstance().updateItem(itens);
+            }
+        }
+        
         if (this.fornecedor.getId() != null) {
             this.fornecedor.setEmail(txtEmailEdit.getText());
             this.fornecedor.setNome(txtNomeEdit.getText());
@@ -550,7 +568,12 @@ public class ViewFornecedor extends javax.swing.JFrame {
 
             btnCancelarEdit.doClick();
         }
+
+        JOptionPane.showMessageDialog(null, "Fornecedor editado com sucesso", "Parabens!!",
+                JOptionPane.INFORMATION_MESSAGE);
+ 
     }//GEN-LAST:event_btnSalvarEditActionPerformed
+    //Na hora de excluir, ele também exclui na tabela de Item
 
     private void btnExcluirEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirEditActionPerformed
         if (this.fornecedor != null) {
@@ -559,6 +582,15 @@ public class ViewFornecedor extends javax.swing.JFrame {
                     JOptionPane.YES_NO_OPTION);
 
             if (dialogResult == JOptionPane.YES_OPTION) {
+                
+                List<Item> itens = FacadeInstance.getInstance().getAllItem();
+                for(Item i: itens){
+                    if(i.getFornecedor().equals(fornecedor.getNome())){
+                       i.setFornecedor(null);
+                    }
+                }
+                
+                
                 FacadeInstance.getInstance().deleteFornecedor(this.fornecedor);
 
                 this.listFornecedor = FacadeInstance.getInstance().getAllFornecedor();
@@ -567,6 +599,8 @@ public class ViewFornecedor extends javax.swing.JFrame {
                 btnCancelarEdit.doClick();
             }
         }
+        JOptionPane.showMessageDialog(null, "Fornecedor removido", "Atenção!!",
+                JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnExcluirEditActionPerformed
 
     private void btnCancelarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEditActionPerformed
