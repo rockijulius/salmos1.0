@@ -36,6 +36,8 @@ public class ViewUsuario extends javax.swing.JFrame {
     /**
      * Creates new form UsuarioView
      */
+    
+    //Iniciando com o usuario logado, além de iniciar a lista de usuarios e centralizando a tela
     public ViewUsuario(Usuario user) {
         initComponents();
         setLocationRelativeTo(null);
@@ -60,6 +62,8 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.atualizarTabelaDescricao(this.listaTipo);
     }
     
+    //Metodo para atualizar a tabela na view
+    
     private void atualizarTabela(List<Usuario> listaUsuario){
         this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
         
@@ -69,6 +73,8 @@ public class ViewUsuario extends javax.swing.JFrame {
         
         this.tblUsuario.setModel(listaTabela);
     }
+    
+    //metodo para atualizar a tabela do tipo de usuario DESCRICAO
     
     private void atualizarTabelaDescricao(List<TipoDeUsuario> tipoDescricao){
         this.listaDescricao =  new DefaultTableModel(null, new String[] {"Tipo de usuário", "Descricao"});
@@ -81,6 +87,7 @@ public class ViewUsuario extends javax.swing.JFrame {
         this.tblDescricao.setModel(listaDescricao);
     }
    
+    //ComboBox para mostrar os tipos de usuarios
     
     private void CmbBoxTipoUsuario(){
         cbbTipoDeUsuario.removeAll();

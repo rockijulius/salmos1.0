@@ -33,6 +33,8 @@ public class ViewItem extends javax.swing.JFrame {
     /**
      * Creates new form ViewItem
      */
+    
+    //Iniciando com o usuario logado, além de iniciar a lista de itens e centralizando a tela
     public ViewItem(Usuario user) {
         initComponents();
         setLocationRelativeTo(null);
@@ -49,6 +51,8 @@ public class ViewItem extends javax.swing.JFrame {
         this.itemLista = FacadeInstance.getInstance().getAllItem();
         atualizarTabelaItem(this.itemLista);
     }
+    
+    //Metodo para atualizar a tabela dos itens
 
     private void atualizarTabelaItem(List<Item> itens) {
         this.listaItem = new DefaultTableModel(null, new String[] { "ID", "Nome", "Descricao", "Quantidade" });
@@ -59,6 +63,8 @@ public class ViewItem extends javax.swing.JFrame {
 
         this.tblItem.setModel(listaItem);
     }
+    
+    //Metodo para buscar o item pelo nome
 
     private List<Item> buscaItens(String nome) {
         if(nome == null || nome.equals("")){
