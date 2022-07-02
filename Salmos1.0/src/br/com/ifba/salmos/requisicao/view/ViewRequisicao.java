@@ -110,6 +110,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
         jLabel1.setText("Itens da requisição selecionada:");
 
         jBtnFIltrarRequisicoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/lupa.png"))); // NOI18N
+        jBtnFIltrarRequisicoes.setToolTipText("Buscar requisição");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -178,7 +179,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
         });
 
         jBtnEditarRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/requisicao/imagens/alterar.png"))); // NOI18N
-        jBtnEditarRequisicao.setText("jButton2");
+        jBtnEditarRequisicao.setToolTipText("Alterar requisição");
         jBtnEditarRequisicao.setPreferredSize(new java.awt.Dimension(67, 43));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

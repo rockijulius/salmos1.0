@@ -273,7 +273,7 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
     private void jBtnSalvarRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarRequisicaoActionPerformed
         Requisicao req = new Requisicao();
-        req.setListaItens(itens);
+        req.setListaItens(itensRequisitados);
         req.setUsuario(usuarioLogado.getId());
         req.setSetor(jCmBoxSetor.getSelectedItem().toString());
         FacadeInstance.getInstance().saveRequisicao(req);
