@@ -14,6 +14,10 @@ import br.com.ifba.salmos.setor.view.SetorView;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import br.com.ifba.salmos.usuario.view.ViewUsuario;
+import java.awt.Color;
+import static java.awt.Color.blue;
+import static java.awt.Color.green;
+import static java.awt.Color.red;
 
 /**
  *
@@ -21,7 +25,6 @@ import br.com.ifba.salmos.usuario.view.ViewUsuario;
  */
 public class homescreen extends javax.swing.JFrame {
     Usuario usuarioLogado;
-
     /**
      * Creates new form himescreem
      */
@@ -48,7 +51,7 @@ public class homescreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnTIposUsusario = new javax.swing.JButton();
+        btnTiposUsuario = new javax.swing.JButton();
         btnGraficos = new javax.swing.JButton();
         btnSetor = new javax.swing.JButton();
         btnItens = new javax.swing.JButton();
@@ -67,16 +70,30 @@ public class homescreen extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(253, 255, 175));
 
-        btnTIposUsusario.setBackground(new java.awt.Color(232, 189, 72));
-        btnTIposUsusario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnTIposUsusario.setForeground(new java.awt.Color(253, 255, 175));
-        btnTIposUsusario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/Tipos users.png"))); // NOI18N
-        btnTIposUsusario.setText("Tipo de Usuário");
-        btnTIposUsusario.setBorder(null);
-        btnTIposUsusario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnTIposUsusario.addActionListener(new java.awt.event.ActionListener() {
+        btnTiposUsuario.setBackground(new java.awt.Color(232, 189, 72));
+        btnTiposUsuario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        btnTiposUsuario.setForeground(new java.awt.Color(253, 255, 175));
+        btnTiposUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/Tipos users.png"))); // NOI18N
+        btnTiposUsuario.setText("Tipo de Usuário");
+        btnTiposUsuario.setBorder(null);
+        btnTiposUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTiposUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTiposUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTiposUsuarioMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTiposUsuarioMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnTiposUsuarioMouseReleased(evt);
+            }
+        });
+        btnTiposUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTIposUsusarioActionPerformed(evt);
+                btnTiposUsuarioActionPerformed(evt);
             }
         });
 
@@ -87,6 +104,14 @@ public class homescreen extends javax.swing.JFrame {
         btnGraficos.setText(" Gráficos");
         btnGraficos.setBorder(null);
         btnGraficos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGraficos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGraficosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGraficosMouseExited(evt);
+            }
+        });
         btnGraficos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGraficosActionPerformed(evt);
@@ -101,6 +126,14 @@ public class homescreen extends javax.swing.JFrame {
         btnSetor.setToolTipText("");
         btnSetor.setBorder(null);
         btnSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSetor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSetorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSetorMouseExited(evt);
+            }
+        });
         btnSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetorActionPerformed(evt);
@@ -115,6 +148,14 @@ public class homescreen extends javax.swing.JFrame {
         btnItens.setBorder(null);
         btnItens.setBorderPainted(false);
         btnItens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnItens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnItensMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnItensMouseExited(evt);
+            }
+        });
         btnItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItensActionPerformed(evt);
@@ -193,6 +234,14 @@ public class homescreen extends javax.swing.JFrame {
         btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.setFocusTraversalPolicyProvider(true);
         btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUsuarioMouseExited(evt);
+            }
+        });
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
@@ -206,6 +255,14 @@ public class homescreen extends javax.swing.JFrame {
         btnRequisicao.setText("Requisição");
         btnRequisicao.setBorder(null);
         btnRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRequisicao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRequisicaoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRequisicaoMouseExited(evt);
+            }
+        });
         btnRequisicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequisicaoActionPerformed(evt);
@@ -219,6 +276,14 @@ public class homescreen extends javax.swing.JFrame {
         btnFornecedores.setText("Fornecedores");
         btnFornecedores.setBorder(null);
         btnFornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFornecedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFornecedoresMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFornecedoresMouseExited(evt);
+            }
+        });
         btnFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFornecedoresActionPerformed(evt);
@@ -245,7 +310,7 @@ public class homescreen extends javax.swing.JFrame {
                             .addComponent(btnSetor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnGraficos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTIposUsusario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTiposUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnRequisicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -263,7 +328,7 @@ public class homescreen extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(lblNomeUsuario)
                         .addGap(51, 51, 51)
-                        .addComponent(btnTIposUsusario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTiposUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -279,7 +344,7 @@ public class homescreen extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnFornecedores, btnGraficos, btnItens, btnRequisicao, btnSetor, btnTIposUsusario, btnUsuario});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnFornecedores, btnGraficos, btnItens, btnRequisicao, btnSetor, btnTiposUsuario, btnUsuario});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -343,13 +408,126 @@ public class homescreen extends javax.swing.JFrame {
         grafico.setVisible(true);
     }//GEN-LAST:event_btnGraficosActionPerformed
 
-    private void btnTIposUsusarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTIposUsusarioActionPerformed
+    private void btnTiposUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiposUsuarioActionPerformed
         // TODO add your handling code here:
         ViewTipoDeUsuario tpu = new ViewTipoDeUsuario(usuarioLogado);
         setVisible(false);
         tpu.setVisible(true);
         tpu.setVisible(true);
-    }//GEN-LAST:event_btnTIposUsusarioActionPerformed
+    }//GEN-LAST:event_btnTiposUsuarioActionPerformed
+
+    private void btnTiposUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTiposUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnTiposUsuario.setContentAreaFilled(false);
+        btnTiposUsuario.setOpaque(true);
+        btnTiposUsuario.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnTiposUsuarioMouseEntered
+
+    private void btnTiposUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTiposUsuarioMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTiposUsuarioMousePressed
+
+    private void btnTiposUsuarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTiposUsuarioMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTiposUsuarioMouseReleased
+
+    private void btnTiposUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTiposUsuarioMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnTiposUsuario.setContentAreaFilled(false);
+        btnTiposUsuario.setOpaque(true);
+        btnTiposUsuario.setBackground(color);
+    }//GEN-LAST:event_btnTiposUsuarioMouseExited
+
+    private void btnUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseEntered
+        // TODO add your handling code here:
+        btnUsuario.setContentAreaFilled(false);
+        btnUsuario.setOpaque(true);
+        btnUsuario.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnUsuarioMouseEntered
+
+    private void btnUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnUsuario.setContentAreaFilled(false);
+        btnUsuario.setOpaque(true);
+        btnUsuario.setBackground(color);
+    }//GEN-LAST:event_btnUsuarioMouseExited
+
+    private void btnRequisicaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequisicaoMouseEntered
+        // TODO add your handling code here:
+        btnRequisicao.setContentAreaFilled(false);
+        btnRequisicao.setOpaque(true);
+        btnRequisicao.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnRequisicaoMouseEntered
+
+    private void btnRequisicaoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequisicaoMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnRequisicao.setContentAreaFilled(false);
+        btnRequisicao.setOpaque(true);
+        btnRequisicao.setBackground(color);
+    }//GEN-LAST:event_btnRequisicaoMouseExited
+
+    private void btnGraficosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraficosMouseEntered
+        // TODO add your handling code here:
+        btnGraficos.setContentAreaFilled(false);
+        btnGraficos.setOpaque(true);
+        btnGraficos.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnGraficosMouseEntered
+
+    private void btnGraficosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraficosMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnGraficos.setContentAreaFilled(false);
+        btnGraficos.setOpaque(true);
+        btnGraficos.setBackground(color);
+    }//GEN-LAST:event_btnGraficosMouseExited
+
+    private void btnSetorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSetorMouseEntered
+        // TODO add your handling code here:
+        btnSetor.setContentAreaFilled(false);
+        btnSetor.setOpaque(true);
+        btnSetor.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnSetorMouseEntered
+
+    private void btnSetorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSetorMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnSetor.setContentAreaFilled(false);
+        btnSetor.setOpaque(true);
+        btnSetor.setBackground(color);
+    }//GEN-LAST:event_btnSetorMouseExited
+
+    private void btnItensMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItensMouseEntered
+        // TODO add your handling code here:
+        btnItens.setContentAreaFilled(false);
+        btnItens.setOpaque(true);
+        btnItens.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnItensMouseEntered
+
+    private void btnItensMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItensMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnItens.setContentAreaFilled(false);
+        btnItens.setOpaque(true);
+        btnItens.setBackground(color);
+    }//GEN-LAST:event_btnItensMouseExited
+
+    private void btnFornecedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornecedoresMouseEntered
+        // TODO add your handling code here:
+        btnFornecedores.setContentAreaFilled(false);
+        btnFornecedores.setOpaque(true);
+        btnFornecedores.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnFornecedoresMouseEntered
+
+    private void btnFornecedoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFornecedoresMouseExited
+        // TODO add your handling code here:
+        Color color = btnLogout.getBackground();
+        btnFornecedores.setContentAreaFilled(false);
+        btnFornecedores.setOpaque(true);
+        btnFornecedores.setBackground(color);
+    }//GEN-LAST:event_btnFornecedoresMouseExited
 
     private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TabelaMouseClicked
 
@@ -410,7 +588,7 @@ public class homescreen extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRequisicao;
     private javax.swing.JButton btnSetor;
-    private javax.swing.JButton btnTIposUsusario;
+    private javax.swing.JButton btnTiposUsuario;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
