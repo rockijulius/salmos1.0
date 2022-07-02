@@ -29,7 +29,7 @@ public class homescreen extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.usuarioLogado = user;
-        lblNomeUsuario.setText(this.usuarioLogado.getNome());
+        //lblNomeUsuario.setText(this.usuarioLogado.getNome());
     }
 
     public homescreen() {
@@ -57,10 +57,10 @@ public class homescreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnUsuario = new javax.swing.JButton();
         btnRequisicao = new javax.swing.JButton();
         btnFornecedores = new javax.swing.JButton();
-        lblUsuarioLogado = new javax.swing.JLabel();
         lblNomeUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,10 +68,12 @@ public class homescreen extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 255, 175));
 
         btnTIposUsusario.setBackground(new java.awt.Color(232, 189, 72));
-        btnTIposUsusario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnTIposUsusario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnTIposUsusario.setForeground(new java.awt.Color(253, 255, 175));
-        btnTIposUsusario.setText("Operações Tipo de usuario");
+        btnTIposUsusario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/Tipos users.png"))); // NOI18N
+        btnTIposUsusario.setText("Tipo de Usuário");
         btnTIposUsusario.setBorder(null);
+        btnTIposUsusario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnTIposUsusario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTIposUsusarioActionPerformed(evt);
@@ -79,10 +81,12 @@ public class homescreen extends javax.swing.JFrame {
         });
 
         btnGraficos.setBackground(new java.awt.Color(232, 189, 72));
-        btnGraficos.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnGraficos.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnGraficos.setForeground(new java.awt.Color(253, 255, 175));
-        btnGraficos.setText("Gráficos");
+        btnGraficos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/graphic.png"))); // NOI18N
+        btnGraficos.setText(" Gráficos");
         btnGraficos.setBorder(null);
+        btnGraficos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGraficos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGraficosActionPerformed(evt);
@@ -90,10 +94,13 @@ public class homescreen extends javax.swing.JFrame {
         });
 
         btnSetor.setBackground(new java.awt.Color(232, 189, 72));
-        btnSetor.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnSetor.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnSetor.setForeground(new java.awt.Color(253, 255, 175));
-        btnSetor.setText("Setor");
+        btnSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/sector.png"))); // NOI18N
+        btnSetor.setText(" Setor");
+        btnSetor.setToolTipText("");
         btnSetor.setBorder(null);
+        btnSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSetorActionPerformed(evt);
@@ -101,10 +108,13 @@ public class homescreen extends javax.swing.JFrame {
         });
 
         btnItens.setBackground(new java.awt.Color(232, 189, 72));
-        btnItens.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnItens.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnItens.setForeground(new java.awt.Color(253, 255, 175));
+        btnItens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/items.png"))); // NOI18N
         btnItens.setText("Itens");
         btnItens.setBorder(null);
+        btnItens.setBorderPainted(false);
+        btnItens.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnItensActionPerformed(evt);
@@ -113,17 +123,18 @@ public class homescreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblSalmos.setFont(new java.awt.Font("Bradley Hand ITC", 1, 48)); // NOI18N
-        lblSalmos.setText("Salmos ");
+        lblSalmos.setFont(new java.awt.Font("Leelawadee UI Semilight", 0, 48)); // NOI18N
+        lblSalmos.setText("Salmos");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
 
         btnLogout.setBackground(new java.awt.Color(232, 189, 72));
-        btnLogout.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(253, 255, 175));
         btnLogout.setText("Logout");
         btnLogout.setBorder(null);
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
@@ -133,45 +144,55 @@ public class homescreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Bradley Hand ITC", 0, 14)); // NOI18N
         jLabel1.setText("1.0");
 
+        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 11)); // NOI18N
+        jLabel2.setText("Sistema de Almoxarifado");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 247, Short.MAX_VALUE)
-                .addComponent(lblSalmos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(210, 210, 210))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(269, 269, 269))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(201, 201, 201))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 236, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblSalmos, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159)))
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114)
+                .addGap(176, 176, 176)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSalmos))
-                .addGap(22, 22, 22)
+                    .addComponent(lblSalmos)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
         );
 
         btnUsuario.setBackground(new java.awt.Color(232, 189, 72));
-        btnUsuario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnUsuario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnUsuario.setForeground(new java.awt.Color(253, 255, 175));
-        btnUsuario.setText("Operações de usuário");
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/user.png"))); // NOI18N
+        btnUsuario.setText("Usuários");
         btnUsuario.setBorder(null);
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuario.setFocusTraversalPolicyProvider(true);
+        btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
@@ -179,10 +200,12 @@ public class homescreen extends javax.swing.JFrame {
         });
 
         btnRequisicao.setBackground(new java.awt.Color(232, 189, 72));
-        btnRequisicao.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnRequisicao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnRequisicao.setForeground(new java.awt.Color(253, 255, 175));
+        btnRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/request.png"))); // NOI18N
         btnRequisicao.setText("Requisição");
         btnRequisicao.setBorder(null);
+        btnRequisicao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRequisicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequisicaoActionPerformed(evt);
@@ -190,19 +213,17 @@ public class homescreen extends javax.swing.JFrame {
         });
 
         btnFornecedores.setBackground(new java.awt.Color(232, 189, 72));
-        btnFornecedores.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
+        btnFornecedores.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
         btnFornecedores.setForeground(new java.awt.Color(253, 255, 175));
+        btnFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/fornecedor.png"))); // NOI18N
         btnFornecedores.setText("Fornecedores");
         btnFornecedores.setBorder(null);
+        btnFornecedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFornecedoresActionPerformed(evt);
             }
         });
-
-        lblUsuarioLogado.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
-        lblUsuarioLogado.setForeground(new java.awt.Color(51, 51, 51));
-        lblUsuarioLogado.setText("Usuario:");
 
         lblNomeUsuario.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 14)); // NOI18N
         lblNomeUsuario.setForeground(new java.awt.Color(51, 51, 51));
@@ -213,21 +234,22 @@ public class homescreen extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTIposUsusario, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addComponent(btnUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRequisicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGraficos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFornecedores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblUsuarioLogado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(153, 153, 153)
                         .addComponent(lblNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnFornecedores, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnItens, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSetor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGraficos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTIposUsusario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRequisicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,28 +257,29 @@ public class homescreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUsuarioLogado, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(20, 20, 20)
-                        .addComponent(btnTIposUsusario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNomeUsuario)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnTIposUsusario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnGraficos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGraficos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnItens, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnItens, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 38, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(btnFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnFornecedores, btnGraficos, btnItens, btnRequisicao, btnSetor, btnTIposUsusario, btnUsuario});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,18 +295,46 @@ public class homescreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedoresActionPerformed
+        // TODO add your handling code here:
+        ViewFornecedor fornecedor = new ViewFornecedor();
+        setVisible(false);
+        fornecedor.setVisible(true);
+    }//GEN-LAST:event_btnFornecedoresActionPerformed
+
+    private void btnRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequisicaoActionPerformed
+        // TODO add your handling code here:
+        new ViewRequisicao(usuarioLogado).setVisible(true); //chama a módulo requisição passando usuário logado
+        dispose(); // fecha tela atual
+    }//GEN-LAST:event_btnRequisicaoActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+        ViewUsuario vu = new ViewUsuario(usuarioLogado);
+        vu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItensActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        ViewItem item = new ViewItem(usuarioLogado);
+        item.setVisible(true);
+    }//GEN-LAST:event_btnItensActionPerformed
+
     private void btnSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetorActionPerformed
         // TODO add your handling code here:
         SetorView setor = new SetorView();
         setVisible(false);
         setor.setVisible(true);
     }//GEN-LAST:event_btnSetorActionPerformed
-
-    private void btnRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequisicaoActionPerformed
-        // TODO add your handling code here:
-        new ViewRequisicao(usuarioLogado).setVisible(true); //chama a módulo requisição passando usuário logado 
-        dispose(); // fecha tela atual
-    }//GEN-LAST:event_btnRequisicaoActionPerformed
 
     private void btnGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficosActionPerformed
         // TODO add your handling code here:
@@ -292,44 +343,19 @@ public class homescreen extends javax.swing.JFrame {
         grafico.setVisible(true);
     }//GEN-LAST:event_btnGraficosActionPerformed
 
-    private void btnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedoresActionPerformed
+    private void btnTIposUsusarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTIposUsusarioActionPerformed
         // TODO add your handling code here:
-        ViewFornecedor fornecedor = new ViewFornecedor();
+        ViewTipoDeUsuario tpu = new ViewTipoDeUsuario(usuarioLogado);
         setVisible(false);
-        fornecedor.setVisible(true);
-    }//GEN-LAST:event_btnFornecedoresActionPerformed
+        tpu.setVisible(true);
+        tpu.setVisible(true);
+    }//GEN-LAST:event_btnTIposUsusarioActionPerformed
 
     private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_TabelaMouseClicked
 
     }// GEN-LAST:event_TabelaMouseClicked
 
-    private void btnTIposUsusarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTIposUsusarioActionPerformed
-        ViewTipoDeUsuario tpu = new ViewTipoDeUsuario(usuarioLogado);
-        setVisible(false);
-        tpu.setVisible(true);
-        tpu.setVisible(true);
-    }// GEN-LAST:event_btnTIposUsusarioActionPerformed
 
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnUsuarioActionPerformed
-        // TODO add your handling code here:
-        ViewUsuario vu = new ViewUsuario(usuarioLogado);
-        vu.setVisible(true);
-        this.setVisible(false);
-    }// GEN-LAST:event_btnUsuarioActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        Login login = new Login();
-        login.setVisible(true);
-    }// GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnItensActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnItensActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        ViewItem item = new ViewItem(usuarioLogado);
-        item.setVisible(true);
-    }// GEN-LAST:event_btnItensActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,11 +413,11 @@ public class homescreen extends javax.swing.JFrame {
     private javax.swing.JButton btnTIposUsusario;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNomeUsuario;
     private javax.swing.JLabel lblSalmos;
-    private javax.swing.JLabel lblUsuarioLogado;
     // End of variables declaration//GEN-END:variables
 }
