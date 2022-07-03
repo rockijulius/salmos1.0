@@ -10,6 +10,7 @@ import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.List;
 
 
@@ -71,6 +72,15 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGrafico.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGrafico.setText("Gerar Gráficos");
         btnGerarGrafico.setBorder(null);
+        btnGerarGrafico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGerarGrafico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGerarGraficoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGerarGraficoMouseExited(evt);
+            }
+        });
         btnGerarGrafico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerarGraficoActionPerformed(evt);
@@ -82,6 +92,15 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
+        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHomescreen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnHomescreenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnHomescreenMouseExited(evt);
+            }
+        });
         btnHomescreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomescreenActionPerformed(evt);
@@ -94,19 +113,18 @@ public class ViewGraficoItens extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblGraficoItens)
+                .addGap(195, 195, 195))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblGraficoItens)
-                        .addGap(195, 195, 195))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                        .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                    .addComponent(btnGerarGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +137,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
                 .addComponent(jpnGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(105, 105, 105)
                 .addComponent(btnGerarGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,6 +178,36 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         home.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnHomescreenActionPerformed
+
+    private void btnGerarGraficoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoMouseEntered
+        // TODO add your handling code here:
+        btnGerarGrafico.setContentAreaFilled(false);
+        btnGerarGrafico.setOpaque(true);
+        btnGerarGrafico.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnGerarGraficoMouseEntered
+
+    private void btnGerarGraficoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoMouseExited
+        // TODO add your handling code here:
+        Color color = btnHomescreen.getBackground();
+        btnGerarGrafico.setContentAreaFilled(false);
+        btnGerarGrafico.setOpaque(true);
+        btnGerarGrafico.setBackground(color);
+    }//GEN-LAST:event_btnGerarGraficoMouseExited
+
+    private void btnHomescreenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomescreenMouseEntered
+        // TODO add your handling code here:
+        btnHomescreen.setContentAreaFilled(false);
+        btnHomescreen.setOpaque(true);
+        btnHomescreen.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnHomescreenMouseEntered
+
+    private void btnHomescreenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomescreenMouseExited
+        // TODO add your handling code here:
+        Color color = btnGerarGrafico.getBackground();
+        btnHomescreen.setContentAreaFilled(false);
+        btnHomescreen.setOpaque(true);
+        btnHomescreen.setBackground(color);
+    }//GEN-LAST:event_btnHomescreenMouseExited
     
     /**
      * @param args the command line arguments
