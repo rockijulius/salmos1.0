@@ -99,7 +99,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-armazém-100.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/login/images/icons8-armazém-100.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -193,9 +193,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(232, 189, 72));
         jLabel1.setText("Email");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-envelope-circulado-25.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/login/images/icons8-envelope-circulado-25.png"))); // NOI18N
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/image/icons8-mostrar-a-senha-25.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/login/images/icons8-mostrar-a-senha-25.png"))); // NOI18N
 
         jLabel11.setText("jLabel11");
 

@@ -87,7 +87,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-armaz&#xe9;m-100.png"/>
+              <Image iconType="3" name="/br/com/ifba/salmos/login/images/icons8-armaz&#xe9;m-100.png"/>
             </Property>
           </Properties>
         </Component>
@@ -295,14 +295,14 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-envelope-circulado-25.png"/>
+              <Image iconType="3" name="/br/com/ifba/salmos/login/images/icons8-envelope-circulado-25.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/com/ifba/salmos/image/icons8-mostrar-a-senha-25.png"/>
+              <Image iconType="3" name="/br/com/ifba/salmos/login/images/icons8-mostrar-a-senha-25.png"/>
             </Property>
           </Properties>
         </Component>
