@@ -10,6 +10,7 @@ import br.com.ifba.salmos.infrastructure.support.StringUtil;
 import br.com.ifba.salmos.setor.model.Setor;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.usuario.model.Usuario;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -123,6 +124,14 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(null);
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseExited(evt);
+            }
+        });
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -135,6 +144,14 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarMouseExited(evt);
+            }
+        });
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -151,6 +168,14 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
         btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHomescreen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnHomescreenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnHomescreenMouseExited(evt);
+            }
+        });
         btnHomescreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomescreenActionPerformed(evt);
@@ -572,6 +597,51 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
         this.lista = buscaTipoDeUsuario(nome);
         atualizarTabela(lista);
     }//GEN-LAST:event_txtBuscaTipoDeUsuarioKeyReleased
+
+    private void btnHomescreenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomescreenMouseEntered
+        // TODO add your handling code here:
+        btnHomescreen.setContentAreaFilled(false);
+        btnHomescreen.setOpaque(true);
+        btnHomescreen.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnHomescreenMouseEntered
+
+    private void btnHomescreenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHomescreenMouseExited
+        // TODO add your handling code here:
+        Color color = btnSalvar.getBackground();
+        btnHomescreen.setContentAreaFilled(false);
+        btnHomescreen.setOpaque(true);
+        btnHomescreen.setBackground(color);
+    }//GEN-LAST:event_btnHomescreenMouseExited
+
+    private void btnCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseEntered
+        // TODO add your handling code here:
+        btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setOpaque(true);
+        btnCancelar.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnCancelarMouseEntered
+
+    private void btnCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseExited
+        // TODO add your handling code here:
+        Color color = btnSalvar.getBackground();
+        btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setOpaque(true);
+        btnCancelar.setBackground(color);
+    }//GEN-LAST:event_btnCancelarMouseExited
+
+    private void btnSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseEntered
+        // TODO add your handling code here:
+        btnSalvar.setContentAreaFilled(false);
+        btnSalvar.setOpaque(true);
+        btnSalvar.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnSalvarMouseEntered
+
+    private void btnSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseExited
+        // TODO add your handling code here:
+        Color color = btnCancelar.getBackground();
+        btnSalvar.setContentAreaFilled(false);
+        btnSalvar.setOpaque(true);
+        btnSalvar.setBackground(color);
+    }//GEN-LAST:event_btnSalvarMouseExited
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRemoverActionPerformed
         
