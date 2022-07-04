@@ -5,7 +5,12 @@
 package br.com.ifba.salmos.tiposdeusuarios.model;
 
 import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
+import br.com.ifba.salmos.usuario.model.Usuario;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +20,10 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class TipoDeUsuario extends PersistenceEntity{
+    
+    /*@OneToMany(mappedBy = "tipodeusuarios")
+    private List<Usuario> usuarios;*/
+    
     private String nome;
     private String descricao;
 

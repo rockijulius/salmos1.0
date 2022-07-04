@@ -65,10 +65,10 @@ public class ViewUsuario extends javax.swing.JFrame {
     //Metodo para atualizar a tabela na view
     
     private void atualizarTabela(List<Usuario> listaUsuario){
-        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário"});
+        this.listaTabela = new DefaultTableModel(null, new String [] {"ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário", "ID_TipoDeUsuario"});
         
         for(Usuario usu: listaUsuario){
-            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario()});
+            listaTabela.addRow(new Object[]{usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(), usu.getNome(), usu.getTipodeusuario(), usu.getID_TipoDeUsuario()});
         }
         
         this.tblUsuario.setModel(listaTabela);
@@ -372,7 +372,7 @@ public class ViewUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,50 +531,49 @@ public class ViewUsuario extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnMostrarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(29, 29, 29)
+                            .addComponent(btnMostrarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(lblBuscaUsuario)
                             .addGap(18, 18, 18)
-                            .addComponent(txtBuscaUsuario))))
-                .addGap(18, 18, 18)
+                            .addComponent(txtBuscaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblDescricao7)
-                        .addGap(130, 130, 130))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDescricao6))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDescricao4)
+                            .addComponent(txtUsuarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(lblDescricao7)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbbTipoDeUsuarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmailEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNome2)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbbTipoDeUsuarioEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblDescricao6))
-                                        .addGap(48, 48, 48)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDescricao4)
-                                            .addComponent(txtUsuarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                        .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtEmailEdit, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblDescricao5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNomeEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblDescricao5)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnExcluirEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -596,16 +595,16 @@ public class ViewUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnMostrarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(52, Short.MAX_VALUE))
+                        .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblNome2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(txtEmailEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblDescricao5)
-                        .addGap(13, 13, 13)
-                        .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDescricao6)
                             .addComponent(lblDescricao4))
@@ -633,17 +632,17 @@ public class ViewUsuario extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(351, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(351, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(tbpDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(78, 78, 78))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(tbpDescricao)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -694,6 +693,12 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setSenha(txtSenha.getText());
             usuario.setNome(txtNome.getText());
             usuario.setTipodeusuario(tipodeusuario.get(i).getNome());
+            
+            for(TipoDeUsuario tipode: tipodeusuario){
+                if(usuario.getTipodeusuario().equals(tipode.getNome())){
+                    usuario.setID_TipoDeUsuario(tipode.getId());
+                }
+            }
             
             for(c = 0; c < usuarios.size(); c++){
                 if(usuario.getLogin().equals(usuarios.get(c).getLogin())){
@@ -751,7 +756,11 @@ public class ViewUsuario extends javax.swing.JFrame {
                 }
             }
             
-            cbbTipoDeUsuarioEdit.setSelectedIndex(index);
+            for(index = 0; index < listaTipo.size(); index++){
+                if(listaTipo.get(index).getId() > 0){
+                    cbbTipoDeUsuarioEdit.setSelectedIndex(index);
+                }
+            }
             
             txtNomeEdit.setEnabled(true);
             
@@ -775,31 +784,34 @@ public class ViewUsuario extends javax.swing.JFrame {
         
             List<TipoDeUsuario> tiposdeusuarios = FacadeInstance.getInstance().getAllTipoDeUsuarios();
             
-            if(validaCampos() == true){
         
-                usuario.setEmail(txtEmailEdit.getText());
-                usuario.setLogin(txtUsuarioEdit.getText());
-                usuario.setSenha(txtSenhaEdit.getText());
-                usuario.setNome(txtNomeEdit.getText());
-                usuario.setTipodeusuario(tiposdeusuarios.get(i).getNome());
-        
-                FacadeInstance.getInstance().updateUsuario(usuario);
+            usuario.setEmail(txtEmailEdit.getText());
+            usuario.setLogin(txtUsuarioEdit.getText());
+            usuario.setSenha(txtSenhaEdit.getText());
+            usuario.setNome(txtNomeEdit.getText());
+            usuario.setTipodeusuario(tiposdeusuarios.get(i).getNome());
                 
-                txtEmailEdit.setText(null);
-                txtUsuarioEdit.setText(null);
-                txtSenhaEdit.setText(null);
-                txtNomeEdit.setText(null);
-        
-                JOptionPane.showMessageDialog(null, "Usuario Atualizado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
-        
-                this.lista = FacadeInstance.getInstance().getAllUsuarios();
-                this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
-                this.atualizarTabela(this.lista);
+            for(TipoDeUsuario tipode: tiposdeusuarios){
+                    
+                if(usuario.getTipodeusuario().equals(tipode.getNome())){
+                    usuario.setID_TipoDeUsuario(tipode.getId());
+                }
             }
-            
-        } else{
-            JOptionPane.showMessageDialog(null, "Selecione corretamente um Usuario para ser atualizado!!", "Atenção", JOptionPane.WARNING_MESSAGE);
+        
+            FacadeInstance.getInstance().updateUsuario(usuario);
+                
+            txtEmailEdit.setText(null);
+            txtUsuarioEdit.setText(null);
+            txtSenhaEdit.setText(null);
+            txtNomeEdit.setText(null);
+        
+            JOptionPane.showMessageDialog(null, "Usuario Atualizado", "Parabéns", JOptionPane.INFORMATION_MESSAGE);
+        
+            this.lista = FacadeInstance.getInstance().getAllUsuarios();
+            this.listaTipo = FacadeInstance.getInstance().getAllTipoDeUsuarios();
+            this.atualizarTabela(this.lista);
         }
+            
         btnCancelarEdit.doClick();
     }//GEN-LAST:event_btnSalvarEditActionPerformed
 

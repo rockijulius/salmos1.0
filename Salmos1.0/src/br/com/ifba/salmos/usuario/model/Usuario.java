@@ -8,6 +8,8 @@ import br.com.ifba.salmos.infrastructure.model.PersistenceEntity;
 import br.com.ifba.salmos.tiposdeusuarios.model.TipoDeUsuario;
 import br.com.ifba.salmos.tiposdeusuarios.view.ViewTipoDeUsuario;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,11 +21,17 @@ import javax.persistence.Table;
 @Table
 public class Usuario extends PersistenceEntity{
     
+    
+    /*@ManyToOne
+    @JoinColumn(name = "TipoDeUsuario_ID", referencedColumnName = "ID") //Procurando uma solução pra isso
+    private TipoDeUsuario tipodeusuarios;*/
+    
      private String login;
      private String senha;
      private String email;
      private String nome;
      private String tipodeusuario; 
+     private long ID_TipoDeUsuario;
 
     public String getLogin() {
         return login;
@@ -63,6 +71,22 @@ public class Usuario extends PersistenceEntity{
 
     public void setTipodeusuario(String tipodeusuario) {
         this.tipodeusuario = tipodeusuario;
+    }
+
+    /*public TipoDeUsuario getTipodeusuarios() {
+        return tipodeusuarios;
+    }
+
+    public void setTipodeusuarios(TipoDeUsuario tipodeusuarios) {
+        this.tipodeusuarios = tipodeusuarios;
+    }*/
+
+    public long getID_TipoDeUsuario() {
+        return ID_TipoDeUsuario;
+    }
+
+    public void setID_TipoDeUsuario(long ID_TipoDeUsuario) {
+        this.ID_TipoDeUsuario = ID_TipoDeUsuario;
     }
     
 }
