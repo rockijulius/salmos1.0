@@ -58,6 +58,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnGerarGrafico" min="-2" pref="122" max="-2" attributes="0"/>
                       <Component id="btnHomescreen" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="btnGerarGraficoRequisicoes" min="-2" pref="122" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="86" max="32767" attributes="0"/>
                   <Component id="jpnGrafico" min="-2" max="-2" attributes="0"/>
@@ -80,6 +81,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                   <Component id="btnGerarGrafico" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnGerarGraficoRequisicoes" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btnHomescreen" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
@@ -96,7 +99,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Leelawadee UI Semilight" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gr&#xe1;fico Itens"/>
+            <Property name="text" type="java.lang.String" value="Gr&#xe1;fico"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jpnGrafico">
@@ -125,7 +128,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="ff" red="fd" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gerar Gr&#xe1;ficos"/>
+            <Property name="text" type="java.lang.String" value="Itens"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -165,6 +168,31 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnGerarGraficoRequisicoes">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="48" green="bd" red="e8" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Leelawadee UI Semilight" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="af" green="ff" red="fd" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Requisi&#xe7;&#xf5;es"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGerarGraficoRequisicoesMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGerarGraficoRequisicoesMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGerarGraficoRequisicoesActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
