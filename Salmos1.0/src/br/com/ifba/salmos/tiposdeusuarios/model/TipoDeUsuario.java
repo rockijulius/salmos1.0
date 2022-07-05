@@ -21,8 +21,8 @@ import javax.persistence.Table;
 @Table
 public class TipoDeUsuario extends PersistenceEntity{
     
-    /*@OneToMany(mappedBy = "tipodeusuarios")
-    private List<Usuario> usuarios;*/
+    @OneToMany(mappedBy = "tipodeusuarios")
+    private List<Usuario> usuarios;
     
     private String nome;
     private String descricao;

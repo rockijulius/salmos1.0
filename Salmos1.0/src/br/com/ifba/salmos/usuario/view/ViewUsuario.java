@@ -68,11 +68,11 @@ public class ViewUsuario extends javax.swing.JFrame {
 
     private void atualizarTabela(List<Usuario> listaUsuario) {
         this.listaTabela = new DefaultTableModel(null,
-                new String[] { "ID", "Login", "Senha", "Email", "Nome", "Tipo de Usuário", "ID_TipoDeUsuario" });
+                new String[] { "ID", "Login", "Senha", "Email", "Nome", "ID_TipoDeUsuario"});
 
         for (Usuario usu : listaUsuario) {
             listaTabela.addRow(new Object[] { usu.getId(), usu.getLogin(), usu.getSenha(), usu.getEmail(),
-                    usu.getNome(), usu.getTipodeusuario(), usu.getID_TipoDeUsuario() });
+                    usu.getNome(), usu.getTipodeusuarios().getId()});
         }
 
         this.tblUsuario.setModel(listaTabela);
@@ -796,12 +796,8 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setSenha(txtSenha.getText());
             usuario.setNome(txtNome.getText());
             usuario.setTipodeusuario(tipodeusuario.get(i).getNome());
+            usuario.setTipodeusuarios(tipodeusuario.get(i));
 
-            for (TipoDeUsuario tipode : tipodeusuario) {
-                if (usuario.getTipodeusuario().equals(tipode.getNome())) {
-                    usuario.setID_TipoDeUsuario(tipode.getId());
-                }
-            }
 
             for (c = 0; c < usuarios.size(); c++) {
                 if (usuario.getLogin().equals(usuarios.get(c).getLogin())) {
@@ -896,13 +892,6 @@ public class ViewUsuario extends javax.swing.JFrame {
             usuario.setSenha(txtSenhaEdit.getText());
             usuario.setNome(txtNomeEdit.getText());
             usuario.setTipodeusuario(tiposdeusuarios.get(i).getNome());
-
-            for (TipoDeUsuario tipode : tiposdeusuarios) {
-
-                if (usuario.getTipodeusuario().equals(tipode.getNome())) {
-                    usuario.setID_TipoDeUsuario(tipode.getId());
-                }
-            }
 
             FacadeInstance.getInstance().updateUsuario(usuario);
 

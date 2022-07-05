@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.usuario.model.Usuario;
+import java.awt.Color;
 
 /**
  *
@@ -67,7 +68,7 @@ public class ChangePassword extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         lblSenhaRepeat.setBackground(new java.awt.Color(250, 206, 86));
-        lblSenhaRepeat.setFont(new java.awt.Font("Lucida Console", 1, 11)); // NOI18N
+        lblSenhaRepeat.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
         lblSenhaRepeat.setForeground(new java.awt.Color(250, 206, 86));
         lblSenhaRepeat.setText("Repita a senha");
 
@@ -95,6 +96,14 @@ public class ChangePassword extends javax.swing.JFrame {
         btnSalvar.setText("SALVAR");
         btnSalvar.setBorder(null);
         btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseExited(evt);
+            }
+        });
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -102,7 +111,7 @@ public class ChangePassword extends javax.swing.JFrame {
         });
 
         lblSenha.setBackground(new java.awt.Color(250, 206, 86));
-        lblSenha.setFont(new java.awt.Font("Lucida Console", 1, 11)); // NOI18N
+        lblSenha.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
         lblSenha.setForeground(new java.awt.Color(250, 206, 86));
         lblSenha.setText("Nova Senha");
 
@@ -156,6 +165,21 @@ public class ChangePassword extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseEntered
+        // TODO add your handling code here:
+        btnSalvar.setContentAreaFilled(false);
+        btnSalvar.setOpaque(true);
+        btnSalvar.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnSalvarMouseEntered
+
+    private void btnSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseExited
+        // TODO add your handling code here:
+        Color color = lblSenha.getBackground();
+        btnSalvar.setContentAreaFilled(false);
+        btnSalvar.setOpaque(true);
+        btnSalvar.setBackground(color);
+    }//GEN-LAST:event_btnSalvarMouseExited
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSalvarActionPerformed
         this.salvar();

@@ -155,7 +155,7 @@ public class Login extends javax.swing.JFrame {
         lblResetarSenha.setFont(new java.awt.Font("Leelawadee UI", 1, 11)); // NOI18N
         lblResetarSenha.setForeground(new java.awt.Color(232, 189, 72));
         lblResetarSenha.setText("Esqueceu a senha?");
-        lblResetarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblResetarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblResetarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblResetarSenhaMouseClicked(evt);

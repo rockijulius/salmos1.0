@@ -544,7 +544,6 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
 
         for (Usuario usu : listaUsuario) {
             if (usu.getTipodeusuario().equals(tipodeusuario.getNome())) {
-                usu.setID_TipoDeUsuario(0);
                 usu.setTipodeusuario(null);
             }
         }

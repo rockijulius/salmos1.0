@@ -238,10 +238,17 @@ public class ViewGraficoItens extends javax.swing.JFrame {
 
     private void btnGerarGraficoRequisicoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoRequisicoesMouseEntered
         // TODO add your handling code here:
+        btnGerarGraficoRequisicoes.setContentAreaFilled(false);
+        btnGerarGraficoRequisicoes.setOpaque(true);
+        btnGerarGraficoRequisicoes.setBackground(Color.ORANGE);
     }//GEN-LAST:event_btnGerarGraficoRequisicoesMouseEntered
 
     private void btnGerarGraficoRequisicoesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoRequisicoesMouseExited
         // TODO add your handling code here:
+        Color color = btnHomescreen.getBackground();
+        btnGerarGraficoRequisicoes.setContentAreaFilled(false);
+        btnGerarGraficoRequisicoes.setOpaque(true);
+        btnGerarGraficoRequisicoes.setBackground(color);
     }//GEN-LAST:event_btnGerarGraficoRequisicoesMouseExited
 
     private void btnGerarGraficoRequisicoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoRequisicoesActionPerformed

@@ -394,7 +394,7 @@ public class homescreen extends javax.swing.JFrame {
 
     private void btnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedoresActionPerformed
         // TODO add your handling code here:
-        ViewFornecedor fornecedor = new ViewFornecedor();
+        ViewFornecedor fornecedor = new ViewFornecedor(usuarioLogado);
         setVisible(false);
         fornecedor.setVisible(true);
     }//GEN-LAST:event_btnFornecedoresActionPerformed
@@ -428,7 +428,7 @@ public class homescreen extends javax.swing.JFrame {
 
     private void btnSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetorActionPerformed
         // TODO add your handling code here:
-        SetorView setor = new SetorView();
+        SetorView setor = new SetorView(usuarioLogado);
         setVisible(false);
         setor.setVisible(true);
     }//GEN-LAST:event_btnSetorActionPerformed
