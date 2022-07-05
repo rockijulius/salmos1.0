@@ -77,7 +77,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnTiposUsuario.setBackground(new java.awt.Color(232, 189, 72));
         btnTiposUsuario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnTiposUsuario.setForeground(new java.awt.Color(253, 255, 175));
         btnTiposUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/Tipos users.png"))); // NOI18N
         btnTiposUsuario.setText("Tipo de Usuário");
         btnTiposUsuario.setBorder(null);
@@ -104,7 +103,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnGraficos.setBackground(new java.awt.Color(232, 189, 72));
         btnGraficos.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnGraficos.setForeground(new java.awt.Color(253, 255, 175));
         btnGraficos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/graphic.png"))); // NOI18N
         btnGraficos.setText(" Gráficos");
         btnGraficos.setBorder(null);
@@ -125,7 +123,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnSetor.setBackground(new java.awt.Color(232, 189, 72));
         btnSetor.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnSetor.setForeground(new java.awt.Color(253, 255, 175));
         btnSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/sector.png"))); // NOI18N
         btnSetor.setText(" Setor");
         btnSetor.setToolTipText("");
@@ -147,7 +144,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnItens.setBackground(new java.awt.Color(232, 189, 72));
         btnItens.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnItens.setForeground(new java.awt.Color(253, 255, 175));
         btnItens.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/items.png"))); // NOI18N
         btnItens.setText("Itens");
         btnItens.setBorder(null);
@@ -251,7 +247,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnUsuario.setBackground(new java.awt.Color(232, 189, 72));
         btnUsuario.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnUsuario.setForeground(new java.awt.Color(253, 255, 175));
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/user.png"))); // NOI18N
         btnUsuario.setText("Usuários");
         btnUsuario.setBorder(null);
@@ -274,7 +269,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnRequisicao.setBackground(new java.awt.Color(232, 189, 72));
         btnRequisicao.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnRequisicao.setForeground(new java.awt.Color(253, 255, 175));
         btnRequisicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/request.png"))); // NOI18N
         btnRequisicao.setText("Requisição");
         btnRequisicao.setBorder(null);
@@ -295,7 +289,6 @@ public class homescreen extends javax.swing.JFrame {
 
         btnFornecedores.setBackground(new java.awt.Color(232, 189, 72));
         btnFornecedores.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
-        btnFornecedores.setForeground(new java.awt.Color(253, 255, 175));
         btnFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ifba/salmos/homescreen/images/fornecedor.png"))); // NOI18N
         btnFornecedores.setText("Fornecedores");
         btnFornecedores.setBorder(null);
