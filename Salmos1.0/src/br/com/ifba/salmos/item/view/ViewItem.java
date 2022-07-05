@@ -409,6 +409,14 @@ public class ViewItem extends javax.swing.JFrame {
         btnSalvarEdit.setBorder(null);
         btnSalvarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvarEdit.setEnabled(false);
+        btnSalvarEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalvarEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalvarEditMouseExited(evt);
+            }
+        });
         btnSalvarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarEditActionPerformed(evt);
@@ -422,6 +430,14 @@ public class ViewItem extends javax.swing.JFrame {
         btnExcluirEdit.setBorder(null);
         btnExcluirEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirEdit.setEnabled(false);
+        btnExcluirEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnExcluirEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnExcluirEditMouseExited(evt);
+            }
+        });
         btnExcluirEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirEditActionPerformed(evt);
@@ -435,6 +451,14 @@ public class ViewItem extends javax.swing.JFrame {
         btnCancelarEdit.setBorder(null);
         btnCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelarEdit.setEnabled(false);
+        btnCancelarEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelarEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelarEditMouseExited(evt);
+            }
+        });
         btnCancelarEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarEditActionPerformed(evt);
@@ -584,13 +608,13 @@ public class ViewItem extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(340, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(94, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -613,10 +637,7 @@ public class ViewItem extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -670,6 +691,51 @@ public class ViewItem extends javax.swing.JFrame {
         btnSalvar.setOpaque(true);
         btnSalvar.setBackground(color);
     }//GEN-LAST:event_btnSalvarMouseExited
+
+    private void btnCancelarEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarEditMouseEntered
+        // TODO add your handling code here:
+        btnCancelarEdit.setContentAreaFilled(false);
+        btnCancelarEdit.setOpaque(true);
+        btnCancelarEdit.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnCancelarEditMouseEntered
+
+    private void btnCancelarEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarEditMouseExited
+        // TODO add your handling code here:
+        Color color = btnSalvarEdit.getBackground();
+        btnCancelarEdit.setContentAreaFilled(false);
+        btnCancelarEdit.setOpaque(true);
+        btnCancelarEdit.setBackground(color);
+    }//GEN-LAST:event_btnCancelarEditMouseExited
+
+    private void btnExcluirEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirEditMouseEntered
+        // TODO add your handling code here:
+        btnExcluirEdit.setContentAreaFilled(false);
+        btnExcluirEdit.setOpaque(true);
+        btnExcluirEdit.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnExcluirEditMouseEntered
+
+    private void btnExcluirEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirEditMouseExited
+        // TODO add your handling code here:
+        Color color = btnSalvarEdit.getBackground();
+        btnExcluirEdit.setContentAreaFilled(false);
+        btnExcluirEdit.setOpaque(true);
+        btnExcluirEdit.setBackground(color);
+    }//GEN-LAST:event_btnExcluirEditMouseExited
+
+    private void btnSalvarEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarEditMouseEntered
+        // TODO add your handling code here:
+        btnSalvarEdit.setContentAreaFilled(false);
+        btnSalvarEdit.setOpaque(true);
+        btnSalvarEdit.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnSalvarEditMouseEntered
+
+    private void btnSalvarEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarEditMouseExited
+        // TODO add your handling code here:
+        Color color = btnExcluirEdit.getBackground();
+        btnSalvarEdit.setContentAreaFilled(false);
+        btnSalvarEdit.setOpaque(true);
+        btnSalvarEdit.setBackground(color);
+    }//GEN-LAST:event_btnSalvarEditMouseExited
 
     private void txtBuscaKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_txtBuscaKeyReleased
         String nome = txtBusca.getText().toLowerCase();
