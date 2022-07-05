@@ -36,7 +36,7 @@ public class ChangePassword extends javax.swing.JFrame {
 
             FacadeInstance.getInstance().updateUsuario(user);
             JOptionPane.showMessageDialog(null, "Sucesso, senha alterada com sucesso!",
-                    "Sucesso!", JOptionPane.ERROR_MESSAGE);
+                    "Sucesso!", JOptionPane.OK_OPTION);
             this.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "As senhas devem ser iguais!",

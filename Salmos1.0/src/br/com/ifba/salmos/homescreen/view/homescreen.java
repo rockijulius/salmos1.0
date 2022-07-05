@@ -435,7 +435,7 @@ public class homescreen extends javax.swing.JFrame {
 
     private void btnGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficosActionPerformed
         // TODO add your handling code here:
-        ViewGraficoItens grafico = new ViewGraficoItens();
+        ViewGraficoItens grafico = new ViewGraficoItens(usuarioLogado);
         setVisible(false);
         grafico.setVisible(true);
     }//GEN-LAST:event_btnGraficosActionPerformed

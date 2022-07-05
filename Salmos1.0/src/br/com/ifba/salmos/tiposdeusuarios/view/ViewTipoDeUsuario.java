@@ -587,7 +587,7 @@ public class ViewTipoDeUsuario extends javax.swing.JFrame {
     private void btnHomescreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomescreenActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        homescreen retornar = new homescreen();
+        homescreen retornar = new homescreen(usuarioLogado);
         retornar.setVisible(true);
     }//GEN-LAST:event_btnHomescreenActionPerformed
 

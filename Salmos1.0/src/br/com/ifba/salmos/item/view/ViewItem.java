@@ -860,7 +860,7 @@ public class ViewItem extends javax.swing.JFrame {
     private void btnHomescreenActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHomescreenActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        homescreen home = new homescreen();
+        homescreen home = new homescreen(usuarioLogado);
         home.setVisible(true);
     }// GEN-LAST:event_btnHomescreenActionPerformed
 

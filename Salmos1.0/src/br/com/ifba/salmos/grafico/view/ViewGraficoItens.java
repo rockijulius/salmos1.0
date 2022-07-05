@@ -29,9 +29,10 @@ public class ViewGraficoItens extends javax.swing.JFrame {
     List<Item> itemLista;
     List<Requisicao> requisicaoLista;
     Usuario usuarioLogado;
-    public ViewGraficoItens() {
+    public ViewGraficoItens(Usuario user) {
         initComponents();
         setLocationRelativeTo(null);
+        this.usuarioLogado = user;
     }
 
     /**
@@ -201,7 +202,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
 
     private void btnHomescreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomescreenActionPerformed
         // TODO add your handling code here:
-        homescreen home = new homescreen();
+        homescreen home = new homescreen(usuarioLogado);
         home.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnHomescreenActionPerformed
@@ -295,7 +296,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewGraficoItens().setVisible(true);
+                //new ViewGraficoItens().setVisible(true);
             }
         });
     }
