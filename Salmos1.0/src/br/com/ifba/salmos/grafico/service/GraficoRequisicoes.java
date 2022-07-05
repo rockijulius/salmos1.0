@@ -14,7 +14,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
-import sun.security.util.Length;
 
 /**
  *
@@ -25,9 +24,9 @@ public class GraficoRequisicoes extends Requisicao{
     public CategoryDataset criarDataSet(Collection<Requisicao> listaDeRequisicoes){
        
         DefaultCategoryDataset dataSet = new DefaultCategoryDataset ();
-        Requisicao req = null;
+        
         for(Requisicao requisicao : listaDeRequisicoes){
-            dataSet.addValue(requisicao.getListaItens().toString().length(),requisicao.getSetor(),"");
+            dataSet.addValue(requisicao.getListaItens().size(),requisicao.getSetor(),"");
         }
         return dataSet;
     }
@@ -37,8 +36,8 @@ public class GraficoRequisicoes extends Requisicao{
     public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "Setores", 
                 "", 
+                "Setores", 
                 "Quantidade de itens Requisitados", 
                 dataSet,
                 PlotOrientation.VERTICAL,
@@ -62,4 +61,7 @@ public class GraficoRequisicoes extends Requisicao{
         
         return painelGrafico;
     }
-        }
+    
+
+}
+    
