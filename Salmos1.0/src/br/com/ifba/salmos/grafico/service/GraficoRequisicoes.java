@@ -6,6 +6,7 @@ package br.com.ifba.salmos.grafico.service;
 
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import java.awt.Dimension;
+import java.util.Collection;
 import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -13,19 +14,20 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+import sun.security.util.Length;
 
 /**
  *
  * @author Felipe
  */
-public class GraficoRequisicoes {
+public class GraficoRequisicoes extends Requisicao{
      //Criando o Dataset
-    public CategoryDataset criarDataSet(List<Requisicao> listaDeRequisicoes){
+    public CategoryDataset criarDataSet(Collection<Requisicao> listaDeRequisicoes){
        
         DefaultCategoryDataset dataSet = new DefaultCategoryDataset ();
-        
+        Requisicao req = null;
         for(Requisicao requisicao : listaDeRequisicoes){
-            dataSet.addValue(requisicao.getUsuario(), (Comparable) requisicao.getListaItens(),"");
+            dataSet.addValue(requisicao.getListaItens().toString().length(),requisicao.getSetor(),"");
         }
         return dataSet;
     }
@@ -35,9 +37,9 @@ public class GraficoRequisicoes {
     public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "Requisições", 
-                "Itens requisitados", 
-                "Quantidade", 
+                "Setores", 
+                "", 
+                "Quantidade de itens Requisitados", 
                 dataSet,
                 PlotOrientation.VERTICAL,
                 true,
@@ -60,4 +62,4 @@ public class GraficoRequisicoes {
         
         return painelGrafico;
     }
-}
+        }
