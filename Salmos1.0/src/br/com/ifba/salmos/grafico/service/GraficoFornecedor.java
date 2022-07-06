@@ -16,20 +16,33 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- 
+ .
  * @author Everton
  */
 public class GraficoFornecedor {
     
-    public CategoryDataset criaDataset (List<Fornecedor> listaFornecedor){
+    public CategoryDataset criaDataset (List<Fornecedor> listaFornecedor, List <Item> listaItem) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
+        int vet[] = new int[listaFornecedor.size()];
+        int i = 0;
         for(Fornecedor fornecedor: listaFornecedor){
-            dataset.addValue(fornecedor.getId(),  fornecedor.getNome(), "");
-        }
+            for(Item item: listaItem){
             
+                if(fornecedor.getNome().equals(item.getFornecedor())){
+                vet[i] ++;
+                }   
+            } 
+            i++;
+        }
+         i = 0;
+        for(Fornecedor fornecedor: listaFornecedor){
+            dataset.addValue(vet[i],  fornecedor.getNome(), "");
+            i++;
+        }
             return dataset;
     }
+    
      public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
@@ -43,9 +56,9 @@ public class GraficoFornecedor {
                 false);
         return graficoBarras;
     }
-      public ChartPanel criarGrafico(List<Fornecedor> listaFornecedor){
+      public ChartPanel criarGrafico(List<Fornecedor> listaFornecedor, List<Item> listaItem){
           
-        CategoryDataset dataSet = this.criaDataset(listaFornecedor);
+        CategoryDataset dataSet = this.criaDataset(listaFornecedor, listaItem);
         
         JFreeChart grafico = this.criarBarChart(dataSet);
         
