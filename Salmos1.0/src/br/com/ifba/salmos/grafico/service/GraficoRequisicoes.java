@@ -20,13 +20,13 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Felipe
  */
 public class GraficoRequisicoes extends Requisicao{
-     //Criando o Dataset
+//Criando o Dataset
     public CategoryDataset criarDataSet(Collection<Requisicao> listaDeRequisicoes){
        
         DefaultCategoryDataset dataSet = new DefaultCategoryDataset ();
         
         for(Requisicao requisicao : listaDeRequisicoes){
-            dataSet.addValue(requisicao.getListaItens().size(),requisicao.getSetor(),"");
+            dataSet.addValue(requisicao.getListaItens().size(),requisicao.getSetor(),requisicao.getId());
         }
         return dataSet;
     }
@@ -36,20 +36,20 @@ public class GraficoRequisicoes extends Requisicao{
     public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "", 
-                "Setores", 
+                "Requisições Realizadas", 
+                "Id Da Requisição", 
                 "Quantidade de itens Requisitados", 
                 dataSet,
                 PlotOrientation.VERTICAL,
                 true,
-                false,
-                false);
+                true,
+                true);
         return graficoBarras;
     }
     
      //Criar grafico completo, recebe o arraylist do objeto e repassa para o metodo de dataset
     
-    public ChartPanel criarGrafico(List<Requisicao> listaDeRequisicoes){
+    public ChartPanel criarGrafico(Collection<Requisicao> listaDeRequisicoes){
         CategoryDataset dataSet = this.criarDataSet(listaDeRequisicoes);
         
         JFreeChart grafico = this.criarBarChart(dataSet);
