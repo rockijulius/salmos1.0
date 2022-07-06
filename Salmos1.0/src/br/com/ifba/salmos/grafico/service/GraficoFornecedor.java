@@ -31,7 +31,7 @@ public class GraficoFornecedor {
             for(Item item: listaItem){
             
                 if(fornecedor.getNome().equals(item.getFornecedor())){ //If para ver quanto cada fornecedor forneceu.
-                vet[i] ++;//incrementando o contador de itens de cada fornecedor.
+                vet[i] = vet[i] + item.getQuantidade();//incrementando o contador de itens de cada fornecedor.
                 }   
             } 
             i++;

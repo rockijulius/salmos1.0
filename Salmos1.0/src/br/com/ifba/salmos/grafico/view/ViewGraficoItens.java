@@ -4,6 +4,8 @@
  */
 package br.com.ifba.salmos.grafico.view;
 
+import br.com.ifba.salmos.fornecedor.model.Fornecedor;
+import br.com.ifba.salmos.grafico.service.GraficoFornecedor;
 import br.com.ifba.salmos.grafico.service.GraficoItems;
 import br.com.ifba.salmos.grafico.service.GraficoRequisicoes;
 import br.com.ifba.salmos.homescreen.view.homescreen;
@@ -29,6 +31,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
      */
     List<Item> itemLista;
     Collection<Requisicao> requisicaoLista;
+    List<Fornecedor> fornecedorLista;
     Usuario usuarioLogado;
     public ViewGraficoItens(Usuario user) {
         initComponents();
@@ -52,6 +55,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnHomescreen = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnGerarGraficoRequisicoes = new javax.swing.JButton();
+        btnGerarGraficoFornecedor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +82,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGrafico.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGrafico.setText("Itens");
         btnGerarGrafico.setBorder(null);
-        btnGerarGrafico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGerarGrafico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGerarGrafico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoMouseEntered(evt);
@@ -98,7 +102,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
-        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnHomescreen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHomescreenMouseEntered(evt);
@@ -118,7 +122,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGraficoRequisicoes.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGraficoRequisicoes.setText("Requisições");
         btnGerarGraficoRequisicoes.setBorder(null);
-        btnGerarGraficoRequisicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGerarGraficoRequisicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGerarGraficoRequisicoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoRequisicoesMouseEntered(evt);
@@ -130,6 +134,18 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGraficoRequisicoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerarGraficoRequisicoesActionPerformed(evt);
+            }
+        });
+
+        btnGerarGraficoFornecedor.setText("Fornecedor");
+        btnGerarGraficoFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGerarGraficoFornecedorMouseExited(evt);
+            }
+        });
+        btnGerarGraficoFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarGraficoFornecedorActionPerformed(evt);
             }
         });
 
@@ -146,10 +162,11 @@ public class ViewGraficoItens extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGerarGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGerarGraficoRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                    .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(btnGerarGraficoRequisicoes, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(btnGerarGraficoFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
                 .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -165,11 +182,13 @@ public class ViewGraficoItens extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(btnGerarGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnGerarGraficoRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnHomescreen, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGerarGraficoRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGerarGraficoFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addGap(88, 88, 88))
         );
 
@@ -266,6 +285,25 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         pack();
         
     }//GEN-LAST:event_btnGerarGraficoRequisicoesActionPerformed
+
+    private void btnGerarGraficoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorActionPerformed
+       this.fornecedorLista = FacadeInstance.getInstance().getAllFornecedor();
+        
+        GraficoFornecedor graficoFornecedor = new GraficoFornecedor();
+        
+//IMPORTANTE
+        this.jpnGrafico.setLayout(new BorderLayout());
+        this.jpnGrafico.add(graficoFornecedor.criarGrafico(fornecedorLista, itemLista));
+        
+        pack();
+    }//GEN-LAST:event_btnGerarGraficoFornecedorActionPerformed
+
+    private void btnGerarGraficoFornecedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorMouseExited
+        Color color = btnHomescreen.getBackground();
+        btnGerarGraficoFornecedor.setContentAreaFilled(false);
+        btnGerarGraficoFornecedor.setOpaque(true);
+        btnGerarGraficoFornecedor.setBackground(color);
+    }//GEN-LAST:event_btnGerarGraficoFornecedorMouseExited
     
     /**
      * @param args the command line arguments
@@ -304,6 +342,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGerarGrafico;
+    private javax.swing.JButton btnGerarGraficoFornecedor;
     private javax.swing.JButton btnGerarGraficoRequisicoes;
     private javax.swing.JButton btnHomescreen;
     private javax.swing.JLabel jLabel1;
