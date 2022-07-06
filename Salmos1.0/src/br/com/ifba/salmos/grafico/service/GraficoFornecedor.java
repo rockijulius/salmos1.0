@@ -26,16 +26,18 @@ public class GraficoFornecedor {
         
         int vet[] = new int[listaFornecedor.size()];
         int i = 0;
+        
         for(Fornecedor fornecedor: listaFornecedor){
             for(Item item: listaItem){
             
-                if(fornecedor.getNome().equals(item.getFornecedor())){
-                vet[i] ++;
+                if(fornecedor.getNome().equals(item.getFornecedor())){ //If para ver quanto cada fornecedor forneceu.
+                vet[i] ++;//incrementando o contador de itens de cada fornecedor.
                 }   
             } 
             i++;
         }
-         i = 0;
+            i = 0;
+         
         for(Fornecedor fornecedor: listaFornecedor){
             dataset.addValue(vet[i],  fornecedor.getNome(), "");
             i++;
@@ -46,9 +48,9 @@ public class GraficoFornecedor {
      public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "a", 
-                "b", 
-                "c", 
+                "Fornecimento de itens de cada forncedor", 
+                "Nome do fornedor", 
+                "Quantidade de itens fornecidos", 
                 dataSet,
                 PlotOrientation.VERTICAL,
                 true,
