@@ -13,6 +13,7 @@ import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -27,7 +28,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
      * Creates new form ViewGraficoItens
      */
     List<Item> itemLista;
-    List<Requisicao> requisicaoLista;
+    Collection<Requisicao> requisicaoLista;
     Usuario usuarioLogado;
     public ViewGraficoItens(Usuario user) {
         initComponents();
