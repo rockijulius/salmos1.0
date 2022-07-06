@@ -137,8 +137,16 @@ public class ViewGraficoItens extends javax.swing.JFrame {
             }
         });
 
+        btnGerarGraficoFornecedor.setBackground(new java.awt.Color(232, 189, 72));
+        btnGerarGraficoFornecedor.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        btnGerarGraficoFornecedor.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGraficoFornecedor.setText("Fornecedor");
+        btnGerarGraficoFornecedor.setBorder(null);
+        btnGerarGraficoFornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnGerarGraficoFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGerarGraficoFornecedorMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoFornecedorMouseExited(evt);
             }
@@ -165,7 +173,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
                     .addComponent(btnGerarGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(btnHomescreen, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(btnGerarGraficoRequisicoes, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                    .addComponent(btnGerarGraficoFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGerarGraficoFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                 .addGap(86, 86, 86)
                 .addComponent(jpnGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
@@ -286,8 +294,22 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGerarGraficoRequisicoesActionPerformed
 
+    private void btnGerarGraficoFornecedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorMouseEntered
+        btnGerarGraficoFornecedor.setContentAreaFilled(false);
+        btnGerarGraficoFornecedor.setOpaque(true);
+        btnGerarGraficoFornecedor.setBackground(Color.ORANGE);
+    }//GEN-LAST:event_btnGerarGraficoFornecedorMouseEntered
+
+    private void btnGerarGraficoFornecedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorMouseExited
+        Color color = btnHomescreen.getBackground();
+        btnGerarGraficoFornecedor.setContentAreaFilled(false);
+        btnGerarGraficoFornecedor.setOpaque(true);
+        btnGerarGraficoFornecedor.setBackground(color);
+    }//GEN-LAST:event_btnGerarGraficoFornecedorMouseExited
+
     private void btnGerarGraficoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorActionPerformed
-       this.fornecedorLista = FacadeInstance.getInstance().getAllFornecedor();
+        this.itemLista = FacadeInstance.getInstance().getAllItem();
+        this.fornecedorLista = FacadeInstance.getInstance().getAllFornecedor();
         
         GraficoFornecedor graficoFornecedor = new GraficoFornecedor();
         
@@ -297,13 +319,6 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         
         pack();
     }//GEN-LAST:event_btnGerarGraficoFornecedorActionPerformed
-
-    private void btnGerarGraficoFornecedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorMouseExited
-        Color color = btnHomescreen.getBackground();
-        btnGerarGraficoFornecedor.setContentAreaFilled(false);
-        btnGerarGraficoFornecedor.setOpaque(true);
-        btnGerarGraficoFornecedor.setBackground(color);
-    }//GEN-LAST:event_btnGerarGraficoFornecedorMouseExited
     
     /**
      * @param args the command line arguments
