@@ -48,8 +48,8 @@ public class GraficoFornecedor {
      public JFreeChart criarBarChart(CategoryDataset dataSet){
         
         JFreeChart graficoBarras = ChartFactory.createBarChart(
-                "Fornecimento de itens de cada forncedor", 
-                "Nome do fornedor", 
+                "Fornecimento de itens de cada fornecedor", 
+                "Nome do fornecedor", 
                 "Quantidade de itens fornecidos", 
                 dataSet,
                 PlotOrientation.VERTICAL,
