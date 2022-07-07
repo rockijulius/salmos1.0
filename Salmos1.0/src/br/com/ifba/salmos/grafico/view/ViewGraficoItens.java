@@ -82,7 +82,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGrafico.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGrafico.setText("Itens");
         btnGerarGrafico.setBorder(null);
-        btnGerarGrafico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGerarGrafico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGerarGrafico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoMouseEntered(evt);
@@ -102,7 +102,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnHomescreen.setForeground(new java.awt.Color(253, 255, 175));
         btnHomescreen.setText("Homescreen");
         btnHomescreen.setBorder(null);
-        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnHomescreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHomescreen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnHomescreenMouseEntered(evt);
@@ -122,7 +122,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGraficoRequisicoes.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGraficoRequisicoes.setText("Requisições");
         btnGerarGraficoRequisicoes.setBorder(null);
-        btnGerarGraficoRequisicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGerarGraficoRequisicoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGerarGraficoRequisicoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoRequisicoesMouseEntered(evt);
@@ -142,7 +142,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         btnGerarGraficoFornecedor.setForeground(new java.awt.Color(253, 255, 175));
         btnGerarGraficoFornecedor.setText("Fornecedor");
         btnGerarGraficoFornecedor.setBorder(null);
-        btnGerarGraficoFornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGerarGraficoFornecedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGerarGraficoFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnGerarGraficoFornecedorMouseEntered(evt);
