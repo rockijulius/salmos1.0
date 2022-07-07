@@ -215,6 +215,8 @@ public class ViewGraficoItens extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGerarGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoActionPerformed
+        //limpa o jpanel para o grafico nao apenas sobrescrever o anterior
+        this.jpnGrafico.removeAll();
         // TODO add your handling code here:
         this.itemLista = FacadeInstance.getInstance().getAllItem();
         
@@ -281,7 +283,10 @@ public class ViewGraficoItens extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGerarGraficoRequisicoesMouseExited
 
     private void btnGerarGraficoRequisicoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoRequisicoesActionPerformed
-          // TODO add your handling code here:
+        //limpa o jpanel para o grafico nao apenas sobrescrever o anterior
+        this.jpnGrafico.removeAll();
+        
+        // TODO add your handling code here:
         this.requisicaoLista = FacadeInstance.getInstance().getAllRequisicao();
         
         GraficoRequisicoes graficoRequisicoes = new GraficoRequisicoes();
@@ -308,6 +313,9 @@ public class ViewGraficoItens extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGerarGraficoFornecedorMouseExited
 
     private void btnGerarGraficoFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarGraficoFornecedorActionPerformed
+        //limpa o jpanel para o grafico nao apenas sobrescrever o anterior
+        this.jpnGrafico.removeAll();
+        
         this.itemLista = FacadeInstance.getInstance().getAllItem();
         this.fornecedorLista = FacadeInstance.getInstance().getAllFornecedor();
         
