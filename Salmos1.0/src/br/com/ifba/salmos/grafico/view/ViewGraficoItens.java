@@ -236,7 +236,8 @@ public class ViewGraficoItens extends javax.swing.JFrame {
         home.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnHomescreenActionPerformed
-
+    
+    //Criando as animações de interação com os botões
     private void btnGerarGraficoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGerarGraficoMouseEntered
         // TODO add your handling code here:
         btnGerarGrafico.setContentAreaFilled(false);
