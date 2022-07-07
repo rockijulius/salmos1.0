@@ -4,6 +4,7 @@
  */
 package br.com.ifba.salmos.login.view;
 
+import br.com.ifba.salmos.homescreen.view.RoundedBorder;
 import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.login.forgotPassword.ForgotPassword;
@@ -11,6 +12,7 @@ import br.com.ifba.salmos.usuario.model.Usuario;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,8 +26,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        //btnLogin.setBounds(btnLogin.getX(), btnLogin.getY(), 30, 25);
+        //btnLogin.setBorder(new RoundedBorder(30));
     }
-
+    
     private Usuario validateLogin() {
         List<Usuario> users = FacadeInstance.getInstance().getAllUsuarios();
 
@@ -50,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         }
         return null;
     }
+    
 
     private void makeLogin() {
         Usuario user = this.validateLogin();
@@ -330,6 +335,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setContentAreaFilled(false);
         btnLogin.setOpaque(true);
         btnLogin.setBackground(Color.ORANGE);
+        
     }//GEN-LAST:event_btnLoginMouseEntered
 
     private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited

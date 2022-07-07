@@ -5,6 +5,7 @@
 package Salmos;
 
 import br.com.ifba.salmos.fornecedor.model.Fornecedor;
+import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.setor.model.Setor;
@@ -22,12 +23,7 @@ public class Salmos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        TipoDeUsuario tipousuario = new TipoDeUsuario();
-        Usuario usuario = new Usuario();
-        Item item = new Item();
-        Setor setor = new Setor();
-        Fornecedor fornecedor = new Fornecedor();
-        Requisicao requisicao = new Requisicao();
+        homescreen homescreen = new homescreen();
         
         //Classe inicial Main
     }
