@@ -754,6 +754,7 @@ public class ViewItem extends javax.swing.JFrame {
         int i, c = cbbFornecedor.getSelectedIndex();
         List<Item> verificarItem = FacadeInstance.getInstance().getAllItem();
         List<Fornecedor> verificaFornecedor = FacadeInstance.getInstance().getAllFornecedor();
+        
 
         if (validaCampos() == true) {
             itemL.setNome(txtNome.getText());
@@ -768,7 +769,7 @@ public class ViewItem extends javax.swing.JFrame {
                     return;
                 }
             }
-        }
+        
 
         FacadeInstance.getInstance().saveItem(itemL);
 
@@ -781,6 +782,7 @@ public class ViewItem extends javax.swing.JFrame {
 
         this.itemLista = FacadeInstance.getInstance().getAllItem();
         this.atualizarTabelaItem(itemLista);
+       } 
     }// GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCancelarActionPerformed

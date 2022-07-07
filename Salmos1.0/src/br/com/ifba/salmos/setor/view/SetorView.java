@@ -604,7 +604,7 @@ public class SetorView extends javax.swing.JFrame {
                 }
             }
             FacadeInstance.getInstance().saveSetor(set);
-        }
+        
 
         
         if (set.getId() != null) {
@@ -618,6 +618,7 @@ public class SetorView extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Erro, ao salvar o Setor!", "Erro!", JOptionPane.ERROR_MESSAGE);
         }
+       }
 
     }// GEN-LAST:event_btnSalvarActionPerformed
 
