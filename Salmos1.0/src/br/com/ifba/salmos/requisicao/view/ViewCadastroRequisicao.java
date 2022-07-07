@@ -6,6 +6,7 @@
 
 package br.com.ifba.salmos.requisicao.view;
 
+import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.requisicao.model.ItensDisponiveisTableModel;
@@ -25,7 +26,7 @@ import javax.swing.JOptionPane;
  */
 public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
-    private Usuario usuarioLogado;
+    Usuario usuarioLogado;
     private List<Setor> setores;
     private Collection<Item> itens;
     private Collection<Item> itensRequisitados = new ArrayList();
@@ -38,7 +39,7 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.usuarioLogado = usuarioLogado;
-        jLblUsuario.setText(this.usuarioLogado.getNome());
+        jLblUsuario.setText(usuarioLogado.getNome());
         iniciaComboBoxSetor();
         atualizaTabela();
         

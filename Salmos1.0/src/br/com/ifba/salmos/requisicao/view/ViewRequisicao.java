@@ -25,7 +25,7 @@ public class ViewRequisicao extends javax.swing.JFrame {
     /**
      * Creates new form ViewRequisicao
      */
-    private Usuario usuarioLogado;
+    Usuario usuarioLogado;
     RequisicaoTableModel tableModel = new RequisicaoTableModel();
     private Collection<Item> itensDaRequisicao = new ArrayList();
     private Collection<Requisicao> requisicoes;
