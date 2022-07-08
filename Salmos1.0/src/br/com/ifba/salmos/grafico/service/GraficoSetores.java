@@ -38,6 +38,7 @@ public class GraficoSetores {
             
                 if(setor.getNome().equals(requisicao.getSetor())){ //If para ver quanto cada setor requisitou.
                 vet[i] = vet[i] + requisicaoLista.size();// incrementa a lista com cada 
+                
                 }     
             } 
            i++;
