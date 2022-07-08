@@ -4,9 +4,6 @@
  */
 package br.com.ifba.salmos.grafico.service;
 
-import br.com.ifba.salmos.fornecedor.model.Fornecedor;
-import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
-import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.setor.model.Setor;
 import java.awt.Dimension;
@@ -26,31 +23,28 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class GraficoSetores {
    
 //Criando o Dataset
-    public CategoryDataset criarDataSet(Collection<Requisicao> listaDeRequisicoes,List<Setor> listaSetor){
+    public CategoryDataset criarDataSet(List<Requisicao> listaRequisicao, List<Setor> listaSetor){
        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        Collection<Requisicao> requisicaoLista;
-        requisicaoLista = FacadeInstance.getInstance().getAllRequisicao();
-        int vet[] = new int[listaSetor.size()];
-        int i = 0;
-        
-        for(Setor setor :   listaSetor ){
-            for(Requisicao requisicao : listaDeRequisicoes){
-            
-                if(setor.getNome().equals(requisicao.getSetor())){ //If para ver quanto cada setor requisitou.
-                vet[i] = vet[i] + requisicaoLista.size();// incrementa a lista com cada 
-                
-                }     
-            } 
-           i++;
-        }
-          i = 0; 
-         
-        for(Setor setor : listaSetor){
-            dataset.addValue(vet[i],  setor.getNome(), ""); 
-            i++;
-        }
-            return dataset;
-          
+           
+           int vet[] =  new int [listaRequisicao.size()];
+           int i = 0;
+           
+           for(Setor setor:listaSetor){
+               for(Requisicao requisicao: listaRequisicao){
+                   
+                   if(setor.getNome().equals(requisicao.getSetor())){
+                       vet[i]++;
+                   }
+               }//for menor
+               i++;
+            }//for maior
+           
+                i=0;
+           for(Setor setor: listaSetor){
+               dataset.addValue(vet[i], setor.getNome(), "");
+               i++;
+           }
+           return dataset;
     }
     //Criando O Grafico de Barras
     
@@ -70,8 +64,8 @@ public class GraficoSetores {
     
      //Criar grafico completo, recebe o arraylist do objeto e repassa para o metodo de dataset
     
-    public ChartPanel criarGrafico(Collection<Requisicao> listaDeRequisicoes,List<Setor> listaSetor){
-        CategoryDataset dataSet = this.criarDataSet(listaDeRequisicoes, listaSetor);
+    public ChartPanel criarGrafico(Collection<Requisicao> listaRequisicao,List<Setor> listaSetor){
+        CategoryDataset dataSet = this.criarDataSet((List<Requisicao>) listaRequisicao, listaSetor);
         
         JFreeChart grafico = this.criarBarChart(dataSet);
         
