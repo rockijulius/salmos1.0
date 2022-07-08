@@ -33,7 +33,7 @@ public class ViewGraficoItens extends javax.swing.JFrame {
      */
     List<Setor> listaSetor;
     List<Item> itemLista;
-    Collection<Requisicao> requisicaoLista;
+    List<Requisicao> requisicaoLista;
     List<Fornecedor> fornecedorLista;
     Usuario usuarioLogado;
     public ViewGraficoItens(Usuario user) {
