@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Everton e Tarcísio.
+ * @author Everton.
  */
 @Entity//Indicando que essa classe é uma das que vão se tornar persistivél no banco de dados.
 @Table
