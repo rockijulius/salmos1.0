@@ -20,7 +20,6 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Requisicao extends PersistenceEntity{
-    private long idRequisicao;
     private String setor;
     private long idUsuario;    
     @ManyToMany 

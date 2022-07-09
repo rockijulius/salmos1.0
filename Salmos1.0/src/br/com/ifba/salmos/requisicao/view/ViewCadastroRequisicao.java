@@ -6,17 +6,16 @@
 
 package br.com.ifba.salmos.requisicao.view;
 
-import br.com.ifba.salmos.homescreen.view.homescreen;
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.item.model.Item;
 import br.com.ifba.salmos.requisicao.model.ItensDisponiveisTableModel;
+import br.com.ifba.salmos.requisicao.model.ItensRequisitadosTableModel;
 import br.com.ifba.salmos.requisicao.model.Requisicao;
 import br.com.ifba.salmos.setor.model.Setor;
 import br.com.ifba.salmos.usuario.model.Usuario;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
@@ -26,11 +25,16 @@ import javax.swing.JOptionPane;
  */
 public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
+    Item itemLocalizado;
+    Item itemRequisitado;
     Usuario usuarioLogado;
+    int qtdSolicitada;
     private List<Setor> setores;
     private Collection<Item> itens;
-    private Collection<Item> itensRequisitados = new ArrayList();
-    ItensDisponiveisTableModel itensDisponiveis = new ItensDisponiveisTableModel();
+    private Collection<Item> itensDaRequisicao = new ArrayList();
+    private List<Item> itensRequisitados = new ArrayList();
+    ItensRequisitadosTableModel itensRequisitadosTable = new ItensRequisitadosTableModel();
+    ItensDisponiveisTableModel itensDisponiveisTable = new ItensDisponiveisTableModel();
     
     
     /** Creates new form ViewCadastroRequisicao */
@@ -41,7 +45,8 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         this.usuarioLogado = usuarioLogado;
         jLblUsuario.setText(usuarioLogado.getNome());
         iniciaComboBoxSetor();
-        atualizaTabela();
+        atualizaTabelaItensDisponiveis();
+        atualizaTabelaItensRequisitados();
         
     }
     
@@ -59,8 +64,6 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     private void initComponents() {
 
         jLblUsuario = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListItensRequisitados = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -73,11 +76,11 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         jTableItensDisponiveis = new javax.swing.JTable();
         jBtnTelaRequisicoes = new javax.swing.JButton();
         jBtnSalvarRequisicao = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableItensRequisitados = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jListItensRequisitados.setToolTipText("Itens requisitados");
-        jScrollPane1.setViewportView(jListItensRequisitados);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
@@ -98,6 +101,12 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         jBtnRemoveListaRequisicao.setText("<<<");
         jBtnRemoveListaRequisicao.setToolTipText("Remover Item");
         jBtnRemoveListaRequisicao.setBorder(null);
+        jBtnRemoveListaRequisicao.setEnabled(false);
+        jBtnRemoveListaRequisicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnRemoveListaRequisicaoActionPerformed(evt);
+            }
+        });
 
         jBtnAdicionaListaRequisicao.setBackground(new java.awt.Color(250, 206, 101));
         jBtnAdicionaListaRequisicao.setFont(new java.awt.Font("Leelawadee UI", 1, 11)); // NOI18N
@@ -128,6 +137,7 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
             }
         ));
         jTableItensDisponiveis.setToolTipText("ItensDisponíveis");
+        jTableItensDisponiveis.getTableHeader().setReorderingAllowed(false);
         jTableItensDisponiveis.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTableItensDisponiveisFocusLost(evt);
@@ -162,23 +172,60 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
             }
         });
 
+        jTableItensRequisitados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableItensRequisitados.getTableHeader().setReorderingAllowed(false);
+        jTableItensRequisitados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableItensRequisitadosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableItensRequisitados);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Itens requisitados:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
+                                .addGap(14, 14, 14)
+                                .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(372, 372, 372)
+                                .addComponent(jLabel5))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnTelaRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBtnSalvarRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -190,21 +237,8 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
                                             .addComponent(jBtnAdicionaListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jBtnRemoveListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(21, 21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,13 +252,14 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
                     .addComponent(jCmBoxSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jSpinnerQuantidadeItemSelecionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,11 +268,12 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
                                 .addComponent(jBtnAdicionaListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(jBtnRemoveListaRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtnSalvarRequisicao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBtnTelaRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                            .addComponent(jBtnTelaRequisicoes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,22 +286,29 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
 
     private void jBtnAdicionaListaRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAdicionaListaRequisicaoActionPerformed
         int codItem = pegaCod();
-        int qtdSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
-        Item itemLocalizado = localizaItem(codItem);
-        Item itemRequisitado = new Item();
-                               
-        if(verificaQuantidade(itemLocalizado, qtdSolicitada) == true){
-            itemLocalizado.setQuantidade(itemLocalizado.getQuantidade() - qtdSolicitada);
-            FacadeInstance.getInstance().updateItem(itemLocalizado);
-            itemRequisitado = alteraInformacoesItem(itemLocalizado, qtdSolicitada);
-            itensRequisitados.add(itemRequisitado);
-            atualizaTabela();
-            atualizaLista();
+        qtdSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
+        itemLocalizado = localizaItem(codItem);
+                                       
+        if(verificaQuantidadeAdicionar(itemLocalizado, qtdSolicitada) == true){
+            int posItem = verificaItemRequisitado(itemLocalizado);
+            if(posItem == -1){          //-1 pois o table inicia em 0, caso testasse para 0 duplicaria os itens na lista
+                itemRequisitado = alteraInformacoesItem(itemLocalizado, qtdSolicitada);         // cópia do item localizado para o item requisitado, alterando o valor solicitado apenas
+                itensRequisitados.add(itemRequisitado);
+                itensRequisitadosTable.atualizaTabelaRequisicao(itensRequisitados);
+                jTableItensRequisitados.setModel(itensRequisitadosTable);
+            }else{
+                
+                itensRequisitados.get(posItem).setQuantidade(itensRequisitados.get(posItem).getQuantidade() + qtdSolicitada);
+                itensRequisitadosTable.atualizaTabelaRequisicao(itensRequisitados);
+            }
+            jBtnAdicionaListaRequisicao.setEnabled(false);
         }
+        
     }//GEN-LAST:event_jBtnAdicionaListaRequisicaoActionPerformed
 
     private void jTableItensDisponiveisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableItensDisponiveisMouseClicked
         jBtnAdicionaListaRequisicao.setEnabled(true);
+        jBtnRemoveListaRequisicao.setEnabled(false);
     }//GEN-LAST:event_jTableItensDisponiveisMouseClicked
 
     private void jTableItensDisponiveisFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableItensDisponiveisFocusLost
@@ -273,12 +316,45 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableItensDisponiveisFocusLost
 
     private void jBtnSalvarRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarRequisicaoActionPerformed
-        Requisicao req = new Requisicao();
-        req.setListaItens(itensRequisitados);
-        req.setUsuario(usuarioLogado.getId());
-        req.setSetor(jCmBoxSetor.getSelectedItem().toString());
-        FacadeInstance.getInstance().saveRequisicao(req);
+        if(itensRequisitados.size() > 0){
+            Requisicao req = new Requisicao();
+            migraItensRequisicao();
+            req.setListaItens(itensDaRequisicao);
+            req.setUsuario(usuarioLogado.getId());
+            req.setSetor(jCmBoxSetor.getSelectedItem().toString());
+            FacadeInstance.getInstance().saveRequisicao(req);
+            itemLocalizado.setQuantidade(itemLocalizado.getQuantidade() - qtdSolicitada);
+            FacadeInstance.getInstance().updateItem(itemLocalizado);    
+        
+            atualizaTabelaItensDisponiveis();
+            itensRequisitados.clear();
+            JOptionPane.showMessageDialog(null, "Requisição cadastrada com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Adicione ao menos um item na requisição antes de salvá-la.");
+        }
     }//GEN-LAST:event_jBtnSalvarRequisicaoActionPerformed
+
+    private void jBtnRemoveListaRequisicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRemoveListaRequisicaoActionPerformed
+        qtdSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
+        int codItem = Integer.parseInt(jTableItensRequisitados.getValueAt(jTableItensRequisitados.getSelectedRow(), 0).toString());
+        if(qtdSolicitada > 0){
+            if(qtdSolicitada >= Integer.parseInt(jTableItensRequisitados.getValueAt(jTableItensRequisitados.getSelectedRow(), 2).toString())){
+                excluiItemTabelaRequisitado(codItem);
+                itensRequisitadosTable.atualizaTabelaRequisicao(itensRequisitados);
+            }else{
+                atualizarItemTabelaRequisicao(codItem, qtdSolicitada);
+                itensRequisitadosTable.atualizaTabelaRequisicao(itensRequisitados);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Quantidade selecionada inválida!");
+        }
+        jBtnRemoveListaRequisicao.setEnabled(false);
+    }//GEN-LAST:event_jBtnRemoveListaRequisicaoActionPerformed
+
+    private void jTableItensRequisitadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableItensRequisitadosMouseClicked
+        jBtnRemoveListaRequisicao.setEnabled(true);
+        jBtnAdicionaListaRequisicao.setEnabled(false);
+    }//GEN-LAST:event_jTableItensRequisitadosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -306,6 +382,9 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ViewCadastroRequisicao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -325,30 +404,35 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLblUsuario;
-    private javax.swing.JList<String> jListItensRequisitados;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinnerQuantidadeItemSelecionado;
     private javax.swing.JTable jTableItensDisponiveis;
+    private javax.swing.JTable jTableItensRequisitados;
     // End of variables declaration//GEN-END:variables
 
-    private boolean verificaQuantidade(Item itemLocalizado, int qtdSolicitada) {
+    private boolean verificaQuantidadeAdicionar(Item itemLocalizado, int qtdSolicitada) {
         boolean qtd = false;
-        int qntSolicitada = Integer.parseInt(jSpinnerQuantidadeItemSelecionado.getValue().toString());
+        int qntSolicitada = qtdSolicitada;
         
-        if(itemLocalizado.getQuantidade() < qntSolicitada){
-            JOptionPane.showMessageDialog(null, "Quantidade solicitada maior que quantidade disponível!");
-            qtd = false;
-        }else{
-            qtd = true;
+        if(qtdSolicitada <= 0){
+         JOptionPane.showMessageDialog(null, "Quantidade solicitada não pode ser menor ou igual a 0!");
+        }else{    
+            if(itemLocalizado.getQuantidade() < qntSolicitada){
+                JOptionPane.showMessageDialog(null, "Quantidade solicitada maior que quantidade disponível!");
+                qtd = false;
+            }else{
+                qtd = true;
+            }
         }
         return qtd;
     }
-    
+   
     private int pegaCod(){
         int linha = jTableItensDisponiveis.getSelectedRow();
-        int cod = Integer.parseInt(itensDisponiveis.getValueAt(linha, 0).toString());
+        int cod = Integer.parseInt(itensDisponiveisTable.getValueAt(linha, 0).toString());
         return cod;
     }
     
@@ -359,11 +443,16 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
         }
     }
     
-    private void atualizaTabela() {
-        itensDisponiveis.atualizaListaRequisicao();
-        jTableItensDisponiveis.setModel(itensDisponiveis);
+    private void atualizaTabelaItensDisponiveis() {
+        itensDisponiveisTable.atualizaTabelaRequisicao();
+        jTableItensDisponiveis.setModel(itensDisponiveisTable);
     }
 
+    private void atualizaTabelaItensRequisitados() {
+        itensRequisitadosTable.atualizaTabelaRequisicao(itensRequisitados);
+        jTableItensRequisitados.setModel(itensRequisitadosTable);
+    }
+    
     private Item localizaItem(int cod) {
         Item itemALocalizar = new Item();
         itens = FacadeInstance.getInstance().getAllItem();
@@ -377,21 +466,45 @@ public class ViewCadastroRequisicao extends javax.swing.JFrame {
               
         return itemALocalizar;
     }
-
-    private void atualizaLista() {
-        DefaultListModel model = new DefaultListModel();
-        for(Item itensRequisitados: itensRequisitados){
-            model.addElement("Item: " + itensRequisitados.getNome() + ". Quantidade: " + itensRequisitados.getQuantidade());
-        }
-        jListItensRequisitados.setModel(model);
-    }
-
+    
     private Item alteraInformacoesItem(Item itemLocalizado, int qtdSolicitada) {
-        Item itemRequisitado = new Item();
+        itemRequisitado = new Item();
         itemRequisitado.setId(itemLocalizado.getId());
         itemRequisitado.setDescricao(itemLocalizado.getDescricao());
         itemRequisitado.setNome(itemLocalizado.getNome());
         itemRequisitado.setQuantidade(qtdSolicitada);
         return itemRequisitado;
+    }
+
+    private int verificaItemRequisitado(Item item) {
+        int existe = -1;
+        
+        for(int x = 0; x < itensRequisitados.size(); x++){
+            if(item.getId().equals(itensRequisitadosTable.getValueAt(x, 0)))
+                existe = x;
+        }
+        return existe;
+    }
+
+    private void excluiItemTabelaRequisitado(int codItem) {
+        for(int x =0; x < itensRequisitados.size(); x++){
+            if(itensRequisitados.get(x).getId() == codItem){
+                itensRequisitados.remove(x);
+            }
+        }
+    }
+
+    private void atualizarItemTabelaRequisicao(int codItem, int qtdRetirar) {
+        for(int x =0; x < itensRequisitados.size(); x++){
+            if(itensRequisitados.get(x).getId() == codItem){
+                itensRequisitados.get(x).setQuantidade(itensRequisitados.get(x).getQuantidade() - qtdRetirar);
+            }
+        }
+    }
+
+    private void migraItensRequisicao() {
+        for(int x = 0; x < itensRequisitados.size(); x++){
+            itensDaRequisicao.add(itensRequisitados.get(x));
+        }
     }
 }

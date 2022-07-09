@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package br.com.ifba.salmos.requisicao.model;
-
 import br.com.ifba.salmos.infrastructure.service.FacadeInstance;
 import br.com.ifba.salmos.item.model.Item;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -14,9 +14,9 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author rocki.julius
  */
-public class ItensDisponiveisTableModel extends AbstractTableModel{
+public class ItensRequisitadosTableModel extends AbstractTableModel{
 
-    private List<Item> listaItens = FacadeInstance.getInstance().getAllItem();
+    private List<Item> listaItens = new ArrayList();
     private String[] colunas = {"Id", "Item", "Quantidade"};
        
     @Override
@@ -51,8 +51,8 @@ public class ItensDisponiveisTableModel extends AbstractTableModel{
         return listaItens;
     }
     
-    public void atualizaTabelaRequisicao(){
-        listaItens = FacadeInstance.getInstance().getAllItem(); //pega os dados novamente no banco de dados
+     public void atualizaTabelaRequisicao(List<Item> lista){
+        listaItens = lista;
         this.fireTableDataChanged();
     };
    
